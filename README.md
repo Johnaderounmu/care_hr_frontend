@@ -1,6 +1,16 @@
 # Care HR Frontend 📱
 
-[![Flutter CI/CD Pipeline](https://github.com/Johnaderounmu/care_hr_frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/Johnaderounmu/care_hr_frontend/actions/workflows/ci.yml)
+[![Flutter CI/CD Pipeline](https://github.com/Johnaderounmu/care_hr_frontend/actions/workfl### 🔧 Key Technologies
+- **Flutter 3.22.0** - Cross-platform mobile framework
+- **Dart 3.4.0** - Programming language
+- **Hive** - Local database for offline storage
+- **Provider** - State management solution
+- **Go Router** - Declarative routing
+- **GraphQL** - API communication with backend
+- **HTTP Client** - RESTful API integration
+- **PostgreSQL Backend** - Robust database backend
+- **JWT Authentication** - Secure token-based auth
+- **AWS S3** - File storage and document managementl/badge.svg)](https://github.com/Johnaderounmu/care_hr_frontend/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/Johnaderounmu/care_hr_frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/Johnaderounmu/care_hr_frontend)
 [![Flutter Version](https://img.shields.io/badge/Flutter-3.22.0-blue.svg)](https://flutter.dev/)
 [![Dart Version](https://img.shields.io/badge/Dart-3.4.0-blue.svg)](https://dart.dev/)
@@ -119,8 +129,9 @@ The application follows a **clean architecture** pattern with clear separation o
 - **Provider** - State management solution
 - **Go Router** - Declarative routing
 - **GraphQL** - API communication
-- **Firebase** - Authentication and analytics (optional)
-- **AWS S3** - File storage
+- **PostgreSQL Backend** - Robust database backend via Care HR Backend
+- **JWT Authentication** - Secure token-based authentication
+- **AWS S3** - File storage and document management
 
 
 ## Project Structure
@@ -206,33 +217,51 @@ flutter pub get
 flutter packages pub run build_runner build
 ```
 
-4. Set up Firebase:
-   - Create a Firebase project
-   - Enable Authentication
-   - Add your app to the Firebase project
-   - Download and place the configuration files
+4. **Set up the Backend**:
+   ```bash
+   # In a separate terminal, start the backend
+   cd ../care_hr_backend
+   npm install
+   docker-compose up -d  # Start PostgreSQL
+   npm run dev          # Start backend server
+   ```
 
-5. Run the application:
-```bash
-flutter run
-```
+5. **Run the application**:
+   ```bash
+   flutter run
+   ```
 
 ## Configuration
 
-### Firebase Setup
+### Backend Setup
 
-1. Create a new Firebase project
-2. Enable Authentication with Email/Password provider
-3. Download `google-services.json` for Android
-4. Download `GoogleService-Info.plist` for iOS
-5. Place the files in the appropriate directories
+1. **Start the Care HR Backend** (in a separate terminal):
+   ```bash
+   cd ../care_hr_backend
+   npm install
+   docker-compose up -d  # Start PostgreSQL
+   npm run dev          # Start backend server
+   ```
+
+2. **Backend will run on**: `http://localhost:4000`
+   - GraphQL endpoint: `http://localhost:4000/graphql`
+   - REST API: `http://localhost:4000/api`
 
 ### Environment Variables
 
 Create a `.env` file in the root directory:
-```
-FIREBASE_API_KEY=your_api_key
-FIREBASE_PROJECT_ID=your_project_id
+
+```env
+# Backend API Configuration
+API_BASE_URL=http://localhost:4000
+GRAPHQL_ENDPOINT=http://localhost:4000/graphql
+
+# App Configuration
+APP_ENV=development
+ENABLE_LOGGING=true
+
+# Optional: Analytics
+ENABLE_ANALYTICS=false
 ```
 
 ## Features Implementation Status
