@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-background-light dark:bg-background-dark flex-shrink-0 border-r border-primary/20 dark:border-primary/30">
+<div class="p-6">
+<h1 class="text-xl font-bold text-gray-800 dark:text-white">CareConnect HR</h1>
+</div>
+<nav class="mt-6">
+<ul>
+<li><a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg m-2" href="#"><span class="material-symbols-outlined mr-3">dashboard</span>Dashboard</a></li>
+<li><a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg m-2" href="#"><span class="material-symbols-outlined mr-3">groups</span>Applicants</a></li>
+<li><a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg m-2" href="#"><span class="material-symbols-outlined mr-3">work</span>Jobs</a></li>
+<li><a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg m-2" href="#"><span class="material-symbols-outlined mr-3">manage_accounts</span>Users</a></li>
+<li><a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg m-2" href="#"><span class="material-symbols-outlined mr-3">assessment</span>Reports</a></li>
+<li><a class="flex items-center px-6 py-3 bg-primary/20 dark:bg-primary/30 text-primary rounded-lg m-2 font-semibold" href="#"><span class="material-symbols-outlined mr-3">checklist</span>Audit Log</a></li>
+</ul>
+</nav>
+<div class="absolute bottom-0 w-64 p-4 border-t border-primary/20 dark:border-primary/30">
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="#"><span class="material-symbols-outlined mr-3">smart_display</span>Demo Mode</a>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<div class="max-w-7xl mx-auto">
+<header class="mb-8">
+<h2 class="text-3xl font-bold text-gray-800 dark:text-white">Audit Log</h2>
+<p class="text-gray-500 dark:text-gray-400 mt-1">Track all system activities for security and compliance.</p>
+</header>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-xl border border-primary/20 dark:border-primary/30 mb-8">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Filters</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+<div class="flex flex-col">
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1" for="user">User</label>
+<select class="form-select w-full bg-background-light dark:bg-background-dark border-primary/30 dark:border-primary/40 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary" id="user">
+<option>Select User</option>
+<option>Emily Carter</option>
+<option>David Lee</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1" for="action">Action</label>
+<select class="form-select w-full bg-background-light dark:bg-background-dark border-primary/30 dark:border-primary/40 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary" id="action">
+<option>Select Action</option>
+<option>User Login</option>
+<option>Applicant Created</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1" for="start-date">Start Date</label>
+<input class="form-input w-full bg-background-light dark:bg-background-dark border-primary/30 dark:border-primary/40 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary" id="start-date" type="date"/>
+</div>
+<div class="flex flex-col">
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1" for="end-date">End Date</label>
+<input class="form-input w-full bg-background-light dark:bg-background-dark border-primary/30 dark:border-primary/40 rounded-lg text-gray-800 dark:text-gray-300 focus:ring-primary focus:border-primary" id="end-date" type="date"/>
+</div>
+<div class="lg:col-span-4 flex justify-end">
+<button class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition duration-300">
+                                Apply Filters
+                            </button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto bg-background-light dark:bg-background-dark rounded-xl border border-primary/20 dark:border-primary/30">
+<table class="min-w-full text-sm">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="p-4 text-left font-semibold text-gray-700 dark:text-gray-200">Timestamp</th>
+<th class="p-4 text-left font-semibold text-gray-700 dark:text-gray-200">User</th>
+<th class="p-4 text-left font-semibold text-gray-700 dark:text-gray-200">Action</th>
+<th class="p-4 text-left font-semibold text-gray-700 dark:text-gray-200">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 10:30 AM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Emily Carter</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">User Login</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Successful login</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 11:15 AM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">David Lee</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Applicant Created</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Applicant: Alex Johnson</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 12:00 PM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Emily Carter</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Document Uploaded</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Document: Resume.pdf</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 01:45 PM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">David Lee</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Job Posted</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Job: Registered Nurse</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 02:30 PM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Emily Carter</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Applicant Updated</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Applicant: Alex Johnson</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-15 03:15 PM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">David Lee</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">User Logout</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Successful logout</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-600 dark:text-gray-400">2024-03-16 09:00 AM</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Emily Carter</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">User Login</td>
+<td class="p-4 text-gray-600 dark:text-gray-400">Successful login</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

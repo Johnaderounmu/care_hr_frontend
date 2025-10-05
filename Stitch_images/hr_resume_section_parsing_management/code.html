@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resume Parsing Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-white/5 dark:bg-black/5 flex-shrink-0 p-4">
+<div class="flex flex-col h-full">
+<div class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          HR System
+        </div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span>Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/20 dark:bg-primary/30 text-primary rounded-lg font-semibold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span>Resume Parsing</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help</span>
+</a>
+</nav>
+<div class="mt-auto">
+<div class="flex items-center gap-3 p-3 bg-background-light dark:bg-background-dark rounded-lg">
+<img alt="HR Manager" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Rie0IAdQf0t0YL-NV9CVTlH1eb6Px5kqdrv97XDvx8V-fk0ecyFiYf2epBdG7SbEjMjIo2TWIplI-pEBTQ3yPYgd4PESqvb5qqdCxyjedtpBYVbPkh7SV-cVqfh5bzLe7eAJUIEES0nMgUgMUdyfhaOJ69jMSDx-9XbB2oI2f-m_07QVRhq0TMpMiAnaPjfRqoWE6qNMNWCDYiE30u6dACvA43o95yPLO1xvNjH45jhqCa6f11M9KRZVGEY0iU67Nam_5FA0PD8"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Jane Doe</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">HR Manager</p>
+</div>
+<button class="ml-auto text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-center mb-8">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Resume Parsing</h1>
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-primary/90">
+<span class="material-symbols-outlined">add</span>
+<span>Add New Section</span>
+</button>
+</div>
+<div class="bg-white/5 dark:bg-black/10 rounded-xl shadow-sm">
+<div class="p-6 border-b border-gray-200/50 dark:border-gray-700/50">
+<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Resume Section Library</h2>
+<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Define and manage resume sections for automated data extraction.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-600 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50/50 dark:bg-gray-800/50">
+<tr>
+<th class="px-6 py-3" scope="col">Section Name</th>
+<th class="px-6 py-3" scope="col">Data Field Mapping</th>
+<th class="px-6 py-3" scope="col">Parsing Rules</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Contact Information</td>
+<td class="px-6 py-4">Applicant.ContactDetails</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">Regex-based</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline">Edit</button>
+<button class="font-medium text-red-500 hover:underline ml-4">Delete</button>
+</td>
+</tr>
+<tr class="border-b border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Summary/Objective</td>
+<td class="px-6 py-4">Applicant.Summary</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">Keyword-based</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline">Edit</button>
+<button class="font-medium text-red-500 hover:underline ml-4">Delete</button>
+</td>
+</tr>
+<tr class="border-b border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Work Experience</td>
+<td class="px-6 py-4">Applicant.Experience</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">Structured data</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline">Edit</button>
+<button class="font-medium text-red-500 hover:underline ml-4">Delete</button>
+</td>
+</tr>
+<tr class="border-b border-gray-200/50 dark:border-gray-700/50 hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Education</td>
+<td class="px-6 py-4">Applicant.Education</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">Structured data</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline">Edit</button>
+<button class="font-medium text-red-500 hover:underline ml-4">Delete</button>
+</td>
+</tr>
+<tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Skills</td>
+<td class="px-6 py-4">Applicant.Skills</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded-full">Keyword-based</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline">Edit</button>
+<button class="font-medium text-red-500 hover:underline ml-4">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applicant Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "content-light": "#ffffff",
+                        "content-dark": "#1a2a31",
+                        "text-light": "#101d22",
+                        "text-dark": "#f6f8f8",
+                        "subtext-light": "#6b7280",
+                        "subtext-dark": "#9ca3af",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input, .form-textarea {
+            @apply w-full rounded border-border-light bg-background-light px-4 py-3 text-text-light placeholder-subtext-light focus:border-primary focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-background-dark dark:text-text-dark dark:placeholder-subtext-dark;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-content-light dark:bg-content-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 text-2xl font-bold text-text-light dark:text-text-dark">
+                HealthHR
+            </div>
+<nav class="flex-1 px-4 py-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded text-subtext-light dark:text-subtext-dark hover:bg-primary/10 hover:text-text-light dark:hover:text-text-dark" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded bg-primary/10 text-primary font-semibold" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0110 14.15a5 5 0 01-1.43-2.48A6.97 6.97 0 007 16c0 .34.024.673.07 1h5.86zM6 14a4 4 0 100 8 4 4 0 000-8zm11-1a4 4 0 100 8 4 4 0 000-8z"></path>
+</svg>
+                    Applicants
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded text-subtext-light dark:text-subtext-dark hover:bg-primary/10 hover:text-text-light dark:hover:text-text-dark" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 00-1 1v1h8V5a1 1 0 00-1-1H7zM6 8v8h8V8H6zm2 4a1 1 0 11-2 0 1 1 0 012 0z" fill-rule="evenodd"></path>
+</svg>
+                    Jobs
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded text-subtext-light dark:text-subtext-dark hover:bg-primary/10 hover:text-text-light dark:hover:text-text-dark" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 11h16v2H2v-2zM2 5h16v2H2V5zm6 12h4v-2H8v2z"></path>
+</svg>
+                    Reports
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded text-subtext-light dark:text-subtext-dark hover:bg-primary/10 hover:text-text-light dark:hover:text-text-dark" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0L7.96 5.5H5.48c-1.66 0-2.34 2.16-1.08 3.32l1.96 1.8-1.12 2.64c-.66 1.56.98 3.1 2.5 2.14l2.22-1.32 2.22 1.32c1.52.96 3.16-.58 2.5-2.14l-1.12-2.64 1.96-1.8c1.26-1.16.58-3.32-1.08-3.32h-2.48l-.55-2.33zM10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill-rule="evenodd"></path>
+</svg>
+                    Settings
+                </a>
+</nav>
+</aside>
+<main class="flex-1 p-8">
+<div class="max-w-4xl mx-auto">
+<div class="text-sm font-medium text-subtext-light dark:text-subtext-dark mb-6">
+<a class="hover:text-primary" href="#">Applicants</a>
+<span class="mx-2">/</span>
+<span class="text-text-light dark:text-text-dark">Applicant Profile</span>
+</div>
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark">Applicant Profile</h1>
+<p class="text-subtext-light dark:text-subtext-dark mt-1">Review and edit applicant information extracted from the resume.</p>
+</div>
+<div class="bg-content-light dark:bg-content-dark p-8 rounded-lg shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="md:col-span-2">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-3 mb-6">Demographics</h2>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="fullName">Full Name</label>
+<input class="form-input" id="fullName" placeholder="e.g., Jane Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="email">Email</label>
+<input class="form-input" id="email" placeholder="e.g., jane.doe@example.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="phone">Phone Number</label>
+<input class="form-input" id="phone" placeholder="e.g., (123) 456-7890" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="address">Address</label>
+<input class="form-input" id="address" placeholder="e.g., 123 Main St, Anytown, USA" type="text"/>
+</div>
+<div class="md:col-span-2 mt-8">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-3 mb-6">Experience</h2>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="workHistory">Work History</label>
+<textarea class="form-textarea" id="workHistory" placeholder="Enter work history details..." rows="6"></textarea>
+</div>
+<div class="md:col-span-2 mt-8">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-3 mb-6">Skills</h2>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="skills">Skills</label>
+<textarea class="form-textarea" id="skills" placeholder="Enter skills..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2 mt-8">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-3 mb-6">Audit Trail</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm py-2 border-b border-border-light/50 dark:border-border-dark/50">
+<p class="text-subtext-light dark:text-subtext-dark">Resume Uploaded</p>
+<p class="text-text-light dark:text-text-dark">2024-03-15 10:00 AM</p>
+</div>
+<div class="flex justify-between items-center text-sm py-2 border-b border-border-light/50 dark:border-border-dark/50">
+<p class="text-subtext-light dark:text-subtext-dark">Data Extracted</p>
+<p class="text-text-light dark:text-text-dark">2024-03-15 10:05 AM</p>
+</div>
+<div class="flex justify-between items-center text-sm py-2 border-b border-border-light/50 dark:border-border-dark/50">
+<p class="text-subtext-light dark:text-subtext-dark">Manual Edits</p>
+<p class="text-text-light dark:text-text-dark">2024-03-15 10:15 AM</p>
+</div>
+<div class="flex justify-between items-center text-sm py-2">
+<p class="text-subtext-light dark:text-subtext-dark">Verified</p>
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary">Pending</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end gap-4">
+<button class="px-6 py-2 rounded font-semibold bg-background-light dark:bg-content-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/10" type="button">
+                        Cancel
+                    </button>
+<button class="px-6 py-2 rounded font-semibold bg-primary text-white hover:bg-primary/90" type="submit">
+                        Save
+                    </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

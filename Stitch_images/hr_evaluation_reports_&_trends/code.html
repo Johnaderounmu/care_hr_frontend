@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+<aside class="w-80 bg-background-light dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 flex flex-col">
+<div class="p-6">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white">Reports</h2>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span>Overview</span>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span>Evaluations</span>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span>Trends</span>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span>Custom</span>
+<span class="material-symbols-outlined text-gray-500">chevron_right</span>
+</a>
+</nav>
+<div class="p-6 border-t border-gray-200 dark:border-gray-800">
+<h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Filters</h2>
+<form class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="date-range">Date Range</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white" id="date-range">
+<option>Last 30 Days</option>
+<option>Last 60 Days</option>
+<option>Last 90 Days</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="department">Department</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white" id="department">
+<option>All</option>
+<option>Engineering</option>
+<option>Marketing</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="job-role">Job Role</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white" id="job-role">
+<option>All</option>
+<option>Software Engineer</option>
+<option>Product Manager</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="metrics">Metrics</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white" id="metrics">
+<option>Average Scores</option>
+<option>Completion Rates</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="report-type">Report Type</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary text-gray-900 dark:text-white" id="report-type">
+<option>Charts</option>
+<option>Graphs</option>
+</select>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark" type="submit">Generate Report</button>
+</form>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="mb-8">
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white">Evaluation Outcomes and Trends</h1>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-8">
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h3 class="font-semibold text-gray-900 dark:text-white mb-2">Average Evaluation Scores by Department</h3>
+<p class="text-4xl font-bold text-gray-900 dark:text-white">85</p>
+<div class="flex items-center text-sm mt-1">
+<span class="text-gray-500 dark:text-gray-400 mr-2">Last 30 Days</span>
+<span class="text-green-600 font-medium">+5%</span>
+</div>
+<div class="mt-6 h-48 grid grid-cols-5 gap-4 items-end">
+<div class="flex flex-col items-center">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-lg" style="height: 50%;"></div>
+<span class="text-xs text-gray-500 dark:text-gray-400 mt-2">Sales</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-lg" style="height: 70%;"></div>
+<span class="text-xs text-gray-500 dark:text-gray-400 mt-2">Mktg</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-lg" style="height: 30%;"></div>
+<span class="text-xs text-gray-500 dark:text-gray-400 mt-2">Eng</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-lg" style="height: 100%;"></div>
+<span class="text-xs text-gray-500 dark:text-gray-400 mt-2">Prod</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-lg" style="height: 90%;"></div>
+<span class="text-xs text-gray-500 dark:text-gray-400 mt-2">Support</span>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h3 class="font-semibold text-gray-900 dark:text-white mb-2">Evaluation Completion Rates Over Time</h3>
+<p class="text-4xl font-bold text-gray-900 dark:text-white">92%</p>
+<div class="flex items-center text-sm mt-1">
+<span class="text-gray-500 dark:text-gray-400 mr-2">Last 30 Days</span>
+<span class="text-green-600 font-medium">+2%</span>
+</div>
+<div class="mt-6 h-48 relative">
+<svg class="absolute inset-0 w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 472 150">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="chart-gradient" x1="0" x2="0" y1="0" y2="150">
+<stop stop-color="#11a4d4" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#11a4d4" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V150H0V109Z" fill="url(#chart-gradient)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#11a4d4" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute bottom-0 w-full flex justify-between text-xs text-gray-500 dark:text-gray-400">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h3 class="font-semibold text-gray-900 dark:text-white mb-2">Distribution of Evaluation Ratings</h3>
+<p class="text-4xl font-bold text-gray-900 dark:text-white">4.2</p>
+<div class="flex items-center text-sm mt-1">
+<span class="text-gray-500 dark:text-gray-400 mr-2">Last 30 Days</span>
+<span class="text-green-600 font-medium">+0.1</span>
+</div>
+<div class="mt-6 space-y-4">
+<div class="flex items-center">
+<span class="text-sm text-gray-500 dark:text-gray-400 w-16">5 Stars</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-gray-500 dark:text-gray-400 w-16">4 Stars</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-gray-500 dark:text-gray-400 w-16">3 Stars</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-gray-500 dark:text-gray-400 w-16">2 Stars</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-gray-500 dark:text-gray-400 w-16">1 Star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

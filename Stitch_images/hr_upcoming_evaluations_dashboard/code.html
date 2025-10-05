@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen w-full flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 px-10 py-3">
+<div class="flex items-center gap-4">
+<div class="h-6 w-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-gray-900 dark:text-white">CarePath</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Applicants</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Employees</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Compliance</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-200/50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl"> notifications </span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABKKivTnTJU6_-gMM2rlOvtw9xElXfswTKqFzNE6hHsmmWQAlUJXE64pA7qEWsnpwoJqawH3IfCped_ar6bHTrEIF0AR1xmI2L_igUnPoP7BpQITdLAxsZpIdNeHxRX6lgfXSbh0FcMMKR524WNAoQjPbilROZTqi8kNWTiC5X-TgNGM7XBC-sLmptN328iCA3YtCPotlLmHleBRJ3f34dIi8GUVqmH21y9W_YPFsLoORNEiliRZwFng-3rgjjLz7dzBd9TDATWZs");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 sm:px-6 lg:px-20">
+<div class="mx-auto max-w-7xl">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Evaluations &amp; Competency Tests</h1>
+<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Manage upcoming and overdue evaluations and tests for your team.</p>
+</div>
+<div class="mb-6 border-b border-gray-200 dark:border-gray-700">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<a class="border-primary text-primary whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#"> Calendar </a>
+<a class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#"> List </a>
+</nav>
+</div>
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+<div class="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4 sm:p-6">
+<div class="flex items-center justify-between">
+<button class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined"> chevron_left </span>
+</button>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">July 2024</h3>
+<div class="w-8"></div>
+</div>
+<div class="mt-4 grid grid-cols-7 text-center text-xs text-gray-500 dark:text-gray-400">
+<div class="py-2">S</div>
+<div class="py-2">M</div>
+<div class="py-2">T</div>
+<div class="py-2">W</div>
+<div class="py-2">T</div>
+<div class="py-2">F</div>
+<div class="py-2">S</div>
+</div>
+<div class="mt-1 grid grid-cols-7 text-center text-sm">
+<div class="col-start-4 py-2">1</div>
+<div class="py-2">2</div>
+<div class="py-2">3</div>
+<div class="py-2">4</div>
+<button class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">5</button>
+<div class="py-2">6</div>
+<div class="py-2">7</div>
+<div class="py-2">8</div>
+<div class="py-2">9</div>
+<div class="py-2">10</div>
+<div class="py-2">11</div>
+<div class="py-2">12</div>
+<div class="py-2">13</div>
+<div class="py-2">14</div>
+<div class="py-2">15</div>
+<div class="py-2">16</div>
+<div class="py-2">17</div>
+<div class="py-2">18</div>
+<div class="py-2">19</div>
+<div class="py-2">20</div>
+<div class="py-2">21</div>
+<div class="py-2">22</div>
+<div class="py-2">23</div>
+<div class="py-2">24</div>
+<div class="py-2">25</div>
+<div class="py-2">26</div>
+<div class="py-2">27</div>
+<div class="py-2">28</div>
+<div class="py-2">29</div>
+<div class="py-2">30</div>
+<div class="py-2">31</div>
+</div>
+</div>
+<div class="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-4 sm:p-6">
+<div class="flex items-center justify-between">
+<div class="w-8"></div>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">August 2024</h3>
+<button class="rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined"> chevron_right </span>
+</button>
+</div>
+<div class="mt-4 grid grid-cols-7 text-center text-xs text-gray-500 dark:text-gray-400">
+<div class="py-2">S</div>
+<div class="py-2">M</div>
+<div class="py-2">T</div>
+<div class="py-2">W</div>
+<div class="py-2">T</div>
+<div class="py-2">F</div>
+<div class="py-2">S</div>
+</div>
+<div class="mt-1 grid grid-cols-7 text-center text-sm">
+<div class="col-start-5 py-2">1</div>
+<div class="py-2">2</div>
+<div class="py-2">3</div>
+<div class="py-2">4</div>
+<div class="py-2">5</div>
+<div class="py-2">6</div>
+<div class="py-2">7</div>
+<div class="py-2">8</div>
+<div class="py-2">9</div>
+<div class="py-2">10</div>
+<div class="py-2">11</div>
+<div class="py-2">12</div>
+<div class="py-2">13</div>
+<div class="py-2">14</div>
+<div class="py-2">15</div>
+<div class="py-2">16</div>
+<div class="py-2">17</div>
+<div class="py-2">18</div>
+<div class="py-2">19</div>
+<div class="py-2">20</div>
+<div class="py-2">21</div>
+<div class="py-2">22</div>
+<div class="py-2">23</div>
+<div class="py-2">24</div>
+<div class="py-2">25</div>
+<div class="py-2">26</div>
+<div class="py-2">27</div>
+<div class="py-2">28</div>
+<div class="py-2">29</div>
+<div class="py-2">30</div>
+<div class="py-2">31</div>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Upcoming Evaluations</h2>
+<div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead class="bg-gray-50 dark:bg-gray-800/50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Employee</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Department</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Evaluation Type</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Due Date</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Status</th>
+<th class="relative px-6 py-3" scope="col"><span class="sr-only">Action</span></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800/50">
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Emily Carter</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Annual Performance Review</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">July 15, 2024</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+<span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800 dark:bg-green-900/50 dark:text-green-300">Scheduled</span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">View</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">David Lee</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Therapy</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Competency Test</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">July 20, 2024</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+<span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800 dark:bg-green-900/50 dark:text-green-300">Scheduled</span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">View</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Sophia Clark</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Administration</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">3-Month Check-in</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">July 25, 2024</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+<span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800 dark:bg-green-900/50 dark:text-green-300">Scheduled</span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">View</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt-12">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Overdue Evaluations</h2>
+<div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead class="bg-gray-50 dark:bg-gray-800/50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Employee</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Department</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Evaluation Type</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Due Date</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400" scope="col">Status</th>
+<th class="relative px-6 py-3" scope="col"><span class="sr-only">Action</span></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800/50">
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">Ethan Miller</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Annual Performance Review</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">June 30, 2024</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+<span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800 dark:bg-red-900/50 dark:text-red-300">Overdue</span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">View</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

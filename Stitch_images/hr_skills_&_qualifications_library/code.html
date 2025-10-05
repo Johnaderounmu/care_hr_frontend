@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>CarePath - Skills &amp; Qualifications</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full flex-col">
+<header class="flex items-center justify-between border-b border-black/10 px-6 py-3 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-lg font-bold text-black/90 dark:text-white/90">CarePath</h1>
+</div>
+<nav class="hidden items-center gap-6 md:flex">
+<a class="text-sm font-medium text-black/60 transition-colors hover:text-black/90 dark:text-white/60 dark:hover:text-white/90" href="#">Dashboard</a>
+<a class="text-sm font-medium text-black/60 transition-colors hover:text-black/90 dark:text-white/60 dark:hover:text-white/90" href="#">Applicants</a>
+<a class="text-sm font-medium text-black/60 transition-colors hover:text-black/90 dark:text-white/60 dark:hover:text-white/90" href="#">Jobs</a>
+<a class="text-sm font-bold text-primary" href="#">Skills</a>
+<a class="text-sm font-medium text-black/60 transition-colors hover:text-black/90 dark:text-white/60 dark:hover:text-white/90" href="#">Reports</a>
+<a class="text-sm font-medium text-black/60 transition-colors hover:text-black/90 dark:text-white/60 dark:hover:text-white/90" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-2xl"> notifications </span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBr8LDCLaOFO0MpfThS-tkeprKVottU5z95lx_2YGX0YLWMXAmtqZEUuRMuOp8dV1glRqG5cxGwt7xZmPZtdo9FuqDZkuWVkfktmk-RIRIY1kuACN7ar5-iv_0fEOUGhvMoTmTMDqbeQPxTinaxwBHiPdWoggkqTfM3QK0AxXV9CU6bEYqCX7jjf1Sjep0n8pGI5BevCghWZ_jC-ZU7kkdOYFSjbzJK_4FUyQBXRCM2kKfubMOQOcDWXhqI2ImzBPfjcCNCmkujGrk");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="container mx-auto px-4 py-8 md:px-6">
+<div class="flex flex-col gap-8">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<h2 class="text-3xl font-bold text-black/90 dark:text-white/90">Skills &amp; Qualifications</h2>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-medium text-white transition-opacity hover:opacity-90">
+<span class="material-symbols-outlined"> add </span>
+<span>Add New</span>
+</button>
+</div>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-black/50 dark:text-white/50"> search </span>
+<input class="form-input h-10 w-full rounded-lg border border-black/10 bg-background-light pl-10 pr-4 text-black/90 placeholder:text-black/50 focus:border-primary focus:ring-primary dark:border-white/10 dark:bg-background-dark dark:text-white/90 dark:placeholder:text-white/50" placeholder="Search skills" value=""/>
+</div>
+<div class="overflow-hidden rounded-lg border border-black/10 dark:border-white/10">
+<div class="overflow-x-auto">
+<table class="min-w-full table-auto">
+<thead class="bg-black/5 dark:bg-white/5">
+<tr>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70">Skill Name</th>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70">Category</th>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70">Description</th>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70">Essential For</th>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70">Optional For</th>
+<th class="px-4 py-3 text-left text-sm font-medium text-black/70 dark:text-white/70"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-black/10 dark:divide-white/10">
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Patient Care</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Clinical</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Direct patient care, including bathing...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Registered Nurse, CNA</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Home Health Aide</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Wound Care</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Clinical</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Assessment and treatment of wounds...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Registered Nurse</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Licensed Practical Nurse</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Physical Therapy</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Rehabilitation</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Development and implementation of...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Physical Therapist</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">PT Assistant</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Occupational Therapy</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Rehabilitation</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Improving daily living skills...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Occupational Therapist</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">OT Assistant</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Speech Therapy</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Rehabilitation</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Assessment and treatment of speech...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Speech-Language Pathologist</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Speech Therapy Assistant</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Medication Management</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Clinical</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Safe and accurate administration...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Registered Nurse, LPN</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Certified Nursing Assistant</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Vital Signs Monitoring</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Clinical</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Accurate measurement and recording...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">RN, LPN, CNA</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Home Health Aide</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-black/90 dark:text-white/90">Documentation</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">Administrative</td>
+<td class="max-w-xs truncate px-4 py-4 text-sm text-black/60 dark:text-white/60">Accurate and timely documentation of...</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">All Roles</td>
+<td class="whitespace-nowrap px-4 py-4 text-sm text-black/60 dark:text-white/60">All Roles</td>
+<td class="px-4 py-4 text-right">
+<button class="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-black/60 transition-colors hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/5"><span class="material-symbols-outlined text-base"> more_horiz </span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

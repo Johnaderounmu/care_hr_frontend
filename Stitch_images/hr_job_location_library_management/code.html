@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen flex-col">
+<header class="flex items-center justify-between border-b border-primary/20 dark:border-primary/30 px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">
+              diversity_3
+            </span>
+</div>
+<h2 class="text-xl font-bold text-black dark:text-white">CareConnect</h2>
+</div>
+<nav class="hidden items-center gap-6 md:flex">
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary" href="#">Applicants</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary" href="#">Jobs</a>
+<a class="text-sm font-bold text-primary" href="#">Locations</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined text-black/60 dark:text-white/60">
+              notifications
+            </span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxayWOBx4cNtS33fkoS-YqCCKtQDJxFdofsrWssL5mDAHAbpUaVl8_3soyU_L2AQRcEvS8GrrxOPAgiQ15dijQ-S005wq9LopJvCSn4hxAxDiD0pHVij4tS8WAL2l1lse_rgjk1F_phwhBA-HXCpqNKpavhRqFlt0aBvkbM7Y3lMbbxluzvR2w0hnTetsyeTtYnHcQHPgUnjqpk7brW5wAeX8X779K91QVc0J62PYdRgL78az-YCEjKF15FRNYCZKWhcI0OoFwdr4");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl">
+<div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+<h1 class="text-3xl font-bold text-black dark:text-white">Locations</h1>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-opacity-90">
+<span class="material-symbols-outlined text-lg">
+                add
+              </span>
+<span>Add Location</span>
+</button>
+</div>
+<div class="mb-6">
+<div class="relative">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-black/40 dark:text-white/40">
+                  search
+                </span>
+</div>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-background-dark py-2 pl-10 pr-4 text-sm text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:border-primary focus:ring-primary dark:border-primary/30" placeholder="Search locations..." type="search"/>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="min-w-full divide-y divide-primary/20 dark:divide-primary/30">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">Location Name</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">Address</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">City</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">State</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">Zip Code</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">Contact Person</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black dark:text-white" scope="col">Phone Number</th>
+<th class="relative px-6 py-3" scope="col"><span class="sr-only">Edit</span></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30 bg-background-light dark:bg-background-dark">
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Main Clinic</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">123 Health Ave</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Springfield</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">CA</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">91234</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Dr. Emily Carter</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">(555) 123-4567</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-opacity-80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Northside Office</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">456 Wellness Rd</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Springfield</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">CA</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">91235</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Sarah Johnson</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">(555) 987-6543</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-opacity-80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Downtown Clinic</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">789 Care Ln</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Springfield</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">CA</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">91236</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Michael Brown</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">(555) 246-8013</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-opacity-80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Eastside Office</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">1010 Thrive St</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Springfield</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">CA</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">91237</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Jessica Davis</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">(555) 369-1470</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-opacity-80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Westside Clinic</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">1212 Vitality Blvd</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">Springfield</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">CA</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">91238</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">David Wilson</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/70 dark:text-white/70">(555) 482-5796</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-opacity-80" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

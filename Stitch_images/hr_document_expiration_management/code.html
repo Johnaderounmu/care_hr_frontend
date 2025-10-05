@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-background-light dark:bg-background-dark p-6 flex flex-col justify-between border-r border-primary/20 dark:border-primary/30">
+<div>
+<h1 class="text-2xl font-bold text-primary mb-8">CareHub</h1>
+<nav class="flex flex-col space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/20 dark:bg-primary/30 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">folder</span>
+<span>Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="#">
+<span class="material-symbols-outlined">desktop_windows</span>
+<span>Demo Mode</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<header class="mb-8">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Document Expirations</h2>
+<p class="text-gray-500 dark:text-gray-400 mt-1">Manage expiring documents, track renewals, and notify applicants/employees.</p>
+</header>
+<div class="space-y-12">
+<section>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Expiring Documents</h3>
+<div class="overflow-x-auto bg-white dark:bg-background-dark rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="w-full text-left">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Applicant/Employee</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Document Type</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Expiration Date</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Status</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Ethan Harper</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">CPR Certification</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-08-15</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Expiring Soon</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Olivia Bennett</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Background Check</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-09-20</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Noah Carter</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Nursing License</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-07-22</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Expired</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Ava Thompson</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">TB Test</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-10-05</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Liam Foster</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Driver's License</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-08-01</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Expiring Soon</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Renewal Tracking</h3>
+<div class="overflow-x-auto bg-white dark:bg-background-dark rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="w-full text-left">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Applicant/Employee</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Document Type</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Renewal Date</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Status</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Ethan Harper</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">CPR Certification</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-08-15</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">In Progress</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Olivia Bennett</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Background Check</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-09-20</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Completed</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Noah Carter</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Nursing License</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-07-22</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Pending</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Notifications</h3>
+<div class="overflow-x-auto bg-white dark:bg-background-dark rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="w-full text-left">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Applicant/Employee</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Document Type</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Notification Date</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Status</th>
+<th class="p-4 font-semibold text-gray-700 dark:text-gray-300">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Ethan Harper</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">CPR Certification</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-07-01</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">Sent</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Olivia Bennett</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Background Check</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-08-15</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Scheduled</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Noah Carter</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">Nursing License</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-06-15</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">Sent</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-gray-900 dark:text-white">Ava Thompson</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">TB Test</td>
+<td class="p-4 text-gray-500 dark:text-gray-400">2024-09-01</td>
+<td class="p-4">
+<span class="px-3 py-1 text-sm font-medium rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">Scheduled</span>
+</td>
+<td class="p-4">
+<button class="text-primary font-semibold">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</div>
+
+</body></html>

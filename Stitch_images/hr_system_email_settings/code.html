@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Stitch Design</title>
+</head>
+<body>
+<div class="flex min-h-screen w-full font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+<aside class="w-64 flex-shrink-0 bg-background-light dark:bg-background-dark border-r border-primary/20 dark:border-primary/30 p-6">
+<div class="flex items-center gap-2 mb-10">
+<div class="w-8 h-8 rounded-full bg-primary"></div>
+<span class="text-lg font-bold">HealthHR</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg class="fill-current" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83 103.77l-80-75.48a1.14 1.14 0 0 1-.11-.11 16 16 0 0 0-21.53 0l-.11.11L37.17 103.77A16 16 0 0 0 32 115.55V208a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48h32v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16V115.55A16 16 0 0 0 218.83 103.77ZM208 208h-48v-48a16 16 0 0 0-16-16h-32a16 16 0 0 0-16 16v48H48V115.55l.11-.1L128 40l79.9 75.43.11.1Z"></path>
+</svg>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg class="fill-current" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M117.25 157.92a60 60 0 1 0-66.5 0A95.83 95.83 0 0 0 3.53 195.63a8 8 0 1 0 13.4 8.74 80 80 0 0 1 134.14 0 8 8 0 0 0 13.4-8.74A95.83 95.83 0 0 0 117.25 157.92ZM40 108a44 44 0 1 1 44 44A44.05 44.05 0 0 1 40 108Zm210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16 44 44 0 1 0-16.34-84.87 8 8 0 1 1-5.94-14.85 60 60 0 0 1 55.53 105.64 95.83 95.83 0 0 1 47.22 37.71A8 8 0 0 1 250.14 206.7Z"></path>
+</svg>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg class="fill-current" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M216 56H176V48a24 24 0 0 0-24-24H104A24 24 0 0 0 80 48v8H40a16 16 0 0 0-16 16V200a16 16 0 0 0 16 16H216a16 16 0 0 0 16-16V72a16 16 0 0 0-16-16ZM96 48a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm120 152H40V131.64A200.19 200.19 0 0 0 128 152a200.25 200.25 0 0 0 88-20.37V200ZM104 112a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16h-32a8 8 0 0 1-8-8Zm112-19.61A184 184 0 0 1 128 136a184.07 184.07 0 0 1-88-22.38V72h176Z"></path>
+</svg>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary/20 dark:bg-primary/30 text-primary" href="#">
+<svg class="fill-current" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M224 48H32a8 8 0 0 0-8 8v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8ZM98.71 128 40 181.81V74.19Zm11.84 10.85 12 11.05a8 8 0 0 0 10.82 0l12-11.05 58 53.15H52.57ZM157.29 128l58.71-53.82v107.63Z"></path>
+</svg>
+<span class="text-sm font-medium">Email Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-black dark:text-white hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg class="fill-current" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0C63.78 166.78 40.31 185.66 25.08 212a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56A56.06 56.06 0 0 1 72 96Z"></path>
+</svg>
+<span class="text-sm font-medium">Account</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 p-8">
+<div class="max-w-4xl mx-auto">
+<header class="mb-8">
+<h1 class="text-3xl font-bold text-black dark:text-white">Email Settings</h1>
+<p class="text-black/60 dark:text-white/60 mt-1">Manage system-wide email configurations.</p>
+</header>
+<div class="space-y-8">
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 dark:border-primary/30">
+<h2 class="text-xl font-semibold text-black dark:text-white mb-4">Default Sender</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="sender-email">Sender Email</label>
+<input class="form-input w-full rounded border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-black dark:text-white" id="sender-email" type="email" value="noreply@healthhr.com"/>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 dark:border-primary/30">
+<h2 class="text-xl font-semibold text-black dark:text-white mb-4">Reply-To Address</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="reply-to-email">Reply-To Email</label>
+<input class="form-input w-full rounded border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-black dark:text-white" id="reply-to-email" type="email" value="support@healthhr.com"/>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 dark:border-primary/30">
+<h2 class="text-xl font-semibold text-black dark:text-white mb-4">Email Signature</h2>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="signature-template">Signature Template</label>
+<textarea class="form-textarea w-full rounded border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-black dark:text-white" id="signature-template" rows="5">Best Regards,
+The HealthHR Team</textarea>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-6 rounded-lg border border-primary/20 dark:border-primary/30">
+<h2 class="text-xl font-semibold text-black dark:text-white mb-4">Sending Limits</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="daily-limit">Daily Email Limit</label>
+<input class="form-input w-full rounded border-primary/30 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-black dark:text-white" id="daily-limit" type="number" value="1000"/>
+</div>
+</div>
+</div>
+<div class="flex justify-end pt-4">
+<button class="px-6 py-2 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark">Save Settings</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

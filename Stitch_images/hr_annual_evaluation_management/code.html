@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+            "foreground-light": "#09090b",
+            "foreground-dark": "#fafafa",
+            "card-light": "#ffffff",
+            "card-dark": "#182a31",
+            "muted-light": "#71717a",
+            "muted-dark": "#a1a1aa",
+            "border-light": "#e4e4e7",
+            "border-dark": "#27272a"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex min-h-screen w-full">
+<aside class="w-64 flex-col border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 hidden lg:flex">
+<div class="flex items-center gap-2 mb-8">
+<svg class="text-primary" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+<polyline points="14 2 14 8 20 8"></polyline>
+<line x1="16" x2="8" y1="13" y2="13"></line>
+<line x1="16" x2="8" y1="17" y2="17"></line>
+<line x1="10" x2="8" y1="9" y2="9"></line>
+</svg>
+<h1 class="text-lg font-bold">HR Management</h1>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary rounded-DEFAULT transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary rounded-DEFAULT transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary font-semibold rounded-DEFAULT transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 20V10"></path>
+<path d="M18 20V4"></path>
+<path d="M6 20v-4"></path>
+</svg>
+<span>Performance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary rounded-DEFAULT transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+<polyline points="14 2 14 8 20 8"></polyline>
+<line x1="16" x2="8" y1="13" y2="13"></line>
+<line x1="16" x2="8" y1="17" y2="17"></line>
+<line x1="10" x2="8" y1="9" y2="9"></line>
+</svg>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary rounded-DEFAULT transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col">
+<header class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Performance Reviews</h1>
+<p class="text-muted-light dark:text-muted-dark">Manage and track employee performance evaluations.</p>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-DEFAULT text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2">
+<svg class="h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<line x1="12" x2="12" y1="5" y2="19"></line>
+<line x1="5" x2="19" y1="12" y2="12"></line>
+</svg>
+<span>New Review</span>
+</button>
+</header>
+<div class="flex-1 p-6">
+<div class="border-b border-border-light dark:border-border-dark">
+<nav aria-label="Tabs" class="flex space-x-4">
+<a class="px-3 py-2 font-medium text-sm rounded-t-DEFAULT border-b-2 border-primary text-primary" href="#">Active Reviews</a>
+<a class="px-3 py-2 font-medium text-sm rounded-t-DEFAULT border-b-2 border-transparent text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark hover:border-border-light dark:hover:border-border-dark" href="#">Completed Reviews</a>
+<a class="px-3 py-2 font-medium text-sm rounded-t-DEFAULT border-b-2 border-transparent text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark hover:border-border-light dark:hover:border-border-dark" href="#">Templates</a>
+</nav>
+</div>
+<div class="mt-6">
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead class="bg-background-light dark:bg-background-dark/50">
+<tr>
+<th class="py-3 px-4 text-left font-medium text-muted-light dark:text-muted-dark">Employee</th>
+<th class="py-3 px-4 text-left font-medium text-muted-light dark:text-muted-dark">Reviewer</th>
+<th class="py-3 px-4 text-left font-medium text-muted-light dark:text-muted-dark">Status</th>
+<th class="py-3 px-4 text-left font-medium text-muted-light dark:text-muted-dark">Due Date</th>
+<th class="py-3 px-4 text-left font-medium text-muted-light dark:text-muted-dark"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr>
+<td class="py-3 px-4 font-medium">Ethan Carter</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Sarah Johnson</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">In Progress</span>
+</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">2024-08-15</td>
+<td class="py-3 px-4 text-right">
+<button class="text-primary hover:underline font-medium text-sm">View</button>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 font-medium">Olivia Davis</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Michael Brown</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-600 dark:text-yellow-400">Pending Review</span>
+</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">2024-07-20</td>
+<td class="py-3 px-4 text-right">
+<button class="text-primary hover:underline font-medium text-sm">View</button>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 font-medium">Noah Wilson</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Emily White</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">In Progress</span>
+</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">2024-09-05</td>
+<td class="py-3 px-4 text-right">
+<button class="text-primary hover:underline font-medium text-sm">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

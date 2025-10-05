@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CarePath - Hiring Pipeline</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "content-light": "#ffffff",
+                        "content-dark": "#182c34",
+                        "text-light": "#0d181b",
+                        "text-dark": "#e1e9ec",
+                        "subtext-light": "#64748b",
+                        "subtext-dark": "#94a3b8",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#334155"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen flex-col">
+<header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-text-light dark:text-text-dark">
+<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-lg font-bold">CarePath</h1>
+</div>
+</div>
+<nav class="hidden items-center gap-6 lg:flex">
+<a class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-medium text-text-light dark:text-text-dark" href="#">Jobs</a>
+<a class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Candidates</a>
+<a class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Reports</a>
+<a class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-2 text-subtext-light dark:text-subtext-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary">
+<svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuTFdUZPSa4vTPiGDYRICJssoY_2kphVmxp3uq2E5Vv1gVOLjKzQEEbWNr8bG8HCvaLuvft9mjMZvnHz96G53J9UjqZhAuszauco8U9Q8uyL28xzCQttSyg8ooYMmo0lAD9l8ylX28jn_eOiONbtiYMn1tvaBhqsqTCzFNLjOuzS8XDlTXtobqmzPem5hcZuUs1N4wV9rzKYQLR7KeIkefDA-Fmp7ocrLvAoWt-62e3BHcLDHS905NvwgDwkVYMDXu_MLp0noG24o");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+<div class="mb-6">
+<h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-text-dark">Hiring Pipeline</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Registered Nurse - Full Time</p>
+</div>
+<div class="mb-6 border-b border-border-light dark:border-border-dark">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<a class="whitespace-nowrap border-b-2 border-primary px-1 pb-4 text-sm font-medium text-primary" href="#">Applied <span class="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary dark:bg-primary/20">12</span></a>
+<a class="whitespace-nowrap border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:border-border-light hover:text-text-light dark:hover:border-border-dark dark:hover:text-text-dark" href="#">Under Review <span class="ml-1 rounded-full bg-border-light px-2 py-0.5 text-xs text-subtext-light dark:bg-border-dark dark:text-subtext-dark">5</span></a>
+<a class="whitespace-nowrap border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:border-border-light hover:text-text-light dark:hover:border-border-dark dark:hover:text-text-dark" href="#">Interview <span class="ml-1 rounded-full bg-border-light px-2 py-0.5 text-xs text-subtext-light dark:bg-border-dark dark:text-subtext-dark">3</span></a>
+<a class="whitespace-nowrap border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:border-border-light hover:text-text-light dark:hover:border-border-dark dark:hover:text-text-dark" href="#">Offer <span class="ml-1 rounded-full bg-border-light px-2 py-0.5 text-xs text-subtext-light dark:bg-border-dark dark:text-subtext-dark">1</span></a>
+<a class="whitespace-nowrap border-b-2 border-transparent px-1 pb-4 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:border-border-light hover:text-text-light dark:hover:border-border-dark dark:hover:text-text-dark" href="#">Hired <span class="ml-1 rounded-full bg-border-light px-2 py-0.5 text-xs text-subtext-light dark:bg-border-dark dark:text-subtext-dark">2</span></a>
+</nav>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Sarah Miller</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-15</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQl_jpPJOcLjs4ir90BE7D5lMhnMJqjRtm-jEhtBCgbzvTNUVCdTMZln5FgxSF6QDUNuXwe2UuVjsMebwnhv7fdy4TKZGg6zVaMRm9bs4PHNGSBROrLVjoEqF66c8DyU9qZbveFdb5pb3tV7ODFesLK1sFEOAtJrRX9fWRGnnuPb4IsLPuQWW9wyardJ6B5rkn0bILSJ7UPU9V-k88VW-6YoXIgCXpkLzmzurIvNBdk45ChfH-bUDs-qvA1HPm57MJ46TAIrBQFzU");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Emily Carter</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-16</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAV3BLPa98sEEdsNCkfifwBSOffO7lo_6lXOoQ-pCnC13pVkClP6f8u2tYyYqe8n2tFyeYZikWXaPGAwoP-5uVeug2RUbkwUO665anihdZQsDfFcujmdZZq8cime1BkDs94GD8pbjbRUBtyIVfyXzXbgO51AXrZ_KYqZcsL0Z4RwGEjoIiT9dW5tQBkENtxsXj_Ay2Np8RnX32Pk4PPf5EADtn35_7Ri5OsqcQzZICNu8LMqonMom-sCXbNnIK8wZJPVayAuHnK1yE");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Jessica Davis</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-17</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqdBWN0C0RiXVY4euwmLCqXdOk8C_yNm_YTsPrtFG-3fWIRXZUZMbxQlKDSxkGiWngBevuP_GSpiRNvmgisT3_W22bks7BwTDxXHZXXwtt7QghzAC6xzJEue3G4qC_wOWYqXh-J27ePGYLcUR-So-1z__jlCbNjwN9o6yvXtKc2F6b9yuBT1EexAGl74P-uPgP5Y3ua11hZdMqq43kjTvfYWOsIaSSciJ5s4LI5IZNRYRF5gFofb1siR_EGDD0K6nLVSq7EvQx1eA");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Olivia Wilson</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-18</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOTTdciMCcbO0vbedVOdnVKepyZU_g5ZCJ0aMtNefgviZnLfmqrriVT1GEKa0zD0Wj002U4k57eMId8E6mIK22Ik_VgzSJYjNU2iNLgvozYOYdVHrRlDNUWsH_po27QoKm0ei01bv0c64UlUDjBMsoRpvleQJBjbpdh2pGf5gYW6xORB5ugyAg4Ye06DCFIK4z2AGV9tzCrKoizFi_TpU8ba6AeUruvDfzY8qY90EEBngt9bZKLItZlh5HSQWp_bX0kzfcCWgHVSw");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Sophia Moore</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-19</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgQQt8KaVhV-QKHQnbfvYXqyYo3-xvUVyqADJ24fF4l70z5BDIHvNQQVKKgooheY2aPn-xZ7E2cNhE-WItxZrxHrzhIFu_X9Z2AruycvV_JfSFeBqtJlqN3yMIDvjiIVJ5yomKh_Pmo7Nq5ARP3zy4f17IxB8jJZQcv8qlZ3kiLKRv2_7ve4kLawzkogyCQObvj-ZaDnNYAM6gNFdnLzAUzFhPe7287tiZsPzLLpgPeSfSSXiXjJTn5ETcl84hWmoCLgYfeD6zeJA");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Ava Taylor</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-20</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAclMe0z1etrmaOgwVf4Z3JV0sFLrQKnfEza-4qga2u3C_NzZB2dk2SFCLhJnyW7YMm9dN6Vf02donsFH0ozmmmzVe6SyrR9U90b_sSRDgQKH6-EZ-fvMkPULI_jmIRpvCEdQolspVxu2bAqgN8AkEqvUi95W-1b00SLDhGVyDDfQZUKdXaJSeDaovSMb_JzAieqpmmtecf-D4fbDYp5W9x1q5OCcEEBDnC7pE4enpN52EH01OrxFEkA52PORfFhmU0IeWgK7ap2C8");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Isabella Anderson</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-21</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrGlpJQ9T56XA2q2LU5fYnchn8PvuTrFG2Z7Jk4Y24IHWhtOl6SN5lBd8Rlf6v0puVye5jLPvCehXuRh6_7L5GQuQ9697oMvXP2-F2NF80whgDvWUdjhNBH8jcZ4yD4C3s3y4LsN7RHcpsAytu2rMOB88HgFkCT-W9l9j5R9yPv1UYwagR729J-y1bBFyYq1DFazDr1DkBh6PHUzEXxepe0LDz8U8qB2ghlrdcXWjq1-9n71klvqPh5IRzlVO8FHidbC77FkZ9zlA");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Mia Thomas</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-22</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCB1gRJeh8hR2n_DKyqx5shGspeS3rZNJHVMfN12a1sdxNDzdRbXcUsFS8WplQxNylVpFlCeuryoGyzgWDPZUEJo9tXklyOEMzOd8-aQtiVmlwT_hBQf94ft6ECdFd0i0BxLOQ19oylNajEgnmOdBY4n3i8jIJVyTvP1Tde-harkvivEYaBJjsgdXcufqTxx0OcOWsmEs62QWLA36kfzIJVMwRzLZ6C61IjIVOZwHtBYpaU2ZNAsk_LbFYjeyoCRDxB1PaG9Q57Hb4");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Amelia Jackson</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-23</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkd-9esGLfQQo23SBpZQ9KadVWgI1euLczTBmAiNtGc6gFrYyw0z10NpB65faFE-xC5TZamlrt4hwnoRofbAX7nTTxwSyCbrFOG-dUnDZZwtv-XiNI_mp5fDH-qCHtA8kMLNGyvjwAUSRwRqZPTQ7MznFTbr2aLXccB62RWQ05rN-shxUI0aujEHf397-IepE6dB5MXKPdafk3Xomi55SkhU4N6fGNZbUsNnxWZRiCDkFAQ5IJW6El6Wz6i5NE8Oqxb4eo6XczFpo");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Harper White</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-24</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLB_SglITBxtY0RD2UynvZGgz6UqsuiXBrH_Dd1YquZkmbqZvMoYq2tLb3ApJ_MbC6CaUqIUWCCQJ8nM5IKnxdbdAHl621FjQarVXpWsZ37Q431YshVR1qCgmGl5xYYhHzNB5c5Eu1abSW2FpyQJM3rWCjjF9ejmtbwceTfXddjIe2qsl2DyQXQyyQQitcYgokS5F7qdRadD16KHaTug_Zc-v0YU3W8sPufqil6sctHbbmYwyaYAGXnZgAEF1-2OXjHPjOTpjBsG0");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Evelyn Harris</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-25</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD8QTgrUNmh8nDsLqLdM_TOFYul4kBgP366PgX6eHFa_3mVqOceEYHncaU7DdKva57W5jGTfZIXI6BbigwPipDlj-dL7VslorMKzDWehfWaiZcGtU3B5zdOD-KttSXi9VFVUsr1xVQElVpV34J3fGzEuE8lqV6WuYO2lDm1NgPP9v4fdPSzZg_iwuGN3dKhyrvkxF4zN1yQ3ZEDCSmMugfMU0NsUWEKl5v_zzoecq7L63YyHWLnwPtgTBOhTqb9YJ8-z4kHbCD0Hxg");'></div>
+</div>
+</div>
+<div class="rounded-lg border border-border-light bg-content-light p-4 shadow-sm transition-all hover:shadow-lg dark:border-border-dark dark:bg-content-dark">
+<div class="flex items-start justify-between">
+<div class="flex-1">
+<p class="text-base font-semibold text-text-light dark:text-text-dark">Abigail Martin</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Applied on 2024-03-26</p>
+</div>
+<div class="ml-4 h-16 w-24 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzJHFKoXweW3LC60U0bBy6QpcqiDVJBmhAFTDplJFbmFGJoGyoK45r0zdMs7EfKHLsxce9cWelXfswRkVKH-JmZQXQ4YEQS9XW9gu9e5jsq2fqNjf0zYZs_P-7VESsbH3fCcHIYEFc9XctlpeGC_tBj7dd8FNijwsWTj24kI4gPtVuwxR-kG91V9eajVptPrLghtqQXQmUdXEgFILe2qX0Dyx7771m0Re922ubd8_eUYrAGuKDWJHZPeicUqjEFYk_yCJon6M1QQc");'></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

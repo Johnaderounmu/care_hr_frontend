@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+              "content-light": "#0a1418",
+              "content-dark": "#e8eef0",
+              "subtle-light": "#446875",
+              "subtle-dark": "#a0b6be",
+              "border-light": "#e7f0f3",
+              "border-dark": "#2c3e44",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-content-light dark:text-content-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 flex-shrink-0 border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="flex items-center gap-3 h-16 px-6 border-b border-border-light dark:border-border-dark">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-lg font-bold">CareConnect HR</h1>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+            Dashboard
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">group</span>
+            Applicants
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">work</span>
+            Jobs
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">event</span>
+            Scheduling
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">verified</span>
+            Compliance
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT text-sm font-medium text-subtle-light dark:text-subtle-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-content-light dark:hover:text-content-dark" href="#">
+<span class="material-symbols-outlined">payments</span>
+            Payroll
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-DEFAULT font-semibold bg-primary/10 dark:bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+            Settings
+          </a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col">
+<header class="flex items-center justify-end h-16 px-6 border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<button class="relative p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined text-subtle-light dark:text-subtle-dark">notifications</span>
+<span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-primary ring-2 ring-background-light dark:ring-background-dark"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCZnjlrux0yQqHLGZvIeXlmDNYP4rCLdZuDefXGpMISxfpmKjxtLsHhZeSAkEW5kbtQ2m_XhbQhHf4rpxm4YlWCnYegp_4q169qfQ8_KyzVc6CQEbSbndx6HVG2Hpar1IdvFSZ6mt9c0pzXkwudqZj5P4OGotxedeldZaVcHXEcq-tWrNV3XtKscan-AOBfrYDLEJecIi-XYS_9AakrvxeT0c3x7Xu4LfTj96iM5JvJv12RWbpZY36XAnbiHCCRLECWt7le1Nbdng");'></div>
+</div>
+</header>
+<main class="flex-1 p-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight">System Settings</h2>
+<p class="mt-2 text-subtle-light dark:text-subtle-dark">Configure system-wide preferences for application processing, notifications, and data management.</p>
+</div>
+<div class="space-y-12">
+<section>
+<h3 class="text-xl font-semibold border-b border-border-light dark:border-border-dark pb-3 mb-6">Application Preferences</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="space-y-2">
+<label class="font-medium text-sm" for="app-status">Default Application Status</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="app-status">
+<option>New Applicant</option>
+<option>Under Review</option>
+<option>Interview Scheduled</option>
+<option>Hired</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-medium text-sm" for="resume-mode">Resume Parsing Mode</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="resume-mode">
+<option>Automatic (Recommended)</option>
+<option>Manual Review Required</option>
+<option>Disabled</option>
+</select>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold border-b border-border-light dark:border-border-dark pb-3 mb-6">Notification Settings</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="space-y-2">
+<label class="font-medium text-sm" for="notif-channel">Default Notification Channel</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="notif-channel">
+<option>Email &amp; In-App</option>
+<option>Email Only</option>
+<option>In-App Only</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-medium text-sm" for="notif-freq">Notification Frequency</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="notif-freq">
+<option>Instant</option>
+<option>Daily Digest</option>
+<option>Weekly Digest</option>
+</select>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold border-b border-border-light dark:border-border-dark pb-3 mb-6">Data Retention Policies</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="space-y-2">
+<label class="font-medium text-sm" for="app-retention">Application Data Retention Period</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="app-retention">
+<option>1 Year</option>
+<option>2 Years</option>
+<option>5 Years</option>
+<option>Indefinitely</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-medium text-sm" for="resume-retention">Resume Data Retention Period</label>
+<select class="form-select w-full rounded-DEFAULT border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="resume-retention">
+<option>1 Year</option>
+<option>2 Years</option>
+<option>5 Years</option>
+<option>Indefinitely</option>
+</select>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-12 pt-6 border-t border-border-light dark:border-border-dark flex justify-end gap-4">
+<button class="px-4 py-2 text-sm font-semibold rounded-DEFAULT bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                Reset to Defaults
+              </button>
+<button class="px-4 py-2 text-sm font-semibold rounded-DEFAULT bg-primary text-white hover:bg-primary/90">
+                Save Changes
+              </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

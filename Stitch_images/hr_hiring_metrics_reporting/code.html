@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareConnect HR - Reports</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "foreground-light": "#0d181b",
+                        "foreground-dark": "#e1e3e4",
+                        "subtle-light": "#e7f0f3",
+                        "subtle-dark": "#1a2c33",
+                        "muted-light": "#4c869a",
+                        "muted-dark": "#7b9fae",
+                        "border-light": "#cfe1e7",
+                        "border-dark": "#2a434e",
+                        "positive-light": "#078836",
+                        "positive-dark": "#34d399",
+                        "negative-light": "#e73508",
+                        "negative-dark": "#f87171"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="text-primary size-7">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">CareConnect HR</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Candidates</a>
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-primary font-semibold" href="#">Reports</a>
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors">
+<svg class="icon text-muted-light dark:text-muted-dark" fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUXqmH6GQFnfD1V4W6_VzLdT8Qw0fdgIf-cpQGk4zcaISBebvoERcAVBrkJ9RxtBrGXC9sg-Pwc664wSrQfkcopmyblB0XixbKq5miW8QUtE10zfsaHQJp3WG1nGLGHlyl1PMjxhKogMO4K66Ksgvgh0GW1Y7q_r2Or6JXEEEcnN0nppmSiQbDkF_umdZE23BfoCMaWijmvz3oNtwovs6Zb4gW_UzbAghSxDjCBy7ml8Dt-IyH_yQOQUa41-javUgz_AyqBFO9egc");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-5xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight">Reports</h2>
+<p class="text-muted-light dark:text-muted-dark mt-1">Generate reports on key hiring metrics</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-1">
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-6">Report Parameters</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium mb-1" for="date-range">Date Range</label>
+<select class="form-select w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-lg focus:ring-primary focus:border-primary" id="date-range">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+<option>This Year</option>
+<option>All Time</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="job-posting">Job Posting</label>
+<select class="form-select w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-lg focus:ring-primary focus:border-primary" id="job-posting">
+<option>All Postings</option>
+<option>Certified Nursing Assistant</option>
+<option>Registered Nurse</option>
+<option>Home Health Aide</option>
+</select>
+</div>
+</div>
+<h3 class="text-lg font-semibold mt-8 mb-4">Metrics</h3>
+<div class="space-y-4">
+<label class="flex items-center gap-x-3">
+<input checked="" class="form-checkbox h-5 w-5 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" type="checkbox"/>
+<span class="text-sm">Time to Hire</span>
+</label>
+<label class="flex items-center gap-x-3">
+<input checked="" class="form-checkbox h-5 w-5 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" type="checkbox"/>
+<span class="text-sm">Source of Hire</span>
+</label>
+<label class="flex items-center gap-x-3">
+<input checked="" class="form-checkbox h-5 w-5 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" type="checkbox"/>
+<span class="text-sm">Candidate Conversion Rates</span>
+</label>
+<label class="flex items-center gap-x-3">
+<input class="form-checkbox h-5 w-5 rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" type="checkbox"/>
+<span class="text-sm">Application Completion Rate</span>
+</label>
+</div>
+<button class="w-full mt-8 bg-primary text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark">
+                                Generate Report
+                            </button>
+</div>
+</div>
+<div class="md:col-span-2 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="text-lg font-semibold">Report Results</h3>
+<button class="bg-subtle-light dark:bg-subtle-dark text-foreground-light dark:text-foreground-dark font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors text-sm">
+                                Export Data
+                            </button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm col-span-1 lg:col-span-1 xl:col-span-1">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Time to Hire (Days)</p>
+<p class="text-4xl font-bold mt-2">15</p>
+<div class="flex items-center gap-1 mt-1 text-sm">
+<span class="text-negative-light dark:text-negative-dark font-medium">-5%</span>
+<span class="text-muted-light dark:text-muted-dark">vs last 30 days</span>
+</div>
+</div>
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm col-span-1 lg:col-span-1 xl:col-span-1">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Source of Hire</p>
+<p class="text-4xl font-bold mt-2">30%</p>
+<div class="flex items-center gap-1 mt-1 text-sm">
+<span class="text-positive-light dark:text-positive-dark font-medium">+10%</span>
+<span class="text-muted-light dark:text-muted-dark">from Referrals</span>
+</div>
+</div>
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm col-span-1 lg:col-span-2 xl:col-span-1">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Conversion Rate (%)</p>
+<p class="text-4xl font-bold mt-2">10%</p>
+<div class="flex items-center gap-1 mt-1 text-sm">
+<span class="text-negative-light dark:text-negative-dark font-medium">-2%</span>
+<span class="text-muted-light dark:text-muted-dark">vs last 30 days</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h4 class="text-md font-semibold mb-4">Time to Hire Over Time</h4>
+<div class="h-64">
+<div class="grid h-full grid-flow-col gap-4 items-end justify-items-center">
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style="height: 60%;"></div>
+<p class="text-xs text-muted-light dark:text-muted-dark font-medium">Jan</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style="height: 40%;"></div>
+<p class="text-xs text-muted-light dark:text-muted-dark font-medium">Feb</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary w-full rounded-t-md" style="height: 75%;"></div>
+<p class="text-xs font-bold text-primary">Mar</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style="height: 50%;"></div>
+<p class="text-xs text-muted-light dark:text-muted-dark font-medium">Apr</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style="height: 85%;"></div>
+<p class="text-xs text-muted-light dark:text-muted-dark font-medium">May</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end">
+<div class="bg-primary/20 dark:bg-primary/30 w-full rounded-t-md" style="height: 65%;"></div>
+<p class="text-xs text-muted-light dark:text-muted-dark font-medium">Jun</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h4 class="text-md font-semibold mb-4">Source of Hire Breakdown</h4>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-sm font-medium">
+<span>Referral</span>
+<span>30%</span>
+</div>
+<div class="w-full bg-subtle-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-sm font-medium">
+<span>Job Board</span>
+<span>60%</span>
+</div>
+<div class="w-full bg-subtle-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-sm font-medium">
+<span>Agency</span>
+<span>10%</span>
+</div>
+<div class="w-full bg-subtle-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

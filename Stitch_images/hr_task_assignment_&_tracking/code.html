@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #4A5568;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #2D3748;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="w-80 bg-white dark:bg-black/20 flex flex-col border-r border-gray-200 dark:border-gray-800">
+<div class="p-4">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white">Applicants</h2>
+<div class="relative mt-4">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200 border-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search" type="text"/>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto custom-scrollbar">
+<ul>
+<li class="px-4 py-3 bg-primary/10 dark:bg-primary/20 border-l-4 border-primary">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Sophia Clark" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt741MIBry2IGXlOOBl0ABpflBVDJTOafB_TUNDs6fEO89_19N_Lc0bMQ9V9aH1Oa_TTiIYqu7nO_3A3BIq7df_1p9F9ZD1UNO6LuxE3mhhXzpQlFOGRJJt_v9zu3XLnhrQ-1I12Lx8uz5alEow1R8g3DSdTK9iczeqerGw2RiwsYhZ9_qjgUsmAk5MVv09PFUxiZVd7E3v-aUh6R6zBnhwWD77iZoVEQhXyTjkhjVerQ-fBJjnOvA8FoLCARZhAY2Qw5lJFLvW0Y"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Sophia Clark</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Ethan Harper" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuEFLhA9t_XqlEestW6gdUIcYc1dJZmynlOxWWbzhAsRWZ9iE8gCjyzlYEPtkj-HeWDrpGgLjdsEUU0D0cb3YyALzQwGX84rxtwhukHlUaSvC1ykLkFbemOWltYszEN_1ftKUdJ5mJ3U52HDGZjeOYOsYjgghZRqcK6YIGQCxh5tU8i-dHFf6KUAcLPBwB5ulFUn7upXkzcDbmK6vya59R7eqxXtMqOe6NUPKlkEBcl1jqMO-9mHmNQMnQ5NQMcZ9LdkqEJM4KO9c"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Ethan Harper</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Olivia Bennett" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU3rRZkkrlfofQFxkrXE1qatFdb9dhDOeDNhpYdB-75251_FD-vR2lMPXAa6uyoEhTaP5DnGb6DE4AxyDaN8Ds_ztF5oRxAeMjRfnq6kJ0GvlPYc81zLut-CJEdfwEVCqo0qFB0xB-Ljgwrbd1LTvaQ8W3C2hZriRRHwKfnsQ7wUAyNVX6CASNyFeNUhHdA2so2EpJ1_INssvT2Ajua5Dnci-ZJMFi8LYiU9T5_vvWTdX19zHV3iZaoS6q3GS8cjNYh17ZKfl1kKs"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Olivia Bennett</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Noah Foster" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDse2kfAmZUFS2jQ7KrNKkf9P8kCqcKYEAnzHsFF23mDsw_5L9QQK4xomqtj7Vywy3nvS5fbzy_rfX8LAPjraa20pyGXfwNacWPde1mmMXyI1E3aCrVQAETWpWepDvsejl_eX8xmvTAjn9oPfplBIECqQV7lpYweiBbcWxXtM08ARfqXY30xGXF1W3RuGFksU-_1bcGLBGGhAMDnNZYI12tBvV0Z-h0jNCJFNGyiegbVvfyWfEk6WYdq-FiMbJDsaJ3gBBcccQagGg"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Noah Foster</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Isabella Reed" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-vCHdx90F2qwzigJ1puhwcjzbZ1oB-d_V4bJadugaRMZI-hCNcd8wxAof5uEBiDJlNQ7aDwFMXlhAEt8ryl3NWScNigeMXZ9eUGqrFFzsIgnVqu9fL1VYQLaJQdW6Cfc5yC88_BOnxUGdD1rS_FDGwby4fndj9JXS_blro6OMu06rD7KuD3_5c8Q2ZgVjWmnp2waNbx588mm9icYTVcN2oBInvvKpWAfdXAlMb6dG06SLCj4AE2sDRF_3q-WiCdvKJAyztFT1QnY"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Isabella Reed</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Liam Carter" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwGOdiTCMIkWWdwYvtYP591g_ConiKltsb9SBsi3I9pzf6mE__eawlcGxJFLjJyE7EDVMwjXWc1wc7fdg9dVSW6uTvdB5Wo4NRKu5LBDXzFx2MgQ9jfttZfPM6Pa1-tahTSPCcC9tExNTHIjX5KXG4x2jlovhsKSig5OTc1ab5LY8ZOBYQuZuIbjA-3oECaXshzoyUbkHaRh_b7khRYqFjs2oWzTIJBAC1q9gSbmJoMOSSO3hyWziTD4kuaoEh1Hp8FQpUwoja0Ko"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Liam Carter</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Ava Mitchell" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUYtaAqFmtTsfE1qXVMocaJ3PrXNQp3g5zpIs_7RI8pJi7Tt5Xl3DdWd2c7HyKn0m6U_Fj-Vi7j10Rypj2G7ASroeOeeMYb7JKfDWondHDgbEGGdFhcx-ELFH2wRl2VA6ebnePRaccMGdNEQV1aOoWcctr7c-9tkyvArrx6wUo20i8fM8ZM1z6YCfvUmh8E6Sy-tY-YxjaqHmyHQMvrnd7FvzJhmVdjSrhFMvZknWFvr1iLTnAK1Ysd16D3_R0PZ-0Z5KRZTZhBG4"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Ava Mitchell</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+<li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+<a class="flex items-center space-x-3" href="#">
+<img alt="Jackson Hayes" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuml5trz74h-6QZYNvZGvnPaXnRKsN2MqWApok84k4VeGNWS4LYZVMd3EAQ3n-DATiTIO5bXWFBMn4DgxhEkx2Xzi_jXKdZf6akJPdSbHznCWpoAsHmKXHal8D-FlmDawzA96iJ8b78hmYF8jpESDcJJJrIK0dxrrb6pjnDCfLt8I81337PePMfw4nVSLg1SiOpBLu5LGu516v4dJFQ9LZ3oBtFIWKAauGYvE4dbsz7foaq1Db7u2GZXKOwF8mg2ZIQXA_FArlGbo"/>
+<div>
+<p class="font-semibold text-gray-900 dark:text-white">Jackson Hayes</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto custom-scrollbar">
+<div class="max-w-4xl mx-auto">
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white">Assign Task</h1>
+<div class="mt-8 p-6 bg-white dark:bg-black/20 rounded-xl shadow-md">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Applicant</h3>
+<div class="flex items-center gap-4 mt-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<img alt="Sophia Clark" class="w-14 h-14 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQKUFrgfrjQ182jCY4DZJRF3f36SNQZZq9m2bJjebuJ8zLJFYKxm1uSgKjOvhwLIxLxgxfnBhMrlQWb6qdLbvhEuevSURzVLT100PV9QhUJmgZzy0p1lQsiQ5vxOXHig5P2pF5skXjnUxtj___CLism8KUIsPXcvvuCrXWWjAhbvDGaO4PEW6hJxmj1FLtd_F1Mm2uxJoTqgnPtSFqn6mgwU3W-Kt2S9ywtg_ixKp3b0g6zoGqqx4cOy6zGm5YkD-dMwA0jveGBcM"/>
+<div>
+<p class="text-base font-medium text-gray-900 dark:text-white">Sophia Clark</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Application Received</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-6 bg-white dark:bg-black/20 rounded-xl shadow-md">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Task Details</h3>
+<form class="mt-4 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="task">Task</label>
+<select class="form-select mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="task">
+<option>Review Resume</option>
+<option>Schedule Interview</option>
+<option>Verify Documents</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="deadline">Deadline</label>
+<input class="form-input mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="deadline" type="date"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="assignee">Assignee</label>
+<select class="form-select mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="assignee">
+<option>David Chen</option>
+<option>Emily Rodriguez</option>
+<option>Michael Smith</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="notes">Additional Notes</label>
+<textarea class="form-textarea mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="notes" placeholder="Optional notes for the assignee..." rows="4"></textarea>
+</div>
+<div class="flex justify-end">
+<button class="px-6 py-3 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark" type="button">
+                Assign Task
+              </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+<div class="flex h-full flex-1">
+<aside class="flex w-64 flex-col bg-background-light dark:bg-background-dark p-4">
+<div class="flex flex-col gap-y-6">
+<nav class="flex flex-col gap-y-2">
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
+</svg>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"></path>
+</svg>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary dark:bg-primary/30" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216Z"></path>
+</svg>
+<span class="text-sm font-medium">Notifications</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"></path>
+</svg>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto p-8">
+<div class="mx-auto max-w-4xl">
+<div class="mb-8">
+<h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Notifications</h1>
+<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Configure automated notifications for document uploads, expirations, and status updates.</p>
+</div>
+<form class="space-y-12">
+<div class="space-y-6 rounded-xl border border-gray-200 dark:border-gray-700/50 bg-white dark:bg-background-dark/50 p-6">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Document Upload Notifications</h2>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="upload-recipient">Recipient</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="upload-recipient" name="upload-recipient">
+<option>HR Manager</option>
+<option>Applicant</option>
+<option>Hiring Manager</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="upload-timing">Timing</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="upload-timing" name="upload-timing">
+<option>Instantly</option>
+<option>Daily Digest</option>
+<option>Weekly Digest</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="upload-channel">Channel</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="upload-channel" name="upload-channel">
+<option>Email</option>
+<option>In-app Alert</option>
+</select>
+</div>
+</div>
+</div>
+<div class="space-y-6 rounded-xl border border-gray-200 dark:border-gray-700/50 bg-white dark:bg-background-dark/50 p-6">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Document Expiration Notifications</h2>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="expiration-recipient">Recipient</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="expiration-recipient" name="expiration-recipient">
+<option>Applicant</option>
+<option>HR Manager</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="expiration-timing">Timing</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="expiration-timing" name="expiration-timing">
+<option>30 days before</option>
+<option>15 days before</option>
+<option>7 days before</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="expiration-channel">Channel</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="expiration-channel" name="expiration-channel">
+<option>Email</option>
+<option>In-app Alert</option>
+</select>
+</div>
+</div>
+</div>
+<div class="space-y-6 rounded-xl border border-gray-200 dark:border-gray-700/50 bg-white dark:bg-background-dark/50 p-6">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Status Update Notifications</h2>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="status-recipient">Recipient</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="status-recipient" name="status-recipient">
+<option>Applicant</option>
+<option>Hiring Manager</option>
+<option>HR Manager</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="status-timing">Timing</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="status-timing" name="status-timing">
+<option>Instantly</option>
+<option>Upon change</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="status-channel">Channel</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 bg-background-light dark:bg-gray-800 text-gray-900 dark:text-white dark:border-gray-600 focus:border-primary focus:ring-primary" id="status-channel" name="status-channel">
+<option>Email</option>
+<option>In-app Alert</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex justify-end pt-4">
+<button class="rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" type="submit">
+                  Save Changes
+                </button>
+</div>
+</form>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

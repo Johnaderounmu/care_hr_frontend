@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Applicant Documents</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-background-light dark:bg-background-dark p-6 flex flex-col justify-between border-r border-primary/20 dark:border-primary/30">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col">
+<h1 class="text-xl font-bold text-black dark:text-white">CareFinder</h1>
+<p class="text-sm text-black/60 dark:text-white/60">HR System</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black/80 dark:text-white/80 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30 text-primary" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black/80 dark:text-white/80 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black/80 dark:text-white/80 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-black/80 dark:text-white/80 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<div class="flex flex-col gap-8">
+<div>
+<h2 class="text-3xl font-bold text-black dark:text-white">Applicant Documents</h2>
+<p class="text-base text-black/60 dark:text-white/60">Review and verify applicant documents</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-black/60 dark:text-white/60">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-background-light dark:bg-background-dark border border-primary/20 dark:border-primary/30 text-black dark:text-white placeholder-black/60 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search documents" type="text"/>
+</div>
+<div class="border-b border-primary/20 dark:border-primary/30">
+<nav class="flex gap-6 -mb-px">
+<a class="py-3 px-1 border-b-2 border-primary text-primary text-sm font-semibold" href="#">All Documents</a>
+<a class="py-3 px-1 border-b-2 border-transparent text-black/60 dark:text-white/60 hover:text-primary hover:border-primary/50 text-sm font-semibold" href="#">Verified</a>
+<a class="py-3 px-1 border-b-2 border-transparent text-black/60 dark:text-white/60 hover:text-primary hover:border-primary/50 text-sm font-semibold" href="#">Unverified</a>
+</nav>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="min-w-full text-sm text-left">
+<thead class="bg-background-light dark:bg-background-dark/50 text-black/80 dark:text-white/80">
+<tr>
+<th class="px-6 py-3 font-medium" scope="col">Applicant Name</th>
+<th class="px-6 py-3 font-medium" scope="col">Document Type</th>
+<th class="px-6 py-3 font-medium" scope="col">Upload Date</th>
+<th class="px-6 py-3 font-medium" scope="col">Status</th>
+<th class="px-6 py-3 font-medium" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30 text-black dark:text-white">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium">Sophia Clark</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">Resume</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">2024-07-26</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Verified</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="text-primary font-semibold hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium">Ethan Bennett</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">Resume</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">2024-07-25</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Unverified</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="text-primary font-semibold hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium">Olivia Carter</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">Resume</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">2024-07-24</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Verified</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="text-primary font-semibold hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium">Liam Davis</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">Resume</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">2024-07-23</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Unverified</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="text-primary font-semibold hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium">Ava Evans</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">Resume</td>
+<td class="px-6 py-4 whitespace-nowrap text-black/60 dark:text-white/60">2024-07-22</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">Verified</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="text-primary font-semibold hover:underline">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

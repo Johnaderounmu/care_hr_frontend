@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Competency Tests</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "foreground-light": "#0d181b",
+                        "foreground-dark": "#f6f8f8",
+                        "subtle-light": "#e7f0f3",
+                        "subtle-dark": "#1a2c33",
+                        "border-light": "#cfe1e7",
+                        "border-dark": "#2b454e",
+                        "placeholder-light": "#4c869a",
+                        "placeholder-dark": "#94b0b9"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined.filled {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-subtle-light/50 dark:bg-subtle-dark/20 p-4 border-r border-border-light dark:border-border-dark hidden md:block">
+<div class="flex flex-col h-full">
+<div class="flex items-center gap-2 mb-8">
+<svg class="text-primary" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+<h1 class="text-xl font-bold">HealthHR</h1>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark" href="#">
+<span class="material-symbols-outlined text-xl">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT bg-primary/20 dark:bg-primary/30 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined filled text-xl">quiz</span>
+<span class="text-sm">Tests</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-6 lg:p-8">
+<div class="max-w-4xl mx-auto">
+<header class="mb-8">
+<h1 class="text-3xl font-bold text-foreground-light dark:text-foreground-dark tracking-tight">Competency Tests</h1>
+<p class="text-placeholder-light dark:text-placeholder-dark mt-1">Create, edit, and assign competency tests to applicants.</p>
+</header>
+<div class="space-y-10">
+<section>
+<h2 class="text-xl font-semibold text-foreground-light dark:text-foreground-dark mb-4">Create New Test</h2>
+<div class="grid grid-cols-1 gap-6 max-w-lg">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="test-name">Test Name</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark" id="test-name" placeholder="e.g., Clinical Skills Assessment" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="test-description">Test Description</label>
+<textarea class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none placeholder:text-placeholder-light dark:placeholder:text-placeholder-dark resize-none" id="test-description" placeholder="Describe the purpose and content of the test" rows="4"></textarea>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-semibold text-foreground-light dark:text-foreground-dark mb-4">Add Questions</h2>
+<div class="border-2 border-dashed border-border-light dark:border-border-dark rounded-lg p-12 text-center">
+<div class="max-w-md mx-auto">
+<span class="material-symbols-outlined text-5xl text-placeholder-light dark:text-placeholder-dark mx-auto">note_add</span>
+<h3 class="text-lg font-semibold mt-4 text-foreground-light dark:text-foreground-dark">No questions added yet</h3>
+<p class="text-sm text-placeholder-light dark:text-placeholder-dark mt-1 mb-6">Click below to add multiple choice, scenario-based, or other question types to this test.</p>
+<button class="bg-primary/20 dark:bg-primary/30 text-primary font-semibold px-4 py-2 rounded-DEFAULT hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors">
+                                    Add Question
+                                </button>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-semibold text-foreground-light dark:text-foreground-dark mb-4">Test Settings</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-lg">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="passing-score">Passing Score (%)</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 appearance-none focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none bg-no-repeat bg-right-4" id="passing-score" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394b0b9%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e');">
+<option>Select score</option>
+<option value="70">70%</option>
+<option value="75">75%</option>
+<option value="80">80%</option>
+<option value="85">85%</option>
+<option value="90">90%</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="test-duration">Test Duration (minutes)</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 appearance-none focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none bg-no-repeat bg-right-4" id="test-duration" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394b0b9%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e');">
+<option>Select duration</option>
+<option value="30">30 minutes</option>
+<option value="45">45 minutes</option>
+<option value="60">60 minutes</option>
+<option value="90">90 minutes</option>
+</select>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-semibold text-foreground-light dark:text-foreground-dark mb-4">Assign Test</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-lg">
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="job-application">Job Application</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 appearance-none focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none bg-no-repeat bg-right-4" id="job-application" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394b0b9%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e');">
+<option>Select job</option>
+<option>Registered Nurse (RN)</option>
+<option>Licensed Practical Nurse (LPN)</option>
+<option>Certified Nursing Assistant (CNA)</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1.5 text-foreground-light dark:text-foreground-dark" for="application-stage">Application Stage</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT px-4 py-2.5 appearance-none focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none bg-no-repeat bg-right-4" id="application-stage" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%2394b0b9%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e');">
+<option>Select stage</option>
+<option>Initial Application</option>
+<option>Phone Screen</option>
+<option>Interview</option>
+</select>
+</div>
+</div>
+</section>
+<div class="flex justify-end pt-4 border-t border-border-light dark:border-border-dark">
+<button class="bg-primary text-white font-bold px-6 py-2.5 rounded-DEFAULT hover:bg-primary/90 transition-colors shadow-sm">
+                            Save Test
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

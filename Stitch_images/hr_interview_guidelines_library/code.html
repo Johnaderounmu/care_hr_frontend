@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="flex h-full grow flex-col">
+<header class="flex shrink-0 items-center justify-between whitespace-nowrap border-b border-primary/20 dark:border-primary/30 px-10 py-4">
+<div class="flex items-center gap-4 text-slate-800 dark:text-white">
+<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-lg font-bold tracking-tight">CarePath</h2>
+</div>
+<nav class="hidden md:flex items-center gap-2">
+<a class="px-4 py-2 rounded text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary" href="#">Dashboard</a>
+<a class="px-4 py-2 rounded text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary" href="#">Applicants</a>
+<a class="px-4 py-2 rounded text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary" href="#">Jobs</a>
+<a class="px-4 py-2 rounded text-sm font-medium bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary" href="#">Interviews</a>
+<a class="px-4 py-2 rounded text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary" href="#">Offers</a>
+<a class="px-4 py-2 rounded text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary" href="#">Onboarding</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-600 dark:text-slate-400 hover:text-primary">
+              notifications
+            </button>
+<div class="h-10 w-10 aspect-square rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3Pc6NTR9MmKgyi4xBwPJMAAdaNMKFHrW9I6pmZQSlDeJb1BjxLtVvu1HLoQ0ayhMOn0e_iOhwKZv6ou4kkNy2CY92tOyVsXJ5bBldAgG18Xhwjf6fbUuPHTUr_OWUMys2PWZU6vEIMI-K16up7PhG5OwJqmE3awDdvGtfIMP-rkTbs01Y-mVCDoLL8-lbLGdqv3cFdREEcioZNXyUZSGC9VqyHHhZmrbFWyZ-hPojtWLEaOA8y4NhUtr1NwCPbP6jZgPov3FFNLw");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-8">
+<div class="mx-auto max-w-7xl">
+<div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Interview Guidelines</h1>
+<button class="inline-flex items-center justify-center gap-2 rounded bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined"> add </span>
+<span>New Guideline</span>
+</button>
+</div>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"> search </span>
+<input class="w-full rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 py-2 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search guidelines..." type="search"/>
+</div>
+</div>
+<div class="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" scope="col">
+                        Guideline Name
+                      </th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" scope="col">
+                        Category
+                      </th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" scope="col">
+                        Last Updated
+                      </th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" scope="col">
+                        Status
+                      </th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Edit</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">
+                        Behavioral Interviewing Techniques
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        Interviewing
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        2023-09-15
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">
+                          Active
+                        </span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">
+                        Legal Compliance during Interviews
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        Compliance
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        2023-08-22
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">
+                          Active
+                        </span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">
+                        Fair Assessment Practices
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        Assessment
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        2023-07-10
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">
+                          Active
+                        </span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">
+                        Technical Skills Assessment
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        Technical
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        2023-06-05
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-red-100 dark:bg-red-900/50 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:text-red-300">
+                          Inactive
+                        </span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">
+                        Cultural Fit Evaluation
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">Culture</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        2023-05-12
+                      </td>
+<td class="whitespace-nowrap px-6 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">
+                          Active
+                        </span>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:text-primary/80" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

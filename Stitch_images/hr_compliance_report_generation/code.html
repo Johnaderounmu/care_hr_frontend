@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "foreground-light": "#0d181b",
+                        "foreground-dark": "#e7f0f3",
+                        "card-light": "#ffffff",
+                        "card-dark": "#182c34",
+                        "subtle-light": "#e7f0f3",
+                        "subtle-dark": "#203a44",
+                        "muted-light": "#4c869a",
+                        "muted-dark": "#a0c7d6",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 flex items-center justify-between px-6 py-3 border-b bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-subtle-light dark:border-subtle-dark">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">CareConnect HR</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium transition-colors text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark" href="#">Dashboard</a>
+<a class="text-sm font-medium transition-colors text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark" href="#">Applicants</a>
+<a class="text-sm font-medium transition-colors text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark" href="#">Employees</a>
+<a class="text-sm font-medium transition-colors text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark" href="#">Compliance</a>
+<a class="text-sm font-medium transition-colors text-primary dark:text-primary" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-subtle-light dark:hover:bg-subtle-dark">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 bg-center bg-no-repeat bg-cover rounded-full" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqdrEASSt7ZrcgppfqLIuyK9KStEwWHmRH2ufgUXDkJ-Pp3GnIwc5yjg4jSc4TqX-kkq_z0I9VE49FdTaIh_O_pjZT2hxo7kCFs5EKY7v5uSVwkabczGxjYwKNk4MaArRibWHvr3VhFCfkWdHrG9NP4sg3BF3GgIlPhKOCrO91EdZfX2KDGXFiqND3UvuLjKOEi7pM9EsurSljPfgV5Ou-JMVCIuiCIa2ysk-kxf3qC9CfWDy9rrZg7khIw-vgyb8AgJ1z791tFmg");'></div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
+<div class="mb-8">
+<h1 class="text-3xl font-bold tracking-tight">Compliance Reports</h1>
+<p class="mt-1 text-muted-light dark:text-muted-dark">Generate and export compliance reports for audits and regulatory requirements.</p>
+</div>
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+<div class="space-y-8 lg:col-span-2">
+<div class="p-6 rounded-lg bg-card-light dark:bg-card-dark border border-subtle-light dark:border-subtle-dark">
+<h3 class="text-lg font-bold mb-4">Report Type</h3>
+<div class="space-y-4">
+<label class="flex items-start p-4 space-x-4 border rounded-lg cursor-pointer border-subtle-light dark:border-subtle-dark has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input checked="" class="w-5 h-5 mt-1 text-primary bg-transparent border-2 border-subtle-light dark:border-subtle-dark focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" name="report-type" type="radio"/>
+<div>
+<p class="font-medium">Audit Trail</p>
+<p class="text-sm text-muted-light dark:text-muted-dark">Detailed log of all system activities and changes.</p>
+</div>
+</label>
+<label class="flex items-start p-4 space-x-4 border rounded-lg cursor-pointer border-subtle-light dark:border-subtle-dark has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="w-5 h-5 mt-1 text-primary bg-transparent border-2 border-subtle-light dark:border-subtle-dark focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" name="report-type" type="radio"/>
+<div>
+<p class="font-medium">Document Expiration Summary</p>
+<p class="text-sm text-muted-light dark:text-muted-dark">Summary of documents nearing expiration or already expired.</p>
+</div>
+</label>
+<label class="flex items-start p-4 space-x-4 border rounded-lg cursor-pointer border-subtle-light dark:border-subtle-dark has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="w-5 h-5 mt-1 text-primary bg-transparent border-2 border-subtle-light dark:border-subtle-dark focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" name="report-type" type="radio"/>
+<div>
+<p class="font-medium">Data Access Logs</p>
+<p class="text-sm text-muted-light dark:text-muted-dark">Log of all data access events, including user and timestamp.</p>
+</div>
+</label>
+</div>
+</div>
+<div class="p-6 rounded-lg bg-card-light dark:bg-card-dark border border-subtle-light dark:border-subtle-dark">
+<h3 class="text-lg font-bold mb-4">Export Format</h3>
+<div class="flex space-x-4">
+<label class="flex items-center p-4 space-x-4 border rounded-lg cursor-pointer flex-1 border-subtle-light dark:border-subtle-dark has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input checked="" class="w-5 h-5 text-primary bg-transparent border-2 border-subtle-light dark:border-subtle-dark focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" name="export-format" type="radio"/>
+<p class="font-medium">PDF</p>
+</label>
+<label class="flex items-center p-4 space-x-4 border rounded-lg cursor-pointer flex-1 border-subtle-light dark:border-subtle-dark has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="w-5 h-5 text-primary bg-transparent border-2 border-subtle-light dark:border-subtle-dark focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" name="export-format" type="radio"/>
+<p class="font-medium">CSV</p>
+</label>
+</div>
+</div>
+</div>
+<aside class="space-y-6 lg:col-span-1">
+<div class="p-6 rounded-lg bg-card-light dark:bg-card-dark border border-subtle-light dark:border-subtle-dark">
+<h3 class="text-lg font-bold mb-4">Filters</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium mb-1" for="start-date">Start Date</label>
+<input class="w-full px-3 py-2 text-base bg-transparent border rounded-lg border-subtle-light dark:border-subtle-dark focus:ring-2 focus:ring-primary/50 focus:border-primary placeholder:text-muted-light dark:placeholder:text-muted-dark" id="start-date" placeholder="Select start date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="end-date">End Date</label>
+<input class="w-full px-3 py-2 text-base bg-transparent border rounded-lg border-subtle-light dark:border-subtle-dark focus:ring-2 focus:ring-primary/50 focus:border-primary placeholder:text-muted-light dark:placeholder:text-muted-dark" id="end-date" placeholder="Select end date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="user-role">User Role</label>
+<select class="w-full px-3 py-2 text-base bg-transparent border rounded-lg appearance-none border-subtle-light dark:border-subtle-dark focus:ring-2 focus:ring-primary/50 focus:border-primary" id="user-role">
+<option>All Roles</option>
+<option>Administrator</option>
+<option>Manager</option>
+<option>Caregiver</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="data-type">Data Type</label>
+<select class="w-full px-3 py-2 text-base bg-transparent border rounded-lg appearance-none border-subtle-light dark:border-subtle-dark focus:ring-2 focus:ring-primary/50 focus:border-primary" id="data-type">
+<option>All Data Types</option>
+<option>Personal Information</option>
+<option>Certifications</option>
+<option>Timesheets</option>
+</select>
+</div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 h-12 px-6 text-sm font-bold tracking-wide text-white rounded-lg bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+<span class="material-symbols-outlined">download</span>
+<span>Generate Report</span>
+</button>
+</aside>
+</div>
+</main>
+</div>
+
+</body></html>

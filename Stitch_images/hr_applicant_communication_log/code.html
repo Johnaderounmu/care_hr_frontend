@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-background-light dark:bg-background-dark border-r border-primary/20 dark:border-primary/30">
+<div class="flex h-full flex-col p-4">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">CarePath HR</h1>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded bg-primary/10 dark:bg-primary/20 px-3 py-2 text-primary font-bold" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-sm font-medium">Notifications</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">preview</span>
+<span class="text-sm font-medium">Demo mode</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="p-8">
+<div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+<a class="hover:text-primary" href="#">Applicants</a>
+<span>/</span>
+<span class="font-medium text-gray-800 dark:text-gray-200">Eleanor Vance</span>
+</div>
+<div class="mb-8">
+<h2 class="text-4xl font-bold text-gray-900 dark:text-white">Eleanor Vance</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">Applicant ID: 123456</p>
+</div>
+<div class="border-b border-primary/20 dark:border-primary/30 mb-8">
+<nav class="-mb-px flex gap-8">
+<a class="py-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:border-primary/50 hover:text-primary/80 text-sm font-medium" href="#">
+                Profile
+              </a>
+<a class="py-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:border-primary/50 hover:text-primary/80 text-sm font-medium" href="#">
+                Documents
+              </a>
+<a class="py-4 px-1 border-b-2 border-primary text-primary text-sm font-medium" href="#">
+                Communication
+              </a>
+<a class="py-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:border-primary/50 hover:text-primary/80 text-sm font-medium" href="#">
+                Notes
+              </a>
+</nav>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Communication Log</h3>
+<div class="rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary/5 dark:bg-primary/10">
+<tr>
+<th class="px-6 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">Date &amp; Time</th>
+<th class="px-6 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">Type</th>
+<th class="px-6 py-4 text-sm font-semibold text-gray-800 dark:text-gray-200">Content</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10 dark:divide-primary/20">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">2024-07-26 10:00 AM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
+                          Automated
+                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">Application received. Thank you for applying to CarePath HR. We will review your application and contact you if your qualifications match our current needs.</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">2024-07-27 02:00 PM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
+                          Automated
+                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">Resume parsed successfully. Key information extracted and added to your profile.</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">2024-07-28 09:00 AM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/50 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:text-blue-300">
+                          Manual
+                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">Hello Eleanor Vance, we have reviewed your application and would like to schedule an initial phone screening. Please let us know your availability for next week.</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">2024-07-29 04:00 PM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
+                          Automated
+                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">Phone screening scheduled for 2024-08-02 at 11:00 AM.</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">2024-08-02 12:00 PM</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary">
+                          Automated
+                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">Thank you for attending the phone screening. We will be in touch soon regarding the next steps.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

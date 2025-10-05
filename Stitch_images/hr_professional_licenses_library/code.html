@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full flex-col">
+<header class="flex items-center justify-between border-b border-primary/20 dark:border-primary/30 px-6 py-4">
+<div class="flex items-center gap-4 text-black dark:text-white">
+<div class="h-8 w-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold">CarePath</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">Licenses</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">Users</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative flex items-center justify-center rounded-full p-2 text-black/60 dark:text-white/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASQYs3TIV00n2GHTwqxHzVgbu-PO0dn1tYTjCb_6Fwi0RA6hNDcM1oBVPSxQIDCzy6DamIgGQib8OMnXQHEmi8becOv6NXgRTdNVJbFfbE5DYe5U4A90oXiu9QMRrli5Xa8ZMXeRnBsfCYJcfMzYk-k9AphfY-C0BQnjeOn79LTD0ZnFgGRVF2a71BmYVTx0iHB8ONkNieMaYvQmJHpEL7YDmY4zYKu3EpDrUCEkrTGB5t9TJcsALyyNGj3qOuZKCL_7u8s6erq8c");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-10">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+<h1 class="text-3xl font-bold text-black dark:text-white">License Library</h1>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-opacity-80 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add License</span>
+</button>
+</div>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-black/40 dark:text-white/40">search</span>
+<input class="w-full rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark py-2 pl-10 pr-4 text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Search licenses by name, profession, or issuing body" value=""/>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg border border-primary/20 dark:border-primary/30">
+<table class="min-w-full divide-y divide-primary/20 dark:divide-primary/30">
+<thead class="bg-primary/5 dark:bg-primary/10">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col">License Name</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col">Profession</th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col">Issuing Body</th>
+<th class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col">Expiration Required</th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Edit</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10 dark:divide-primary/20 bg-background-light dark:bg-background-dark">
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Registered Nurse License</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">State Board of Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Physical Therapist License</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Physical Therapy</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">National Physical Therapy Examination</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Certified Nursing Assistant Certification</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Nursing Assistance</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">National Council of State Boards of Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Licensed Practical Nurse License</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">State Board of Nursing</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Occupational Therapist License</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Occupational Therapy</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">National Board for Certification in Occupational Therapy</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Speech-Language Pathologist License</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Speech Therapy</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">American Speech-Language-Hearing Association</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Medical Assistant Certification</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Medical Assistance</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">American Association of Medical Assistants</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-black dark:text-white">Home Health Aide Certification</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">Home Health Assistance</td>
+<td class="whitespace-nowrap px-6 py-4 text-sm text-black/60 dark:text-white/60">National Association for Home Care &amp; Hospice</td>
+<td class="whitespace-nowrap px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-primary/40 text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+<a class="text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

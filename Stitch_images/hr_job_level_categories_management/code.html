@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 dark:border-primary/30 px-10 py-4">
+<div class="flex items-center gap-4 text-black dark:text-white">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold">CareConnect HR</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="text-sm font-medium text-primary" href="#">Jobs</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Offers</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">People</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 hover:bg-primary/20 dark:hover:bg-primary/30 text-black dark:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl"> notifications </span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADSfWKYE0-4IOsWejgSC_ww8ewZvAcWMZ66DV1RsRO5Y3r_F9lOZFKXq5qhv-00-vUzH9MKeA2XfdV4bSypxK-FLd8bRf5k0Qr3EwzcAOeEhIcHXCNjxtnXAtuk4kBhqjr3S6pDHzDtInHBV8KqCtkk9xdYMU-1Exzgu994OmHyhkq6s0rufEDeTXg6wKa9xxAOCObtWJDyPSSpgl8AxEan4Inh0iObFEbqzX-_m0-pgRocdFnXp1Dmcw8LlPg34KSb_ZWNPgVO0Y");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+<h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">Job Levels</h1>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined"> add </span>
+<span class="truncate">Add Job Level</span>
+</button>
+</div>
+<div class="overflow-hidden rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark shadow-sm">
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-primary/20 dark:divide-primary/30">
+<thead class="bg-primary/5 dark:bg-primary/10">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col"> Job Level </th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col"> Description </th>
+<th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-black/80 dark:text-white/80" scope="col"> Associated Jobs </th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Entry-Level</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with minimal experience, typically requiring basic skills and direct supervision. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">5</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Junior</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 1-3 years of experience, demonstrating growing proficiency and independence. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">8</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Mid-Level</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 3-5 years of experience, capable of handling complex tasks and mentoring junior staff. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">12</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Senior</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 5-8 years of experience, demonstrating expertise and leadership in their field. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">10</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Lead</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 8-10 years of experience, responsible for leading teams and projects. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">7</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Manager</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 10+ years of experience, overseeing departments and strategic initiatives. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">4</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Director</td>
+<td class="px-6 py-4 whitespace-normal text-sm text-black/60 dark:text-white/60 max-w-sm"> For candidates with 12+ years of experience, responsible for high-level decision-making and organizational strategy. </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-black/60 dark:text-white/60">2</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-primary hover:opacity-80 transition-opacity">Edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

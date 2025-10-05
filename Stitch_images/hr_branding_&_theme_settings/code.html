@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-slate-200/80 bg-background-light/80 px-4 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/80 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">CareConnect HR</h1>
+</div>
+<nav class="hidden items-center gap-6 text-sm font-medium lg:flex">
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Dashboard</a>
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Applicants</a>
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Jobs</a>
+<a class="text-slate-600 hover:text-primary dark:text-slate-400 dark:hover:text-primary" href="#">Reports</a>
+<a class="font-semibold text-primary" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-background-light text-slate-500 hover:bg-slate-200/60 dark:bg-background-dark dark:text-slate-400 dark:hover:bg-slate-800/60">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGJo5mObXnl-sK2ZCjOaQrU8LJUQm2zzPCjFXM_EaWR7bit-7Z167t86V3XouJgmbnq58S19KitdSFvz1HOBaPNC9A6MGwgaiOashB3k3nRbKWoYBJAKKMoCUHXSETEOFcrA44WxTXzseCrtTm-Fz4tdnpJYmjmrI2WRsYgCdMKbvdRZfPQk9W6x1ySuQTrzy7itGOf-HTAzsTGNkRN32t3_551pU2WfkJ5SXsaQqr25XhhaEqnhumXYOUsVJ4R0uYCzcDrhJw3mY");'></div>
+</div>
+</header>
+<main class="flex-1">
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Branding</h2>
+<p class="mt-2 text-slate-500 dark:text-slate-400">Customize the look and feel of your CareConnect HR system to match your organization's brand.</p>
+</div>
+<div class="space-y-12">
+<div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+<div>
+<h3 class="text-lg font-semibold leading-6 text-slate-900 dark:text-white">Logo</h3>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Upload your company logo. Recommended size is 256x256px.</p>
+</div>
+<div class="col-span-2">
+<div class="flex items-center gap-6">
+<div class="flex h-24 w-24 items-center justify-center rounded-lg border-2 border-dashed border-slate-300 bg-background-light dark:border-slate-700 dark:bg-background-dark">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500"> upload </span>
+</div>
+<button class="rounded-lg bg-primary/10 px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+                    Upload Logo
+                  </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+<div>
+<h3 class="text-lg font-semibold leading-6 text-slate-900 dark:text-white">Color Scheme</h3>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Choose a primary color for your interface.</p>
+</div>
+<div class="col-span-2">
+<div class="flex flex-wrap gap-4">
+<label class="h-12 w-12 cursor-pointer rounded-full border-2 border-transparent ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark" style="background-color: #11a4d4">
+<input checked="" class="peer sr-only" name="color-scheme" type="radio"/>
+</label>
+<label class="h-12 w-12 cursor-pointer rounded-full border-2 border-slate-300 hover:border-primary peer-checked:ring-2 peer-checked:ring-primary peer-checked:ring-offset-2 peer-checked:ring-offset-background-light dark:border-slate-700 dark:hover:border-primary dark:peer-checked:ring-offset-background-dark" style="background-color: #4caf50">
+<input class="peer sr-only" name="color-scheme" type="radio"/>
+</label>
+<label class="h-12 w-12 cursor-pointer rounded-full border-2 border-slate-300 hover:border-primary peer-checked:ring-2 peer-checked:ring-primary peer-checked:ring-offset-2 peer-checked:ring-offset-background-light dark:border-slate-700 dark:hover:border-primary dark:peer-checked:ring-offset-background-dark" style="background-color: #f44336">
+<input class="peer sr-only" name="color-scheme" type="radio"/>
+</label>
+<label class="h-12 w-12 cursor-pointer rounded-full border-2 border-slate-300 hover:border-primary peer-checked:ring-2 peer-checked:ring-primary peer-checked:ring-offset-2 peer-checked:ring-offset-background-light dark:border-slate-700 dark:hover:border-primary dark:peer-checked:ring-offset-background-dark" style="background-color: #ff9800">
+<input class="peer sr-only" name="color-scheme" type="radio"/>
+</label>
+<label class="h-12 w-12 cursor-pointer rounded-full border-2 border-slate-300 hover:border-primary peer-checked:ring-2 peer-checked:ring-primary peer-checked:ring-offset-2 peer-checked:ring-offset-background-light dark:border-slate-700 dark:hover:border-primary dark:peer-checked:ring-offset-background-dark" style="background-color: #607d8b">
+<input class="peer sr-only" name="color-scheme" type="radio"/>
+</label>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+<div>
+<h3 class="text-lg font-semibold leading-6 text-slate-900 dark:text-white">Fonts</h3>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Select the primary font for headings and text.</p>
+</div>
+<div class="col-span-2 max-w-xs">
+<select class="form-select w-full rounded-lg border-slate-300 bg-background-light text-slate-900 focus:border-primary focus:ring-primary dark:border-slate-700 dark:bg-background-dark dark:text-white dark:focus:border-primary dark:focus:ring-primary">
+<option>Inter</option>
+<option>Roboto</option>
+<option>Lato</option>
+</select>
+</div>
+</div>
+<div class="border-t border-slate-200 pt-8 dark:border-slate-800">
+<div class="flex justify-end gap-4">
+<button class="rounded-lg bg-slate-200/80 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-300/80 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:bg-slate-700/80">
+                  Cancel
+                </button>
+<button class="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

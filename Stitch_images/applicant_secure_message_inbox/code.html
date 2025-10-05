@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#11a4d4',
+              'background-light': '#f6f8f8',
+              'background-dark': '#101d22',
+            },
+            fontFamily: {
+              display: ['Inter'],
+            },
+            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+          },
+        },
+      }
+    </script>
+<title>Secure Messaging</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-80 bg-background-light dark:bg-background-dark border-r border-gray-200 dark:border-gray-700/50 flex flex-col p-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJT8iPXwAFRax2XieGXiytNeOcEMzUe6_9PjnHaEgwulejlQ04wz6Mc8j_Ay8RQ__m6a1ZAfojIkY6PhDPTvmzJGxmaTIESW2EvRbh4HGKRezuNWLsQBuTDKWuhcR7Uyo_hOKm3oup889yrcquAvofs5VBMLdKMYOHizjFp_SJD8FGb-3tZ3mYDnfrAsmXUzFk3mhLA6bZwNhWXQNH--cL5B8UTFHnp3g15WNNfY2NuBGU0Vh7koFUyNQPm-U_HeszjFKik2OSc5k");'></div>
+<h1 class="text-gray-800 dark:text-gray-200 text-base font-medium">Sophia Clark</h1>
+</div>
+<nav class="mt-8 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-800 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-800 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"></path>
+</svg>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary/20 dark:bg-primary/30 text-primary dark:text-white" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path>
+</svg>
+<span class="text-sm font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-800 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path>
+</svg>
+<span class="text-sm font-medium">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-800 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"></path>
+</svg>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 p-6">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Messages</h1>
+<div class="mt-6 border-b border-gray-200 dark:border-gray-700/50">
+<nav aria-label="Tabs" class="flex gap-8">
+<a class="pb-3 px-1 border-b-2 border-primary text-primary text-sm font-bold" href="#">All</a>
+<a class="pb-3 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600 text-sm font-bold" href="#">Unread</a>
+<a class="pb-3 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600 text-sm font-bold" href="#">Archived</a>
+</nav>
+</div>
+<div class="mt-6 space-y-6">
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white px-4 pb-2 pt-4">Today</h3>
+<ul class="divide-y divide-gray-200 dark:divide-gray-700/50">
+<li class="p-4 hover:bg-primary/5 dark:hover:bg-primary/10 rounded-lg cursor-pointer flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHGvpUqEHPqSgt5AX53oHrZcaTXGSPOuuMD4XxUt9iriFQR4HcyvoOIqOklx25a__LD3XufL6KMRTJqsFlN-xrlrlPtUHx9n-uVi6MRRIlzG0Jg-hPc-Idp3Rwvpgivkb7M-6wKmcrqfN87-0XLKpycFuJvET9a70Hrfpowjkz5ns79y2ZYpC0HbQrrs0BNISBL8XoVdGGEQyb7jrNCMrnBILYP8O2UMw_wtKrEDfuxzqZibypfohwew1rt9rB2R_W78-97dNq3Uc");'></div>
+<div>
+<p class="text-base font-medium text-gray-900 dark:text-white">Sarah Miller</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Application Update</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 shrink-0">10:30 AM</p>
+</li>
+<li class="p-4 hover:bg-primary/5 dark:hover:bg-primary/10 rounded-lg cursor-pointer flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAchskZhk_CMJkTiJaaVWOLDiAOlQ8MslwlQ2HDQ8W3nmMTMru-EbLWfEOogaDb776zDIe3jioXdBRA1awMPCxpD49SLJ6XByPSRuyCmekY1qexp78WcYON2-LxA8TY4waadySmx4lJvUHBTqZ0RS6ZtbB8RGWoCOMW93spIN6ukK9dEN7Ns0PK0MGrAbXBpk6sERGlv9AgXGnlTM8SYEJCebN2AlRlFwRiz-uWDNckbfxRowcPh9TZ4GCQeBG538Y5-czokb7GljM");'></div>
+<div>
+<p class="text-base font-medium text-gray-900 dark:text-white">David Lee</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Interview Confirmation</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 shrink-0">9:15 AM</p>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white px-4 pb-2 pt-4">Yesterday</h3>
+<ul class="divide-y divide-gray-200 dark:divide-gray-700/50">
+<li class="p-4 hover:bg-primary/5 dark:hover:bg-primary/10 rounded-lg cursor-pointer flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDytFs-QCdzAQH3knn56tf06JaC6ObrxgfAEMTGmcobpYYohsbcU01-Wj0SIWeuUYfp77H8BOLI8kF-3rgaHCrY8slSV_O1Aan1t8x28iE1HFpwABDZ-IJzQdKDdpI2JE3xrShkPo30KLTHoyPnebGtWoNYXOvAdWEoYpP7pRkbku3DeSZ1tSrbHH5ADibGOrwLCPEKHRt_OgSYY32_-tkV5EBSfOyiyM-4CLGel8UUv8_bPXOo-trv5fCBv2ot3W1n3WL0l2dEUCQ");'></div>
+<div>
+<p class="text-base font-medium text-gray-900 dark:text-white">Emily Chen</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Document Review</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 shrink-0">4:45 PM</p>
+</li>
+<li class="p-4 hover:bg-primary/5 dark:hover:bg-primary/10 rounded-lg cursor-pointer flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmVEqWlJt1xOZwwN9-XOHj1E2sNTtr5x2xhVgDSjvjxrBaYidxVrwPJ6e5BGqpLzBgVv4pk-GpdUj9fHBgVMdSoUp61FJ7IhYmXdRU9Ciq5BQ7s44aptXB_L8q8lfB8G1ySe2AFy6tmLvlbAFyTti3hVCZ-x1WG6Z4L1--owkFMlgqgq1E6UUrMBx945Cgw0i_qZpF_B5cbpLF6gNqC2cSETLZ1TvVSOi97F0OgGJASJwBazjC4tGIJfI74iVa68xkz1ovHSBxko4");'></div>
+<div>
+<p class="text-base font-medium text-gray-900 dark:text-white">Robert Green</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Application Status</p>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 shrink-0">2:20 PM</p>
+</li>
+</ul>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

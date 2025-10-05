@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interview Stages Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen flex-col">
+<header class="sticky top-0 z-10 border-b border-primary/20 dark:border-primary/30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary size-7">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">CarePath</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Forms</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Reports</a>
+<a class="font-semibold text-primary dark:text-primary" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="relative">
+<button>
+<img alt="User avatar" class="size-10 rounded-full border-2 border-primary/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdrsxppYW_h8HHfVYKko7q_YI7xtxl0EZA2J5u9dzwW4oVr9a3c4PdnRQv41ofwaaZJoXsSMRsGR6e0edMmWObHKm1Kj8UZBe_Ieyj88LIOvnk2pptgqi0dqMOZsR663L5HwoGrOc6v0ukKV80aqpdqZyc87JlskPqtP0MHDPgZ6ePrNe_u8L0ubggj5cJCGxJS8aQvBKmz-Hsd4y7KyL8CIunTtQQSr24VUJKcqG2k-pYXO6F-SPhr3XsVDBPraPrbQpXEvWcQIA"/>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+<div class="flex flex-col gap-8">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Interview Stages</h2>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 transition-colors">
+<span class="material-symbols-outlined text-base"> add </span>
+<span>New Stage</span>
+</button>
+</div>
+<div class="overflow-hidden rounded-lg border border-primary/20 dark:border-primary/30 bg-background-light dark:bg-background-dark shadow-sm">
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-primary/20 dark:divide-primary/30">
+<thead class="bg-primary/5 dark:bg-primary/10">
+<tr>
+<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6" scope="col">Stage Name</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Default Form</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Automated Notifications</th>
+<th class="relative py-3.5 pl-3 pr-4 sm:pr-6" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10 dark:divide-primary/20">
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-6">Phone Screen</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Initial Screening Form</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Stage Entry Notification</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<a class="text-primary hover:text-opacity-80 dark:hover:text-opacity-80 transition-colors" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-6">First Interview</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Behavioral Interview Form</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Stage Entry Notification</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<a class="text-primary hover:text-opacity-80 dark:hover:text-opacity-80 transition-colors" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-6">Technical Assessment</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Technical Skills Assessment</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Stage Entry Notification</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<a class="text-primary hover:text-opacity-80 dark:hover:text-opacity-80 transition-colors" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-6">Final Interview</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Final Interview Form</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Stage Entry Notification</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<a class="text-primary hover:text-opacity-80 dark:hover:text-opacity-80 transition-colors" href="#">Edit</a>
+</td>
+</tr>
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-6">Offer</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Offer Letter Template</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-600 dark:text-gray-300">Stage Entry Notification</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<a class="text-primary hover:text-opacity-80 dark:hover:text-opacity-80 transition-colors" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+              "surface-light": "#ffffff",
+              "surface-dark": "#182c34",
+              "text-light": "#0d181b",
+              "text-dark": "#e7f0f3",
+              "text-muted-light": "#4c869a",
+              "text-muted-dark": "#94b1bc",
+              "border-light": "#e7f0f3",
+              "border-dark": "#2a424b",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-border-light dark:border-border-dark px-10 py-3">
+<div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">CareConnect HR</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-text-light dark:text-text-dark hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Onboarding</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Compliance</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Reporting</a>
+</nav>
+<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkL_RjkQbnTBrnmzjKQ6ggjODF_pVSjnPS-7-ePgz3mkPk2Qqbs_a_ai2iLOdYo3Op0tbzFatij5x6hkGFM0C7M2zq67R3punrUH_6jrBLKrsx8UAMIjdk-35v5_8UrK_bgvHV4YWrY89XLBari4ozKTdsrziSCrouMGpfdX1s3GLUxQe_6J7BQLovielp07kzuNEY6_Q6TXR3Zg7PkE8fvtcLpDGZmnI_o1AVepqvAT4ee6iCGtRYzqz3JCrS_cF47f9pMKVI9so");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-10 py-8">
+<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-3">
+<div class="lg:col-span-2">
+<div class="mb-6">
+<nav class="flex items-center text-sm font-medium text-text-muted-light dark:text-text-muted-dark">
+<a class="hover:text-primary" href="#">Applicants</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary" href="#">Sarah Miller</a>
+<span class="mx-2">/</span>
+<span class="text-text-light dark:text-text-dark">Notes</span>
+</nav>
+</div>
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark">Notes</h1>
+<p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Internal notes and feedback about the applicant.</p>
+</div>
+<div class="space-y-6">
+<div class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6">
+<h2 class="text-lg font-bold text-text-light dark:text-text-dark mb-4">Add a new note</h2>
+<textarea class="form-textarea w-full rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark focus:border-primary focus:ring-primary placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark min-h-[120px]" placeholder="Write your note here..."></textarea>
+<div class="mt-4 flex justify-end">
+<button class="rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-opacity-90 transition-colors">Save Note</button>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Previous Notes</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<img alt="Emily Carter" class="size-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBITE4pmfpmbzwK8HPgF465O5j3abis6fHJZedoAHx-g76QZYQ8vOyU2LLrsHrY_i9xB_cJoHKJxASsygh5hzofH5PwppjHFVmXc3ZyIOjL7A5hhq22PsmbeHFxWrx0SJj5hqpP8HZcN4tM1QIzRoKT1tWHasgA_B505EckUFZ-rV3PpYvG3hf4BInUCmUE_Yxdtw70II7pAIqpAuuvJw8mKzI7_g_nHEAMKKdEFrpQcbxGcEJzod_rLNfJg5EuZ-S4py02zm6a6Ho"/>
+<div class="flex-1">
+<div class="flex items-center gap-3">
+<p class="font-bold text-text-light dark:text-text-dark">Emily Carter</p>
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark">July 15, 2024</p>
+</div>
+<p class="mt-1 text-sm text-text-light dark:text-text-dark">
+                          Interview went well. Sarah has a strong background in geriatric care and excellent communication skills. She seems like a good fit for our team.
+                        </p>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-border-dark"></div>
+<div class="flex items-start gap-4">
+<img alt="David Lee" class="size-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCro95ykDvRaI2yw0MTRqOhZZoVGkL-irYKTCbNBYCcTAvhZee0lfth45qaHvNU0fArzAweXN8XEz2EFz-YuEC2_xZwVtk76b5jtodH-ZFRdWEUWEdMIkUNLIUGt0JaNw4lBIdYvMP5RCffWha9G8pwMslZiNeRV--s8YyPVxsiryrEIVOYjePeYf1luIHEKkn4y4tcmG28ff_sZIe5MZ0sDXEFEIuYiF0BwohQXMCaN2E9uf67a6MPnGQLp-8UZHYtKNtBEye2S3o"/>
+<div class="flex-1">
+<div class="flex items-center gap-3">
+<p class="font-bold text-text-light dark:text-text-dark">David Lee</p>
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark">July 10, 2024</p>
+</div>
+<p class="mt-1 text-sm text-text-light dark:text-text-dark">
+                          Resume review: Sarah's experience aligns with the requirements for the open position. Her previous role at Senior Living Solutions demonstrates her ability to handle
+                          complex care situations.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="space-y-8">
+<div class="rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-6 text-center">
+<img alt="Sarah Miller" class="mx-auto size-32 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOfskE8V5KQDiq4xKM7FzUu9Go9xJhiZZhk76FqjYcR44OF0dpEDuRqt4BGN_6VwlDqQQLkPk4B81BN9tC7FwBVmFgM_jQi3NAzVo2fBdYj5k2SyvuVYU7II_QeXy6GyBF80CAJWTIJevXSyEzlvjJcxwAVFR-SB54FDU_P5R94ISlOB6Nh1bvpZK0xBbl--8sqwqkDKYK0gsDEQKDKyuk5s8iGoxrTeMovgH7OqY1_J2m_a-WYJk1eQTJY8diPD50SNviCQvOWIw"/>
+<h3 class="mt-4 text-xl font-bold text-text-light dark:text-text-dark">Sarah Miller</h3>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Applicant</p>
+</div>
+<div class="space-y-4">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Contact Information</h3>
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined"> mail </span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">Email</p>
+<p class="font-medium text-text-light dark:text-text-dark">sarah.miller@email.com</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined"> phone </span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">Phone</p>
+<p class="font-medium text-text-light dark:text-text-dark">(555) 123-4567</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Application Details</h3>
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined"> business_center </span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">Position Applied For</p>
+<p class="font-medium text-text-light dark:text-text-dark">Caregiver</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined"> calendar_today </span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">Application Date</p>
+<p class="font-medium text-text-light dark:text-text-dark">July 5, 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined"> check_circle </span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark">Status</p>
+<p class="font-medium text-text-light dark:text-text-dark">Completed</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

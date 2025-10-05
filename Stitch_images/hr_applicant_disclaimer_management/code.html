@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>CareConnect HR - Disclaimers</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+            "foreground-light": "#0a1315",
+            "foreground-dark": "#e8eaeb",
+            "subtle-light": "#657e86",
+            "subtle-dark": "#9ab0b6",
+            "border-light": "#e1e7e9",
+            "border-dark": "#2a393e",
+            "success-light": "#22c55e",
+            "success-dark": "#4ade80",
+            "danger-light": "#ef4444",
+            "danger-dark": "#f87171"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="flex h-screen flex-col font-display">
+<header class="flex items-center justify-between border-b border-border-light dark:border-border-dark px-6 py-3 shrink-0">
+<div class="flex items-center gap-4">
+<div class="text-primary size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-lg font-bold">CareConnect HR</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-foreground-light dark:hover:text-foreground-dark transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-foreground-light dark:hover:text-foreground-dark transition-colors" href="#">Applicants</a>
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-foreground-light dark:hover:text-foreground-dark transition-colors" href="#">Jobs</a>
+<a class="text-sm font-bold text-primary" href="#">Disclaimers</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-foreground-light dark:text-foreground-dark">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDz-mps3k-BWiHaFrEmw7-S5HMi2gy4rK61roiFFgPQpUMlMDHLCMnh0Vy0FctQI4DOkiNnTHwlvDxNnynx196gkLymUIhwISu20UKo0Qjm3u09iFAjw3Tczp9cdHq4IEjmcWos3__vbHZVShrhnA8O5kFbOiq_TpE8XKTvoj3qy2zR_u1QVChtiogXcRSwGz4sa4vIREY5WxfP2xMg0QmvguNrIte3bwH3-8m45r9fYNbtTapCmao_NOngh_7s4COurTmmhptouk8");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<h2 class="text-3xl font-bold tracking-tight">Disclaimers</h2>
+<button class="flex items-center gap-2 bg-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>New Disclaimer</span>
+</button>
+</div>
+<div class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead class="bg-background-light dark:bg-black/10">
+<tr>
+<th class="px-6 py-4 font-semibold text-left text-subtle-light dark:text-subtle-dark">Disclaimer Name</th>
+<th class="px-6 py-4 font-semibold text-left text-subtle-light dark:text-subtle-dark">Display Location</th>
+<th class="px-6 py-4 font-semibold text-center text-subtle-light dark:text-subtle-dark">Required</th>
+<th class="px-6 py-4 font-semibold text-left text-subtle-light dark:text-subtle-dark">Status</th>
+<th class="px-6 py-4 font-semibold text-left text-subtle-light dark:text-subtle-dark">Last Updated</th>
+<th class="px-6 py-4 font-semibold text-right text-subtle-light dark:text-subtle-dark">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium">Background Check Consent</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">Application Submission</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-5 w-5 rounded border-2 border-border-light dark:border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" disabled="" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-light/20 text-success-light dark:bg-success-dark/20 dark:text-success-dark">
+                      Active
+                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">2024-01-15</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-danger-light/10 dark:hover:bg-danger-dark/20 text-danger-light dark:text-danger-dark transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium">HIPAA Compliance Notice</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">Sign-Up</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-5 w-5 rounded border-2 border-border-light dark:border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" disabled="" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-light/20 text-success-light dark:bg-success-dark/20 dark:text-success-dark">
+                      Active
+                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">2024-02-20</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-danger-light/10 dark:hover:bg-danger-dark/20 text-danger-light dark:text-danger-dark transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium">Document Upload Agreement</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">Document Upload</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-5 w-5 rounded border-2 border-border-light dark:border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" disabled="" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-light/20 text-success-light dark:bg-success-dark/20 dark:text-success-dark">
+                      Active
+                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">2024-03-10</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-danger-light/10 dark:hover:bg-danger-dark/20 text-danger-light dark:text-danger-dark transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium">Equal Opportunity Employer Statement</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">Job Listings</td>
+<td class="px-6 py-4 text-center">
+<input class="h-5 w-5 rounded border-2 border-border-light dark:border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" disabled="" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-light/20 text-success-light dark:bg-success-dark/20 dark:text-success-dark">
+                      Active
+                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">2024-04-05</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-danger-light/10 dark:hover:bg-danger-dark/20 text-danger-light dark:text-danger-dark transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap font-medium">Terms of Service</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">Sign-Up</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-5 w-5 rounded border-2 border-border-light dark:border-border-dark bg-transparent text-primary focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" disabled="" type="checkbox"/>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-subtle-light/20 text-subtle-light dark:bg-subtle-dark/20 dark:text-subtle-dark">
+                      Inactive
+                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-subtle-light dark:text-subtle-dark">2023-12-01</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-danger-light/10 dark:hover:bg-danger-dark/20 text-danger-light dark:text-danger-dark transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

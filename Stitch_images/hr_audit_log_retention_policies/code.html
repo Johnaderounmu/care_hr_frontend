@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+              "content-light": "#e7e9e9",
+              "content-dark": "#182a30",
+              "subtle-light": "#d8dcdd",
+              "subtle-dark": "#213840",
+              "text-primary-light": "#101d22",
+              "text-primary-dark": "#f6f8f8",
+              "text-secondary-light": "#5c6d73",
+              "text-secondary-dark": "#a0b4bc",
+            },
+            fontFamily: {
+              "display": ["Inter"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1rem",
+              "full": "9999px"
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark">
+<div class="flex h-full min-h-screen w-full flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-subtle-light dark:border-subtle-dark px-10 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">CareConnect HR</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="hover:text-primary transition-colors" href="#">Onboarding</a>
+<a class="hover:text-primary transition-colors" href="#">Compliance</a>
+<a class="hover:text-primary transition-colors" href="#">Reporting</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative rounded-full p-2 hover:bg-subtle-light dark:hover:bg-subtle-dark">
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark">
+              notifications
+            </span>
+<span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-primary ring-2 ring-background-light dark:ring-background-dark"></span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwa1BP1Iw1KF9Kty5lqiOMdvMHOFoNN2vpvWLQNgcP5G2Gj9VMWR-y0N573ydxUeYYIqYbtOY1cpUGjtN-Ihg4IyBbiQ2iSSkSmuk7WQPY75s34hHdfGyOsb0HREUKq_TyV-t6W-iQL2Be4Hm9uG8ZgVMqRnkjiyrCEdTdkfpER0O5s7G2oElqZA7ZceLgIe3L7BgxnrqKS0TUlfY4MufTOgNPwMvd27clrhbiaiwAr75CuiKE7uqVCk8P9C25t5Uqb5GN7Y9g9w4");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+<div class="mx-auto max-w-4xl">
+<div class="mb-8">
+<h1 class="text-3xl font-bold tracking-tight text-text-primary-light dark:text-text-primary-dark">Audit Log Retention Policy</h1>
+<p class="mt-2 text-text-secondary-light dark:text-text-secondary-dark">Configure how long audit logs are stored and manage automated purging or archiving rules.</p>
+</div>
+<div class="space-y-12">
+<section>
+<h2 class="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark border-b border-subtle-light dark:border-subtle-dark pb-3 mb-6">Current Policy</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="flex justify-between border-b border-subtle-light dark:border-subtle-dark py-3">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Retention Period</span>
+<span class="font-medium">90 Days</span>
+</div>
+<div class="flex justify-between border-b border-subtle-light dark:border-subtle-dark py-3">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Purge Frequency</span>
+<span class="font-medium">Monthly</span>
+</div>
+<div class="flex justify-between border-b border-subtle-light dark:border-subtle-dark py-3">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Archive Location</span>
+<span class="font-medium">Cloud Storage</span>
+</div>
+<div class="flex justify-between border-b border-subtle-light dark:border-subtle-dark py-3">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Current Log Size</span>
+<span class="font-medium">50 GB</span>
+</div>
+<div class="flex justify-between border-b border-subtle-light dark:border-subtle-dark py-3">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Last Purge Date</span>
+<span class="font-medium">2024-03-15</span>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-semibold text-text-primary-light dark:text-text-primary-dark border-b border-subtle-light dark:border-subtle-dark pb-3 mb-6">Configure Policy</h2>
+<form class="space-y-6 max-w-lg">
+<div>
+<label class="block text-sm font-medium text-text-primary-light dark:text-text-primary-dark pb-2" for="retention-period">Retention Period</label>
+<select class="form-select w-full rounded-lg border-subtle-light dark:border-subtle-dark bg-content-light dark:bg-content-dark focus:border-primary focus:ring-primary text-text-primary-light dark:text-text-primary-dark" id="retention-period">
+<option>30 Days</option>
+<option selected="">90 Days</option>
+<option>180 Days</option>
+<option>1 Year</option>
+<option>Indefinitely</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-primary-light dark:text-text-primary-dark pb-2" for="purge-frequency">Purge Frequency</label>
+<select class="form-select w-full rounded-lg border-subtle-light dark:border-subtle-dark bg-content-light dark:bg-content-dark focus:border-primary focus:ring-primary text-text-primary-light dark:text-text-primary-dark" id="purge-frequency">
+<option>Daily</option>
+<option>Weekly</option>
+<option selected="">Monthly</option>
+<option>Quarterly</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-primary-light dark:text-text-primary-dark pb-2" for="archive-location">Archive Location</label>
+<input class="form-input w-full rounded-lg border-subtle-light dark:border-subtle-dark bg-content-light dark:bg-content-dark focus:border-primary focus:ring-primary text-text-primary-light dark:text-text-primary-dark" id="archive-location" type="text" value="s3://careconnect-logs/archive/"/>
+</div>
+<div class="flex justify-end pt-4">
+<button class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark" type="submit">
+                    Save Changes
+                  </button>
+</div>
+</form>
+</section>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

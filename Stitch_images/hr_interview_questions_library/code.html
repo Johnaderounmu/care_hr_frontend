@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interview Questions Library</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-background-light/50 dark:bg-background-dark/50 p-6 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">CarePath HR</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400">Acme Co</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary text-white" href="#">
+<span class="material-symbols-outlined">slideshow</span>
+<span class="text-sm font-medium">Interviews</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-primary/10 hover:text-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<div>
+<button class="w-full flex items-center justify-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary py-2 rounded-lg text-sm font-semibold">
+<span class="material-symbols-outlined">add_circle</span>
+            New Question
+          </button>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="p-8">
+<header class="mb-8 flex justify-between items-center">
+<div>
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Interview Questions Library</h2>
+<p class="text-gray-500 dark:text-gray-400 mt-1">Manage and categorize interview questions for consistent and effective interviewing practices.</p>
+</div>
+</header>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-background-light/50 dark:bg-background-dark/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary placeholder-gray-400" placeholder="Search questions by keyword, skill, or category" type="text"/>
+</div>
+</div>
+<div class="border-b border-gray-200 dark:border-gray-700 mb-6">
+<nav aria-label="Tabs" class="flex gap-8">
+<a class="pb-3 border-b-2 border-primary text-primary font-semibold text-sm" href="#"> All Questions </a>
+<a class="pb-3 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-primary hover:border-primary text-sm font-medium" href="#"> Categorized Questions </a>
+<a class="pb-3 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-primary hover:border-primary text-sm font-medium" href="#"> Essential Questions </a>
+</nav>
+</div>
+<div class="overflow-x-auto bg-background-light/50 dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-gray-700">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-700/30">
+<tr>
+<th class="px-6 py-3 w-2/5" scope="col">Question</th>
+<th class="px-6 py-3" scope="col">Category</th>
+<th class="px-6 py-3" scope="col">Skill</th>
+<th class="px-6 py-3" scope="col">Job Role</th>
+<th class="px-6 py-3" scope="col">Stage</th>
+<th class="px-6 py-3 text-center" scope="col">Essential</th>
+<th class="px-6 py-3" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">Describe a time you had to handle a difficult patient or family member. How did you approach the situation?</th>
+<td class="px-6 py-4">Behavioral</td>
+<td class="px-6 py-4">Communication</td>
+<td class="px-6 py-4">Home Health Aide</td>
+<td class="px-6 py-4">Initial Screening</td>
+<td class="px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">How do you ensure patient safety and follow infection control protocols?</th>
+<td class="px-6 py-4">Situational</td>
+<td class="px-6 py-4">Patient Safety</td>
+<td class="px-6 py-4">Registered Nurse</td>
+<td class="px-6 py-4">Technical Interview</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">What experience do you have with wound care and medication administration?</th>
+<td class="px-6 py-4">Technical</td>
+<td class="px-6 py-4">Clinical Skills</td>
+<td class="px-6 py-4">Licensed Practical Nurse</td>
+<td class="px-6 py-4">Technical Interview</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">Tell me about a time you had to make a quick decision in a critical situation.</th>
+<td class="px-6 py-4">Behavioral</td>
+<td class="px-6 py-4">Problem Solving</td>
+<td class="px-6 py-4">Home Health Aide</td>
+<td class="px-6 py-4">Initial Screening</td>
+<td class="px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">How do you handle stress and maintain a positive attitude in challenging environments?</th>
+<td class="px-6 py-4">Behavioral</td>
+<td class="px-6 py-4">Stress Management</td>
+<td class="px-6 py-4">Registered Nurse</td>
+<td class="px-6 py-4">Behavioral Interview</td>
+<td class="px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">Describe your experience with electronic health records (EHR) systems.</th>
+<td class="px-6 py-4">Technical</td>
+<td class="px-6 py-4">Documentation</td>
+<td class="px-6 py-4">Licensed Practical Nurse</td>
+<td class="px-6 py-4">Technical Interview</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/20">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white" scope="row">What are your strengths and weaknesses as a healthcare professional?</th>
+<td class="px-6 py-4">Behavioral</td>
+<td class="px-6 py-4">Self-Awareness</td>
+<td class="px-6 py-4">Home Health Aide</td>
+<td class="px-6 py-4">Initial Screening</td>
+<td class="px-6 py-4 text-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary bg-background-light dark:bg-background-dark" type="checkbox"/>
+</td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Edit</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

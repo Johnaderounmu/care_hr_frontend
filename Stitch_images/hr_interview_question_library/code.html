@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="flex w-64 flex-col bg-background-light dark:bg-background-dark p-4 border-r border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-2 px-2 py-4 mb-8">
+<div class="w-8 h-8 bg-primary rounded-full"></div>
+<span class="text-xl font-bold text-gray-800 dark:text-white">CareHR</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-medium">Interviews</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-white bg-primary" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-medium">Questions</span>
+</a>
+<a class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<div class="flex items-center gap-3 rounded px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="p-8">
+<div class="flex items-center justify-between mb-8">
+<h1 class="text-3xl font-bold text-gray-800 dark:text-white">Interview Questions</h1>
+<button class="flex items-center justify-center gap-2 rounded bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/80">
+<span class="material-symbols-outlined">add</span>
+<span>Add Question</span>
+</button>
+</div>
+<div class="mb-8">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">search</span>
+<input class="w-full rounded bg-gray-100 dark:bg-gray-800 border-transparent focus:border-primary focus:ring-0 pl-10 pr-4 py-2 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" placeholder="Search questions" type="text"/>
+</div>
+</div>
+<div>
+<h2 class="text-xl font-bold text-gray-800 dark:text-white mb-4">All Questions</h2>
+<div class="overflow-x-auto rounded border border-gray-200 dark:border-gray-800">
+<table class="w-full text-left">
+<thead class="bg-gray-50 dark:bg-gray-900/50">
+<tr>
+<th class="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">Question</th>
+<th class="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">Category</th>
+<th class="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">Type</th>
+<th class="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-800 text-sm text-gray-800 dark:text-gray-300">
+<tr>
+<td class="px-6 py-4 max-w-sm">Describe a time you had to handle a difficult client. How did you resolve the situation?</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:text-primary">Customer Service</span>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">Behavioral</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 max-w-sm">Explain your experience with electronic health records (EHR) systems.</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:text-primary">Technical Skills</span>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">Technical</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 max-w-sm">How do you ensure patient confidentiality and adhere to HIPAA regulations?</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:text-primary">Compliance</span>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">Behavioral</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 max-w-sm">What strategies do you use to manage your time effectively when dealing with multiple patients?</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:text-primary">Time Management</span>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">Behavioral</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 max-w-sm">Describe your approach to assessing a patient's needs and developing a care plan.</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:text-primary">Patient Care</span>
+</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">Technical</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

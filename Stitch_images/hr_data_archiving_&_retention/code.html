@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#11a4d4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+            "foreground-light": "#0d181b",
+            "foreground-dark": "#f8fbfc",
+            "subtle-light": "#e7f0f3",
+            "subtle-dark": "#1a2f35"
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen w-full">
+<aside class="flex w-64 flex-col border-r border-subtle-light dark:border-subtle-dark p-6">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">health_and_safety</span>
+<h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Acme Health</h1>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-bold" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg bg-subtle-light dark:bg-subtle-dark py-3 px-4 text-foreground-light dark:text-foreground-dark font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="p-8">
+<header class="mb-8">
+<h1 class="text-4xl font-bold text-foreground-light dark:text-foreground-dark">Data Archiving</h1>
+<p class="text-foreground-light/70 dark:text-foreground-dark/70 mt-1">Manage data retention policies and archiving processes.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2">
+<div class="space-y-8">
+<section class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-foreground-light dark:text-foreground-dark mb-4">Data Retention Policy</h2>
+<div class="max-w-md space-y-4">
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-2" for="retention-period">Archive applicant data older than</label>
+<select class="w-full form-select bg-background-light dark:bg-background-dark border-subtle-light dark:border-subtle-dark rounded-lg text-foreground-light dark:text-foreground-dark focus:ring-primary focus:border-primary" id="retention-period">
+<option>1 Year</option>
+<option>2 Years</option>
+<option selected="">3 Years</option>
+<option>5 Years</option>
+</select>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-white font-semibold shadow-sm hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">save</span>
+<span>Save Policy</span>
+</button>
+</div>
+</section>
+<section class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-foreground-light dark:text-foreground-dark mb-4">Manual Archiving</h2>
+<div class="max-w-md space-y-4">
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-2" for="archive-data">Select data to archive manually</label>
+<select class="w-full form-select bg-background-light dark:bg-background-dark border-subtle-light dark:border-subtle-dark rounded-lg text-foreground-light dark:text-foreground-dark focus:ring-primary focus:border-primary" id="archive-data">
+<option>Inactive applications (&gt; 6 months)</option>
+<option>Filled positions data (&gt; 1 year)</option>
+<option>Documents for rejected applicants</option>
+</select>
+</div>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-subtle-light dark:bg-subtle-dark px-5 py-2.5 text-foreground-light dark:text-foreground-dark font-semibold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined">archive</span>
+<span>Archive Now</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+<div class="lg:col-span-3">
+<section class="bg-white dark:bg-subtle-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-foreground-light dark:text-foreground-dark mb-4">Archiving Log</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-subtle-light dark:border-subtle-dark/50">
+<th class="p-4 text-sm font-semibold text-foreground-light dark:text-foreground-dark">Date</th>
+<th class="p-4 text-sm font-semibold text-foreground-light dark:text-foreground-dark">Type</th>
+<th class="p-4 text-sm font-semibold text-foreground-light dark:text-foreground-dark">Records</th>
+<th class="p-4 text-sm font-semibold text-foreground-light dark:text-foreground-dark text-center">Status</th>
+</tr>
+</thead>
+<tbody class="text-foreground-light/80 dark:text-foreground-dark/80">
+<tr class="border-b border-subtle-light dark:border-subtle-dark/50">
+<td class="p-4">2024-01-15</td>
+<td class="p-4">Manual</td>
+<td class="p-4">150</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Completed
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-subtle-light dark:border-subtle-dark/50">
+<td class="p-4">2023-12-20</td>
+<td class="p-4">Policy</td>
+<td class="p-4">200</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Completed
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-subtle-light dark:border-subtle-dark/50">
+<td class="p-4">2023-11-05</td>
+<td class="p-4">Manual</td>
+<td class="p-4">100</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-red-100 dark:bg-red-900/50 px-3 py-1 text-xs font-medium text-red-700 dark:text-red-300">
+<span class="h-1.5 w-1.5 rounded-full bg-red-500"></span>
+                                        Failed
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-subtle-light dark:border-subtle-dark/50">
+<td class="p-4">2023-10-10</td>
+<td class="p-4">Policy</td>
+<td class="p-4">180</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Completed
+                                    </span>
+</td>
+</tr>
+<tr>
+<td class="p-4">2023-09-25</td>
+<td class="p-4">Manual</td>
+<td class="p-4">120</td>
+<td class="p-4 text-center">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                        Completed
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-display">
+<div class="flex h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+<div class="flex h-full min-h-0 flex-1">
+<aside class="flex w-64 flex-col border-r border-black/10 p-4 dark:border-white/10">
+<div class="flex flex-col">
+<h1 class="text-lg font-bold text-black dark:text-white">Acme Co</h1>
+<p class="text-sm text-black/60 dark:text-white/60">HR</p>
+</div>
+<nav class="mt-8 flex flex-col gap-2">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-black/60 hover:bg-primary/20 hover:text-primary dark:text-white/60 dark:hover:bg-primary/30 dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined"> home </span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-black/60 hover:bg-primary/20 hover:text-primary dark:text-white/60 dark:hover:bg-primary/30 dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined"> group </span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-black/60 hover:bg-primary/20 hover:text-primary dark:text-white/60 dark:hover:bg-primary/30 dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined"> work </span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg bg-primary/20 px-3 py-2 text-primary dark:bg-primary/30" href="#">
+<span class="material-symbols-outlined"> videocam </span>
+<span class="text-sm font-medium">Interviews</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-black/60 hover:bg-primary/20 hover:text-primary dark:text-white/60 dark:hover:bg-primary/30 dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined"> settings </span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<main class="flex flex-1 flex-col gap-4 p-6">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold text-black dark:text-white">Interview Locations</h2>
+<button class="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white">
+<span class="material-symbols-outlined"> add </span>
+<span>Add Location</span>
+</button>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-black/50 dark:text-white/50"> search </span>
+<input class="w-full rounded-lg border border-black/10 bg-white py-2 pl-10 pr-4 text-black focus:outline-none focus:ring-2 focus:ring-primary/50 dark:border-white/10 dark:bg-background-dark dark:text-white" placeholder="Search locations" type="text"/>
+</div>
+<div class="overflow-x-auto rounded-lg border border-black/10 bg-white dark:border-white/10 dark:bg-background-dark">
+<table class="w-full text-left">
+<thead class="border-b border-black/10 dark:border-white/10">
+<tr>
+<th class="p-4 text-sm font-semibold text-black dark:text-white">Location Name</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white">Type</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white">Capacity</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white">Address</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white">Status</th>
+<th class="p-4 text-sm font-semibold text-black dark:text-white"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-black/10 dark:border-white/10">
+<td class="p-4 text-sm text-black dark:text-white">Main Office Interview Room 1</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">In-Person</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">4</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">123 Elm Street, Anytown, CA 91234</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/30"> Active </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-black/60 hover:text-primary dark:text-white/60 dark:hover:text-primary"><span class="material-symbols-outlined"> more_horiz </span></button>
+</td>
+</tr>
+<tr class="border-b border-black/10 dark:border-white/10">
+<td class="p-4 text-sm text-black dark:text-white">Remote Video Call</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">Virtual</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">Unlimited</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">N/A</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/30"> Active </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-black/60 hover:text-primary dark:text-white/60 dark:hover:text-primary"><span class="material-symbols-outlined"> more_horiz </span></button>
+</td>
+</tr>
+<tr class="border-b border-black/10 dark:border-white/10">
+<td class="p-4 text-sm text-black dark:text-white">Specific Clinic Site</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">In-Person</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">2</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">456 Oak Avenue, Anytown, CA 91234</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/30"> Active </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-black/60 hover:text-primary dark:text-white/60 dark:hover:text-primary"><span class="material-symbols-outlined"> more_horiz </span></button>
+</td>
+</tr>
+<tr class="border-b border-black/10 dark:border-white/10">
+<td class="p-4 text-sm text-black dark:text-white">Branch Office Conference Room</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">In-Person</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">8</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">789 Pine Lane, Anytown, CA 91234</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/30"> Active </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-black/60 hover:text-primary dark:text-white/60 dark:hover:text-primary"><span class="material-symbols-outlined"> more_horiz </span></button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-sm text-black dark:text-white">Training Center</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">In-Person</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">10</td>
+<td class="p-4 text-sm text-black/60 dark:text-white/60">101 Maple Drive, Anytown, CA 91234</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-black/10 px-2.5 py-0.5 text-xs font-medium text-black/60 dark:bg-white/10 dark:text-white/60"> Inactive </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-black/60 hover:text-primary dark:text-white/60 dark:hover:text-primary"><span class="material-symbols-outlined"> more_horiz </span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

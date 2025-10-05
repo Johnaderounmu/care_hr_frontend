@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-full min-h-screen w-full">
+<aside class="w-64 bg-background-light dark:bg-background-dark border-r border-primary/20 dark:border-primary/30 p-6 flex flex-col justify-between">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-full"></div>
+<span class="text-xl font-bold text-background-dark dark:text-background-light">HomeHealth HR</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-background-dark/70 dark:text-background-light/70 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-background-dark dark:hover:text-background-light transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-background-dark/70 dark:text-background-light/70 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-background-dark dark:hover:text-background-light transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-background-dark/70 dark:text-background-light/70 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-background-dark dark:hover:text-background-light transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary/10 dark:bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-bold">Disclaimers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-background-dark/70 dark:text-background-light/70 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-background-dark dark:hover:text-background-light transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-background-dark/70 dark:text-background-light/70 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-background-dark dark:hover:text-background-light transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<div class="flex items-center justify-between mb-8">
+<h1 class="text-4xl font-bold text-background-dark dark:text-background-light">Disclaimer Library</h1>
+<button class="flex items-center justify-center gap-2 h-10 px-5 bg-primary text-white rounded-lg text-sm font-medium shadow-sm hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+            New Disclaimer
+          </button>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-xl border border-primary/20 dark:border-primary/30 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary/10 dark:bg-primary/20">
+<tr>
+<th class="px-6 py-4 text-sm font-semibold text-background-dark dark:text-background-light">Disclaimer Name</th>
+<th class="px-6 py-4 text-sm font-semibold text-background-dark dark:text-background-light">Version</th>
+<th class="px-6 py-4 text-sm font-semibold text-background-dark dark:text-background-light">Status</th>
+<th class="px-6 py-4 text-sm font-semibold text-background-dark dark:text-background-light">Last Updated</th>
+<th class="px-6 py-4 text-sm font-semibold text-background-dark dark:text-background-light text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/20 dark:divide-primary/30">
+<tr>
+<td class="px-6 py-4 text-sm text-background-dark dark:text-background-light">Privacy Policy</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">1.2</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary/20 dark:bg-primary/30 text-primary">Published</span>
+</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2023-11-15</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-background-dark dark:text-background-light">Terms of Service</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2.0</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary/20 dark:bg-primary/30 text-primary">Published</span>
+</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2023-10-20</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-background-dark dark:text-background-light">Background Check Authorization</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">1.0</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-background-dark/10 dark:bg-background-light/10 text-background-dark dark:text-background-light">Draft</span>
+</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2023-12-05</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:underline">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-background-dark dark:text-background-light">HIPAA Notice</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">1.1</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary/20 dark:bg-primary/30 text-primary">Published</span>
+</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2023-09-28</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:underline">View</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-background-dark dark:text-background-light">Equal Opportunity Statement</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">1.0</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary/20 dark:bg-primary/30 text-primary">Published</span>
+</td>
+<td class="px-6 py-4 text-sm text-background-dark/70 dark:text-background-light/70">2023-08-10</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:underline">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

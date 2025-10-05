@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareConnect HR Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11a4d4",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "foreground-light": "#0d181b",
+                        "foreground-dark": "#e7f0f3",
+                        "subtle-light": "#e7f0f3",
+                        "subtle-dark": "#1a2c32",
+                        "muted-light": "#4c869a",
+                        "muted-dark": "#8cb3c0",
+                        "border-light": "#cfe1e7",
+                        "border-dark": "#2d4a55",
+                        "accent-success": "#078836"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="text-primary size-7">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">CareConnect HR</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Applicants</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Documents</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Reports</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-2 hover:bg-subtle-light dark:hover:bg-subtle-dark transition-colors">
+<svg class="text-muted-light dark:text-muted-dark" fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark ring-primary" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBd2SAJzTflbUrw48qwWYeerAZgz7_EwrKxoeOXA_EUoU2pfd95NR_M4I8MATwJbcI8-9LkQm563wvdV8XEWCFFvq3FPxv0Ow_6kb4JEp1CQoXfmXbijj-acxWhB49XJLLQH8YYaI2fiEhIrACEWvU5R8RbDpo_z7J5rJISe9W2AZYOzcLeMaqY0zZEfUrQMiyx6m1hksFk37cwuj33edt-jP8OOkSryogLbPc-yr7HvtpXFru0joibmgFpNBORZ2ei4G3CL10aC7s");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
+<p class="text-muted-light dark:text-muted-dark mt-1">Welcome back, Sarah. Here's your overview.</p>
+</div>
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<div class="bg-subtle-light dark:bg-subtle-dark p-6 rounded-lg">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Active Applicants</p>
+<p class="text-3xl font-bold mt-1">125</p>
+</div>
+<div class="bg-subtle-light dark:bg-subtle-dark p-6 rounded-lg">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Pending Document Reviews</p>
+<p class="text-3xl font-bold mt-1">32</p>
+</div>
+<div class="bg-subtle-light dark:bg-subtle-dark p-6 rounded-lg">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Upcoming Expirations</p>
+<p class="text-3xl font-bold mt-1">15</p>
+</div>
+<div class="bg-subtle-light dark:bg-subtle-dark p-6 rounded-lg">
+<p class="text-sm font-medium text-muted-light dark:text-muted-dark">Recently Uploaded</p>
+<p class="text-3xl font-bold mt-1">20</p>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="text-2xl font-bold tracking-tight">Applicant Overview</h3>
+</div>
+<div class="grid gap-6 lg:grid-cols-2 mt-4">
+<div class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark p-6 rounded-lg flex flex-col">
+<p class="text-base font-medium">Applicant Growth</p>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-primary">+15%</p>
+<p class="text-sm font-medium text-accent-success">+2.5% vs last month</p>
+</div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Last 30 Days</p>
+<div class="flex-1 flex items-end gap-3 sm:gap-4 mt-6">
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-subtle-light dark:bg-subtle-dark rounded-t" style="height: 60%"></div>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Jan</p>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-subtle-light dark:bg-subtle-dark rounded-t" style="height: 40%"></div>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Feb</p>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-subtle-light dark:bg-subtle-dark rounded-t" style="height: 70%"></div>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Mar</p>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-primary rounded-t" style="height: 85%"></div>
+<p class="text-xs font-bold text-primary">Apr</p>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-subtle-light dark:bg-subtle-dark rounded-t" style="height: 80%"></div>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">May</p>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full h-24 bg-subtle-light dark:bg-subtle-dark rounded-t" style="height: 95%"></div>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Jun</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark p-6 rounded-lg flex flex-col">
+<p class="text-base font-medium">Document Review Progress</p>
+<div class="flex items-baseline gap-2">
+<p class="text-4xl font-bold text-primary">85%</p>
+<p class="text-sm font-medium text-accent-success">+5% vs last week</p>
+</div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Current Quarter</p>
+<div class="flex-1 flex flex-col justify-center mt-6">
+<svg fill="none" height="120" preserveAspectRatio="none" viewBox="0 0 472 120" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="chartGradient" x1="0" x2="0" y1="0" y2="120">
+<stop stop-color="#11a4d4" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#11a4d4" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0 87.2C18.1538 87.2 18.1538 16.8 36.3077 16.8C54.4615 16.8 54.4615 32.8 72.6154 32.8C90.7692 32.8 90.7692 74.4 108.923 74.4C127.077 74.4 127.077 26.4 145.231 26.4C163.385 26.4 163.385 80.8 181.538 80.8C199.692 80.8 199.692 48.8 217.846 48.8C236 48.8 236 36 254.154 36C272.308 36 272.308 96.8 290.462 96.8C308.615 96.8 308.615 119.2 326.769 119.2C344.923 119.2 344.923 0.8 363.077 0.8C381.231 0.8 381.231 64.8 399.385 64.8C417.538 64.8 417.538 103.2 435.692 103.2C453.846 103.2 453.846 20 472 20V120H0V87.2Z" fill="url(#chartGradient)"></path>
+<path d="M0 87.2C18.1538 87.2 18.1538 16.8 36.3077 16.8C54.4615 16.8 54.4615 32.8 72.6154 32.8C90.7692 32.8 90.7692 74.4 108.923 74.4C127.077 74.4 127.077 26.4 145.231 26.4C163.385 26.4 163.385 80.8 181.538 80.8C199.692 80.8 199.692 48.8 217.846 48.8C236 48.8 236 36 254.154 36C272.308 36 272.308 96.8 290.462 96.8C308.615 96.8 308.615 119.2 326.769 119.2C344.923 119.2 344.923 0.8 363.077 0.8C381.231 0.8 381.231 64.8 399.385 64.8C417.538 64.8 417.538 103.2 435.692 103.2C453.846 103.2 453.846 20 472 20" stroke="#11a4d4" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-2">
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Week 1</p>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Week 4</p>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Week 8</p>
+<p class="text-xs font-bold text-muted-light dark:text-muted-dark">Week 12</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h3 class="text-2xl font-bold tracking-tight">Quick Actions</h3>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 ring-offset-background-light dark:ring-offset-background-dark">
+                            View All Applicants
+                        </button>
+<button class="flex items-center justify-center px-5 py-2.5 bg-subtle-light dark:bg-subtle-dark text-foreground-light dark:text-foreground-dark text-sm font-semibold rounded-lg hover:bg-subtle-light/80 dark:hover:bg-subtle-dark/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 ring-offset-background-light dark:ring-offset-background-dark">
+                            Manage Documents
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

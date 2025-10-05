@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#11a4d4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Inter"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-background-light dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 flex flex-col p-4">
+<div class="mb-8">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">HR System</h1>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary/20 dark:bg-primary/30 text-primary dark:text-white" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-medium">Templates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-gray-700 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Email Templates</h2>
+<button class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-medium shadow-sm hover:bg-primary/90">
+<span class="material-symbols-outlined">add</span>
+            New Template
+          </button>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-gray-50 dark:bg-gray-900/50">
+<tr>
+<th class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Template Name</th>
+<th class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Description</th>
+<th class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Last Updated</th>
+<th class="px-6 py-4 font-semibold text-gray-900 dark:text-white text-center">Status</th>
+<th class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">Application Received</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400 max-w-sm truncate">Confirmation email sent to applicants upon receiving their application.</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">2023-11-15</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">Document Expiration Reminder</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400 max-w-sm truncate">Reminder email sent to applicants when their documents are about to expire.</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">2023-11-10</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">Status Update</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400 max-w-sm truncate">Email sent to applicants to update them on their application status.</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">2023-11-05</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">Interview Invitation</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400 max-w-sm truncate">Email sent to applicants to invite them for an interview.</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">2023-10-20</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Inactive</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">Rejection Notice</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400 max-w-sm truncate">Email sent to applicants to inform them of their rejection.</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-400">2023-10-15</td>
+<td class="px-6 py-4 text-center">
+<span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Inactive</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<button class="font-medium text-primary hover:text-primary/80">Edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
