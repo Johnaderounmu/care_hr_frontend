@@ -52,8 +52,9 @@ class ApiClient {
   // GraphQL query
   static Future<QueryResult> graphqlQuery(String query,
       {Map<String, dynamic>? variables}) async {
-    if (_graphqlClient == null)
+    if (_graphqlClient == null) {
       throw Exception('GraphQL client not initialized');
+    }
     final options =
         QueryOptions(document: gql(query), variables: variables ?? {});
     return _graphqlClient!.query(options);
@@ -62,8 +63,9 @@ class ApiClient {
   // GraphQL mutation
   static Future<QueryResult> graphqlMutate(String mutation,
       {Map<String, dynamic>? variables}) async {
-    if (_graphqlClient == null)
+    if (_graphqlClient == null) {
       throw Exception('GraphQL client not initialized');
+    }
     final options =
         MutationOptions(document: gql(mutation), variables: variables ?? {});
     return _graphqlClient!.mutate(options);

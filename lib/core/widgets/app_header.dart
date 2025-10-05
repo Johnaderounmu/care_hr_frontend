@@ -58,8 +58,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 (availableHeight - (isCompact ? 12 : 24)).clamp(24.0, 40.0);
             final avatarRadius = (avatarEdge / 2) - 2;
 
-            if (isCompact)
+            if (isCompact) {
               return _buildCompact(context, avatarEdge, avatarRadius);
+            }
 
             return _buildFull(context, avatarEdge, avatarRadius);
           },

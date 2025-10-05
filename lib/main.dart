@@ -73,34 +73,45 @@ void main() async {
   if (!Hive.isAdapterRegistered(0)) Hive.registerAdapter(UserModelAdapter());
   if (!Hive.isAdapterRegistered(36)) Hive.registerAdapter(UserRoleAdapter());
 
-  if (!Hive.isAdapterRegistered(1))
+  if (!Hive.isAdapterRegistered(1)) {
     Hive.registerAdapter(DocumentModelAdapter());
-  if (!Hive.isAdapterRegistered(2))
+  }
+  if (!Hive.isAdapterRegistered(2)) {
     Hive.registerAdapter(DocumentStatusAdapter());
+  }
   if (!Hive.isAdapterRegistered(3)) Hive.registerAdapter(DocumentTypeAdapter());
 
   if (!Hive.isAdapterRegistered(26)) Hive.registerAdapter(JobModelAdapter());
   if (!Hive.isAdapterRegistered(27)) Hive.registerAdapter(JobStatusAdapter());
 
-  if (!Hive.isAdapterRegistered(30))
+  if (!Hive.isAdapterRegistered(30)) {
     Hive.registerAdapter(JobApplicationModelAdapter());
-  if (!Hive.isAdapterRegistered(32))
+  }
+  if (!Hive.isAdapterRegistered(32)) {
     Hive.registerAdapter(ApplicationScoreAdapter());
-  if (!Hive.isAdapterRegistered(33))
+  }
+  if (!Hive.isAdapterRegistered(33)) {
     Hive.registerAdapter(InterviewModelAdapter());
-  if (!Hive.isAdapterRegistered(31))
+  }
+  if (!Hive.isAdapterRegistered(31)) {
     Hive.registerAdapter(ApplicationStatusAdapter());
-  if (!Hive.isAdapterRegistered(34))
+  }
+  if (!Hive.isAdapterRegistered(34)) {
     Hive.registerAdapter(InterviewTypeAdapter());
-  if (!Hive.isAdapterRegistered(35))
+  }
+  if (!Hive.isAdapterRegistered(35)) {
     Hive.registerAdapter(InterviewStatusAdapter());
+  }
 
-  if (!Hive.isAdapterRegistered(4))
+  if (!Hive.isAdapterRegistered(4)) {
     Hive.registerAdapter(NotificationModelAdapter());
-  if (!Hive.isAdapterRegistered(5))
+  }
+  if (!Hive.isAdapterRegistered(5)) {
     Hive.registerAdapter(NotificationTypeAdapter());
-  if (!Hive.isAdapterRegistered(6))
+  }
+  if (!Hive.isAdapterRegistered(6)) {
     Hive.registerAdapter(NotificationPriorityAdapter());
+  }
 
   Hive.registerAdapter(ReportModelAdapter());
   Hive.registerAdapter(AnalyticsDataModelAdapter());
@@ -112,16 +123,20 @@ void main() async {
   Hive.registerAdapter(AnalyticsMetricTypeAdapter());
   Hive.registerAdapter(ChartTypeAdapter());
 
-  if (!Hive.isAdapterRegistered(11))
+  if (!Hive.isAdapterRegistered(11)) {
     Hive.registerAdapter(UserRoleModelAdapter());
+  }
   if (!Hive.isAdapterRegistered(12)) Hive.registerAdapter(PermissionAdapter());
-  if (!Hive.isAdapterRegistered(13))
+  if (!Hive.isAdapterRegistered(13)) {
     Hive.registerAdapter(ExtendedUserModelAdapter());
-  if (!Hive.isAdapterRegistered(15))
+  }
+  if (!Hive.isAdapterRegistered(15)) {
     Hive.registerAdapter(UserAuditLogModelAdapter());
+  }
   if (!Hive.isAdapterRegistered(14)) Hive.registerAdapter(UserStatusAdapter());
-  if (!Hive.isAdapterRegistered(16))
+  if (!Hive.isAdapterRegistered(16)) {
     Hive.registerAdapter(AuditLogLevelAdapter());
+  }
 
   // Simple verification logs for critical adapters
   final checks = {
