@@ -339,12 +339,22 @@ class _SignupPageState extends State<SignupPage> {
     if (_formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
-      final success = await authProvider.signUp(
+      // Try backend registration first
+      bool success = await authProvider.registerWithBackend(
         email: _emailController.text.trim(),
         password: _passwordController.text,
         fullName: _fullNameController.text.trim(),
-        role: _selectedRole,
       );
+
+      // If backend fails, fall back to original method for demo purposes
+      if (!success) {
+        success = await authProvider.signUp(
+          email: _emailController.text.trim(),
+          password: _passwordController.text,
+          fullName: _fullNameController.text.trim(),
+          role: _selectedRole,
+        );
+      }
 
       if (success && mounted) {
         // Navigation will be handled by the router based on user role
@@ -353,6 +363,14 @@ class _SignupPageState extends State<SignupPage> {
         } else {
           context.go('/hr-dashboard');
         }
+      } else if (mounted && authProvider.error != null) {
+        // Show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(authProvider.error!),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     }
   }

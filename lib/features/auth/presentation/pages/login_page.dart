@@ -257,15 +257,31 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
-      final success = await authProvider.signIn(
+      // Try backend authentication first
+      bool success = await authProvider.loginWithBackend(
         email: _emailController.text.trim(),
         password: _passwordController.text,
       );
 
+      // If backend fails, fall back to original method for demo purposes
+      if (!success) {
+        success = await authProvider.signIn(
+          email: _emailController.text.trim(),
+          password: _passwordController.text,
+        );
+      }
+
       if (success && mounted) {
         // Navigation will be handled by the router
-        context.go(
-            '/hr-dashboard'); // Default redirect, router will handle proper routing
+        context.go('/hr-dashboard'); // Default redirect, router will handle proper routing
+      } else if (mounted && authProvider.error != null) {
+        // Show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(authProvider.error!),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     }
   }

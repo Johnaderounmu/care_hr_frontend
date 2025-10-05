@@ -6,6 +6,7 @@ import '../models/user_model.dart';
 import '../services/auth_service.dart';
 import '../services/storage_service.dart';
 import '../services/api_client.dart';
+import '../services/api_service.dart';
 import '../../features/auth/data/services/api_auth_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -272,6 +273,118 @@ class AuthProvider extends ChangeNotifier {
       _setError(e.toString());
       _logger.e('Password reset error: $e');
       return false;
+    } finally {
+      _setLoading(false);
+    }
+  }
+
+  // Backend API Login - New implementation using our API service
+  Future<bool> loginWithBackend({
+    required String email,
+    required String password,
+  }) async {
+    _setLoading(true);
+    _clearError();
+
+    try {
+      // Check backend connectivity first
+      final isBackendHealthy = await ApiService.checkBackendHealth();
+      if (!isBackendHealthy) {
+        _setError('Backend server is not available. Please try again later.');
+        return false;
+      }
+
+      // Attempt login
+      final result = await ApiService.login(email, password);
+      
+      if (result['success'] == true) {
+        final userData = result['data'];
+        final userInfo = userData['user'];
+        
+        // Create user model from backend response
+        _user = UserModel(
+          id: userInfo['id'] ?? '',
+          email: userInfo['email'] ?? email,
+          fullName: userInfo['fullName'] ?? '',
+          role: userInfo['role'] ?? 'applicant',
+          isActive: true,
+          createdAt: DateTime.now(),
+        );
+        
+        _isAuthenticated = true;
+        
+        // Store user data locally
+        await StorageService.setUserToken(userData['token'] ?? '');
+        await StorageService.setUserId(userInfo['id'] ?? '');
+        await StorageService.setUserRole(userInfo['role'] ?? 'applicant');
+        
+        _logger.i('Backend login successful: ${_user?.email}');
+        return true;
+      } else {
+        _setError(result['error'] ?? 'Login failed');
+        return false;
+      }
+    } catch (e) {
+      _setError('Network error: ${e.toString()}');
+      _logger.e('Backend login error: $e');
+      return false;
+    } finally {
+      _setLoading(false);
+    }
+  }
+
+  // Backend API Registration
+  Future<bool> registerWithBackend({
+    required String email,
+    required String password,
+    required String fullName,
+  }) async {
+    _setLoading(true);
+    _clearError();
+
+    try {
+      final result = await ApiService.register(email, password, fullName);
+      
+      if (result['success'] == true) {
+        _logger.i('Backend registration successful: $email');
+        
+        // Auto-login after successful registration
+        return await loginWithBackend(email: email, password: password);
+      } else {
+        _setError(result['error'] ?? 'Registration failed');
+        return false;
+      }
+    } catch (e) {
+      _setError('Network error: ${e.toString()}');
+      _logger.e('Backend registration error: $e');
+      return false;
+    } finally {
+      _setLoading(false);
+    }
+  }
+
+  // Enhanced sign out with backend cleanup
+  Future<void> signOutFromBackend() async {
+    _setLoading(true);
+    _clearError();
+
+    try {
+      // Clear API service token
+      ApiService.logout();
+      
+      // Clear local state
+      _user = null;
+      _isAuthenticated = false;
+      
+      // Clear stored user data
+      await StorageService.remove('userToken');
+      await StorageService.remove('userId');
+      await StorageService.remove('userRole');
+      
+      _logger.i('Backend sign out successful');
+    } catch (e) {
+      _setError(e.toString());
+      _logger.e('Backend sign out error: $e');
     } finally {
       _setLoading(false);
     }

@@ -31,8 +31,10 @@ import 'features/user_management/data/services/user_management_service.dart';
 import 'features/reports/data/services/report_service.dart';
 import 'core/providers/auth_provider.dart';
 import 'core/providers/theme_provider.dart';
+import 'core/providers/job_data_provider.dart';
 import 'core/router/app_router.dart';
 import 'core/debug/debug_route_tester.dart';
+import 'core/widgets/demo_banner.dart';
 import 'package:logger/logger.dart';
 
 void main() async {
@@ -187,6 +189,7 @@ class CareHRApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => JobDataService()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
@@ -199,13 +202,19 @@ class CareHRApp extends StatelessWidget {
             routerConfig: AppRouter.router,
             // In debug mode attach a hidden DebugRouteTester
             builder: (context, widget) {
-              if (kDebugMode) {
-                return Stack(children: [
-                  if (widget != null) widget,
-                  const DebugRouteTester()
-                ]);
-              }
-              return widget ?? const SizedBox.shrink();
+              return Column(
+                children: [
+                  const DemoBanner(),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        if (widget != null) widget,
+                        if (kDebugMode) const DebugRouteTester(),
+                      ],
+                    ),
+                  ),
+                ],
+              );
             },
           );
         },
