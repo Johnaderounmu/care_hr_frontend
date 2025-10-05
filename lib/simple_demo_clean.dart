@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,31 +12,29 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DemoHomePage(),
+      home: DemoHomePage(),
     );
   }
 }
 
 class DemoHomePage extends StatelessWidget {
-  const DemoHomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Care HR System - Demo Mode'),
+        title: Text('Care HR System - Demo Mode'),
         backgroundColor: Colors.amber,
       ),
       body: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.amber.shade100,
                   borderRadius: BorderRadius.circular(12),
@@ -48,7 +44,7 @@ class DemoHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.science, color: Colors.amber.shade700, size: 24),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     Text(
                       '🧪 DEMO MODE ACTIVE',
                       style: TextStyle(
@@ -60,7 +56,7 @@ class DemoHomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32),
               
               Text(
                 'Welcome to Care HR System',
@@ -71,7 +67,7 @@ class DemoHomePage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               
               Text(
                 'Complete Human Resources Management Platform',
@@ -81,7 +77,7 @@ class DemoHomePage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 48),
+              SizedBox(height: 48),
               
               // Feature cards
               Wrap(
@@ -128,10 +124,10 @@ class DemoHomePage extends StatelessWidget {
                 ],
               ),
               
-              const SizedBox(height: 48),
+              SizedBox(height: 48),
               
               Container(
-                padding: const EdgeInsets.all(24),
+                padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: Colors.blue.shade50,
                   borderRadius: BorderRadius.circular(16),
@@ -144,7 +140,7 @@ class DemoHomePage extends StatelessWidget {
                       color: Colors.blue.shade600,
                       size: 48,
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     Text(
                       'Demo Information',
                       style: TextStyle(
@@ -153,7 +149,7 @@ class DemoHomePage extends StatelessWidget {
                         color: Colors.blue.shade800,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Text(
                       'This is a demonstration version of the Care HR System. All data is sample data for demonstration purposes only.',
                       style: TextStyle(
@@ -162,7 +158,7 @@ class DemoHomePage extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 24),
+                    SizedBox(height: 24),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -175,19 +171,19 @@ class DemoHomePage extends StatelessWidget {
                 ),
               ),
               
-              const SizedBox(height: 32),
+              SizedBox(height: 32),
               
               ElevatedButton(
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: const Text('Demo Mode'),
-                      content: const Text('This is a demonstration version. In a real application, this would navigate to the main dashboard.'),
+                      title: Text('Demo Mode'),
+                      content: Text('This is a demonstration version. In a real application, this would navigate to the main dashboard.'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.of(context).pop(),
-                          child: const Text('OK'),
+                          child: Text('OK'),
                         ),
                       ],
                     ),
@@ -196,18 +192,18 @@ class DemoHomePage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue.shade600,
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Explore Dashboard',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               
-              const SizedBox(height: 48),
+              SizedBox(height: 48),
             ],
           ),
         ),
@@ -223,7 +219,7 @@ class DemoHomePage extends StatelessWidget {
   }) {
     return Container(
       width: 300,
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -232,7 +228,7 @@ class DemoHomePage extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade200,
             blurRadius: 8,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -244,7 +240,7 @@ class DemoHomePage extends StatelessWidget {
             color: color.shade600,
             size: 48,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             title,
             style: TextStyle(
@@ -254,7 +250,7 @@ class DemoHomePage extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             description,
             style: TextStyle(
@@ -279,7 +275,7 @@ class DemoHomePage extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           label,
           style: TextStyle(

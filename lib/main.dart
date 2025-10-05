@@ -8,7 +8,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'core/theme/app_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'core/services/api_client.dart';
-import 'package:firebase_core/firebase_core.dart';
+// Removed Firebase - using PostgreSQL backend instead
 import 'core/constants/app_colors.dart';
 import 'core/constants/app_strings.dart';
 import 'core/services/storage_service.dart';
@@ -42,15 +42,8 @@ void main() async {
 
   final logger = Logger();
 
-  // Try to initialize Firebase for dev/local workflows. If initialization
-  // fails (missing config), we log a warning and continue so the app doesn't crash.
-  try {
-    await Firebase.initializeApp();
-    logger.i('Firebase initialized');
-  } catch (e) {
-    logger
-        .w('Firebase initialization failed (continuing without Firebase): $e');
-  }
+  // Using PostgreSQL backend instead of Firebase
+  logger.i('Initializing CareHR app with PostgreSQL backend');
 
   // Load environment variables if a .env file exists (optional local dev)
   try {

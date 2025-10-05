@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// Removed Firebase import - using PostgreSQL backend
 import 'package:hive/hive.dart';
 
 part 'user_model.g.dart';
@@ -52,18 +52,28 @@ class UserModel extends HiveObject {
     this.permissions,
   });
 
-  // Create UserModel from Firebase User
-  factory UserModel.fromFirebaseUser(User user) {
+  // Create UserModel from PostgreSQL backend response
+  factory UserModel.fromPostgreSQL(Map<String, dynamic> userData, String token) {
     return UserModel(
-      id: user.uid,
-      email: user.email ?? '',
-      fullName: user.displayName ?? '',
-      role: _getRoleFromEmail(user.email ?? ''),
-      phoneNumber: user.phoneNumber,
-      profileImageUrl: user.photoURL,
-      isActive: true,
-      createdAt: DateTime.now(),
+      id: userData['id']?.toString() ?? '',
+      email: userData['email'] ?? '',
+      fullName: userData['fullName'] ?? userData['full_name'] ?? '',
+      role: userData['role'] ?? 'applicant',
+      phoneNumber: userData['phoneNumber'] ?? userData['phone_number'],
+      profileImageUrl: userData['profileImageUrl'] ?? userData['profile_image_url'],
+      isActive: userData['isActive'] ?? userData['is_active'] ?? true,
+      createdAt: userData['createdAt'] != null 
+          ? DateTime.parse(userData['createdAt']) 
+          : (userData['created_at'] != null 
+              ? DateTime.parse(userData['created_at']) 
+              : DateTime.now()),
       lastLoginAt: DateTime.now(),
+      preferences: userData['preferences'] != null 
+          ? Map<String, dynamic>.from(userData['preferences']) 
+          : null,
+      permissions: userData['permissions'] != null 
+          ? List<String>.from(userData['permissions']) 
+          : null,
     );
   }
 
@@ -105,6 +115,9 @@ class UserModel extends HiveObject {
       'permissions': permissions,
     };
   }
+
+  // Convert UserModel to JSON (same as toMap for API calls)
+  Map<String, dynamic> toJson() => toMap();
 
   // Copy with method
   UserModel copyWith({

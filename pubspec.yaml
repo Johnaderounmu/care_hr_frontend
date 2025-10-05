@@ -36,9 +36,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   
-  # Authentication
-  firebase_auth: ^4.15.3
-  firebase_core: ^2.24.2
+  # Authentication (using JWT with PostgreSQL backend)
+  # Removed firebase_auth and firebase_core - using PostgreSQL backend
+  
   # GraphQL client
   graphql_flutter: ^5.2.0-beta.6
   # Load .env files for local dev configuration
