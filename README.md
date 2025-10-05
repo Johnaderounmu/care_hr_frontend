@@ -1,27 +1,126 @@
-# CareConnect HR - Flutter Application
+# Care HR Frontend 📱
 
-A comprehensive HR management system built with Flutter, providing features for both HR administrators and job applicants.
+[![Flutter CI/CD Pipeline](https://github.com/Johnaderounmu/care_hr_frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/Johnaderounmu/care_hr_frontend/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Johnaderounmu/care_hr_frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/Johnaderounmu/care_hr_frontend)
+[![Flutter Version](https://img.shields.io/badge/Flutter-3.22.0-blue.svg)](https://flutter.dev/)
+[![Dart Version](https://img.shields.io/badge/Dart-3.4.0-blue.svg)](https://dart.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-## Features
+> 📱 **Care HR Frontend** - A comprehensive HR management mobile application built with Flutter, featuring modern UI, offline-first architecture, and seamless user experience.
 
-### Authentication System
+## 📋 Table of Contents
 
-### HR Dashboard
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Architecture](#-architecture)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Configuration](#-configuration)
+- [Development](#-development)
+- [Testing](#-testing)
+- [Building & Deployment](#-building--deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-### Applicant Dashboard
+## ✨ Features
 
-### Job Application Form
+### 🔐 Authentication System
+- **Secure Login/Signup** - JWT-based authentication with biometric support
+- **Role-based Access** - Separate interfaces for HR Admins and Applicants
+- **Password Recovery** - Secure password reset functionality
+- **Auto-login** - Remember user sessions securely
 
-### Profile Management
+### 👔 HR Dashboard
+- **Real-time Analytics** - Live metrics and performance indicators
+- **Applicant Management** - Comprehensive applicant tracking system
+- **Document Review** - Streamlined document approval workflow
+- **Hiring Pipeline** - Visual pipeline for recruitment stages
+- **Reports & Analytics** - Detailed hiring and performance reports
 
-### Settings
+### 🎯 Applicant Dashboard
+- **Application Tracking** - Real-time status updates
+- **Document Management** - Secure document upload and storage
+- **Profile Management** - Complete profile editing capabilities
+- **Notifications** - In-app notifications for important updates
+- **Interview Scheduling** - Easy interview management
 
-## Architecture
+### 📋 Job Application System
+- **Smart Forms** - Dynamic, context-aware application forms
+- **Document Upload** - Multi-format document support
+- **Application History** - Track all submitted applications
+- **Status Updates** - Real-time application status tracking
 
-The application follows a clean architecture pattern with:
+### 👤 Profile Management
+- **Complete Profiles** - Detailed user profile management
+- **Skills & Qualifications** - Comprehensive skill tracking
+- **Experience Management** - Work history and experience tracking
+- **Document Library** - Personal document storage
 
+### ⚙️ Advanced Settings
+- **Theme Customization** - Light/Dark mode support
+- **Notification Preferences** - Granular notification controls
+- **Data Privacy** - GDPR-compliant privacy settings
+- **Offline Mode** - Offline-first architecture with sync
 
-### Key Technologies
+## 📱 Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/login.png" width="200px" alt="Login Screen"/>
+      <br />
+      <sub><b>Login Screen</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/hr_dashboard.png" width="200px" alt="HR Dashboard"/>
+      <br />
+      <sub><b>HR Dashboard</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/applicant_dashboard.png" width="200px" alt="Applicant Dashboard"/>
+      <br />
+      <sub><b>Applicant Dashboard</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/document_upload.png" width="200px" alt="Document Upload"/>
+      <br />
+      <sub><b>Document Upload</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/job_application.png" width="200px" alt="Job Application"/>
+      <br />
+      <sub><b>Job Application</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/profile.png" width="200px" alt="Profile"/>
+      <br />
+      <sub><b>Profile Management</b></sub>
+    </td>
+  </tr>
+</table>
+
+## 🏗️ Architecture
+
+The application follows a **clean architecture** pattern with clear separation of concerns:
+
+### 📐 Design Patterns
+- **Provider Pattern** - State management with ChangeNotifier
+- **Repository Pattern** - Data layer abstraction
+- **Dependency Injection** - Loose coupling between components
+- **MVVM Architecture** - Model-View-ViewModel separation
+
+### 🛠️ Key Technologies
+- **Flutter 3.22.0** - Cross-platform mobile framework
+- **Dart 3.4.0** - Programming language
+- **Hive** - Local database for offline storage
+- **Provider** - State management solution
+- **Go Router** - Declarative routing
+- **GraphQL** - API communication
+- **Firebase** - Authentication and analytics (optional)
+- **AWS S3** - File storage
 
 
 ## Project Structure
