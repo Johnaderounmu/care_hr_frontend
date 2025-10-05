@@ -380,4 +380,3 @@ class JobService {
     await _box?.close();
   }
 }
-

@@ -380,4 +380,3 @@ enum DocumentType {
     }
   }
 }
-

@@ -375,4 +375,3 @@ class SalaryRangeFilterChip extends StatelessWidget {
     }
   }
 }
-

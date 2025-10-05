@@ -190,6 +190,9 @@ jobs:
     - name: Get dependencies
       run: flutter pub get
 
+    - name: Install pana
+      run: dart pub global activate pana
+      
     - name: Run dependency audit
       run: flutter pub deps --json | dart pub global run pana --json
       continue-on-error: true

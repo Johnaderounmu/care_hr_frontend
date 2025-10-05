@@ -345,7 +345,8 @@ class _ReportsDashboardPageState extends State<ReportsDashboardPage> {
                 if (mounted) {
                   _loadAnalytics();
                   scaffold.showSnackBar(
-                    const SnackBar(content: Text('Report deleted successfully')),
+                    const SnackBar(
+                        content: Text('Report deleted successfully')),
                   );
                 }
               } catch (e) {
@@ -364,4 +365,3 @@ class _ReportsDashboardPageState extends State<ReportsDashboardPage> {
     );
   }
 }
-

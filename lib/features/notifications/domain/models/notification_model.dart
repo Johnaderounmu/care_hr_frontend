@@ -295,4 +295,3 @@ enum NotificationPriority {
     }
   }
 }
-

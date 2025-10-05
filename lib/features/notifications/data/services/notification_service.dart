@@ -406,4 +406,3 @@ class NotificationService {
     }
   }
 }
-

@@ -412,4 +412,3 @@ class JobApplicationService {
     await _box?.close();
   }
 }
-

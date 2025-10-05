@@ -175,8 +175,8 @@ class ReportService {
         status: ReportStatus.failed,
       );
 
-  await reportsBox.put(failedReport.id, failedReport);
-  rethrow;
+      await reportsBox.put(failedReport.id, failedReport);
+      rethrow;
     }
   }
 
@@ -260,8 +260,8 @@ class ReportService {
         status: ReportStatus.failed,
       );
 
-  await reportsBox.put(failedReport.id, failedReport);
-  rethrow;
+      await reportsBox.put(failedReport.id, failedReport);
+      rethrow;
     }
   }
 
@@ -349,8 +349,8 @@ class ReportService {
         status: ReportStatus.failed,
       );
 
-  await reportsBox.put(failedReport.id, failedReport);
-  rethrow;
+      await reportsBox.put(failedReport.id, failedReport);
+      rethrow;
     }
   }
 
@@ -683,4 +683,3 @@ class ReportService {
     await _chartsBox?.close();
   }
 }
-

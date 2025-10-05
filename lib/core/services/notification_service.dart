@@ -111,8 +111,8 @@ class NotificationService {
       id,
       title,
       body,
-  // convert DateTime to TZDateTime
-  tz.TZDateTime.from(scheduledDate, tz.local),
+      // convert DateTime to TZDateTime
+      tz.TZDateTime.from(scheduledDate, tz.local),
       notificationDetails,
       payload: payload,
       uiLocalNotificationDateInterpretation:

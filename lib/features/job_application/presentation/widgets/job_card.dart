@@ -444,4 +444,3 @@ class CompactJobCard extends StatelessWidget {
     );
   }
 }
-

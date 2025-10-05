@@ -325,4 +325,3 @@ class NotificationTypeChip extends StatelessWidget {
     }
   }
 }
-

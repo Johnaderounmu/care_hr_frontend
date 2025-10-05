@@ -520,4 +520,3 @@ enum InterviewStatus {
     }
   }
 }
-

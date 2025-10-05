@@ -5,7 +5,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'storage_service.dart';
 
 class ApiClient {
-  static final dio.Dio _dio = dio.Dio(dio.BaseOptions(baseUrl: dotenv.env['API_BASE_URL'] ?? ''));
+  static final dio.Dio _dio =
+      dio.Dio(dio.BaseOptions(baseUrl: dotenv.env['API_BASE_URL'] ?? ''));
   static GraphQLClient? _graphqlClient;
 
   static void init() {
@@ -19,7 +20,8 @@ class ApiClient {
     }
 
     if (kDebugMode) {
-      debugPrint('ApiClient initialized. REST: ${_dio.options.baseUrl}, GraphQL: $graphqlEndpoint');
+      debugPrint(
+          'ApiClient initialized. REST: ${_dio.options.baseUrl}, GraphQL: $graphqlEndpoint');
     }
     // Attach token if present
     final token = StorageService.getUserToken();
@@ -37,7 +39,8 @@ class ApiClient {
   }
 
   // Simple REST GET
-  static Future<dio.Response> get(String path, {Map<String, dynamic>? queryParameters}) async {
+  static Future<dio.Response> get(String path,
+      {Map<String, dynamic>? queryParameters}) async {
     return _dio.get(path, queryParameters: queryParameters);
   }
 
@@ -47,16 +50,22 @@ class ApiClient {
   }
 
   // GraphQL query
-  static Future<QueryResult> graphqlQuery(String query, {Map<String, dynamic>? variables}) async {
-    if (_graphqlClient == null) throw Exception('GraphQL client not initialized');
-    final options = QueryOptions(document: gql(query), variables: variables ?? {});
+  static Future<QueryResult> graphqlQuery(String query,
+      {Map<String, dynamic>? variables}) async {
+    if (_graphqlClient == null)
+      throw Exception('GraphQL client not initialized');
+    final options =
+        QueryOptions(document: gql(query), variables: variables ?? {});
     return _graphqlClient!.query(options);
   }
 
   // GraphQL mutation
-  static Future<QueryResult> graphqlMutate(String mutation, {Map<String, dynamic>? variables}) async {
-    if (_graphqlClient == null) throw Exception('GraphQL client not initialized');
-    final options = MutationOptions(document: gql(mutation), variables: variables ?? {});
+  static Future<QueryResult> graphqlMutate(String mutation,
+      {Map<String, dynamic>? variables}) async {
+    if (_graphqlClient == null)
+      throw Exception('GraphQL client not initialized');
+    final options =
+        MutationOptions(document: gql(mutation), variables: variables ?? {});
     return _graphqlClient!.mutate(options);
   }
 }

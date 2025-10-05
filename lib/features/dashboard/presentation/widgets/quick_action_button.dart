@@ -60,8 +60,7 @@ class QuickActionButton extends StatelessWidget {
                       height: 16,
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
-                        valueColor:
-                            AlwaysStoppedAnimation<Color>(Colors.white),
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
                     )
                   : Icon(icon, size: 18),
@@ -157,4 +156,3 @@ class ActionTile extends StatelessWidget {
     );
   }
 }
-

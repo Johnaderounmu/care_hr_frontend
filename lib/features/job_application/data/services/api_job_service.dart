@@ -6,7 +6,8 @@ class ApiJobService {
     return ApiClient.get('/jobs', queryParameters: filters);
   }
 
-  static Future<dio.Response> applyJob(String jobId, Map<String, dynamic> application) async {
+  static Future<dio.Response> applyJob(
+      String jobId, Map<String, dynamic> application) async {
     return ApiClient.post('/jobs/$jobId/apply', data: application);
   }
 }

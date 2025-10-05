@@ -384,4 +384,3 @@ class _AdvancedSearchBarState extends State<AdvancedSearchBar> {
     );
   }
 }
-

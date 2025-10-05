@@ -42,8 +42,8 @@ class ChartWidget extends StatelessWidget {
                     child: Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
+                            fontWeight: FontWeight.w600,
+                          ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -55,9 +55,9 @@ class ChartWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Chart Content
               Expanded(
                 child: _buildChartContent(),
@@ -108,8 +108,9 @@ class ChartWidget extends StatelessWidget {
 
   Widget _buildPieChart() {
     final entries = data.entries.toList();
-    final total = entries.fold<double>(0, (sum, entry) => sum + (entry.value as num).toDouble());
-    
+    final total = entries.fold<double>(
+        0, (sum, entry) => sum + (entry.value as num).toDouble());
+
     if (total == 0) {
       return const Center(child: Text('No data'));
     }
@@ -132,9 +133,9 @@ class ChartWidget extends StatelessWidget {
             ),
           ),
         ),
-        
+
         const SizedBox(height: 12),
-        
+
         // Legend
         Wrap(
           spacing: 8,
@@ -143,8 +144,10 @@ class ChartWidget extends StatelessWidget {
             final index = entry.key;
             final dataEntry = entry.value;
             final color = colors[index % colors.length];
-            final percentage = ((dataEntry.value as num).toDouble() / total * 100).toStringAsFixed(1);
-            
+            final percentage =
+                ((dataEntry.value as num).toDouble() / total * 100)
+                    .toStringAsFixed(1);
+
             return Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -173,8 +176,12 @@ class ChartWidget extends StatelessWidget {
 
   Widget _buildBarChart() {
     final entries = data.entries.toList();
-    final maxValue = entries.isEmpty ? 0 : entries.map((e) => (e.value as num).toDouble()).reduce((a, b) => a > b ? a : b);
-    
+    final maxValue = entries.isEmpty
+        ? 0
+        : entries
+            .map((e) => (e.value as num).toDouble())
+            .reduce((a, b) => a > b ? a : b);
+
     if (maxValue == 0) {
       return const Center(child: Text('No data'));
     }
@@ -191,7 +198,7 @@ class ChartWidget extends StatelessWidget {
               final value = (dataEntry.value as num).toDouble();
               final height = maxValue > 0 ? (value / maxValue) : 0.0;
               final color = colors[index % colors.length];
-              
+
               return Expanded(
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 2),
@@ -202,7 +209,8 @@ class ChartWidget extends StatelessWidget {
                         height: 80 * height,
                         decoration: BoxDecoration(
                           color: color,
-                          borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
+                          borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(4)),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -226,7 +234,7 @@ class ChartWidget extends StatelessWidget {
 
   Widget _buildLineChart() {
     final entries = data.entries.toList();
-    
+
     if (entries.isEmpty) {
       return const Center(child: Text('No data'));
     }
@@ -258,7 +266,7 @@ class ChartWidget extends StatelessWidget {
       children: data.entries.map((entry) {
         final index = data.entries.toList().indexOf(entry);
         final color = colors[index % colors.length];
-        
+
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: Row(
@@ -325,24 +333,25 @@ class PieChartPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
     final radius = size.width / 2;
-  final innerRadius = isDoughnut ? radius * 0.4 : 0.0;
-    
-    final total = entries.fold<double>(0, (sum, entry) => sum + (entry.value as num).toDouble());
-    
+    final innerRadius = isDoughnut ? radius * 0.4 : 0.0;
+
+    final total = entries.fold<double>(
+        0, (sum, entry) => sum + (entry.value as num).toDouble());
+
     if (total == 0) return;
-    
+
     double startAngle = -math.pi / 2;
-    
+
     for (int i = 0; i < entries.length; i++) {
       final entry = entries[i];
       final value = (entry.value as num).toDouble();
       final sweepAngle = (value / total) * 2 * math.pi;
       final color = colors[i % colors.length];
-      
+
       final paint = Paint()
         ..color = color
         ..style = PaintingStyle.fill;
-      
+
       canvas.drawArc(
         Rect.fromCircle(center: center, radius: radius),
         startAngle,
@@ -350,15 +359,15 @@ class PieChartPainter extends CustomPainter {
         true,
         paint,
       );
-      
+
       if (isDoughnut) {
         final innerPaint = Paint()
           ..color = Colors.white
           ..style = PaintingStyle.fill;
-        
+
         canvas.drawCircle(center, innerRadius, innerPaint);
       }
-      
+
       startAngle += sweepAngle;
     }
   }
@@ -379,42 +388,42 @@ class LineChartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     if (entries.isEmpty) return;
-    
+
     final paint = Paint()
       ..color = color
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
-    
+
     final values = entries.map((e) => (e.value as num).toDouble()).toList();
     final maxValue = values.reduce((a, b) => a > b ? a : b);
     final minValue = values.reduce((a, b) => a < b ? a : b);
     final range = maxValue - minValue;
-    
+
     if (range == 0) return;
-    
+
     final points = <Offset>[];
-    
+
     for (int i = 0; i < entries.length; i++) {
       final x = (i / (entries.length - 1)) * size.width;
       final normalizedValue = (values[i] - minValue) / range;
       final y = size.height - (normalizedValue * size.height);
       points.add(Offset(x, y));
     }
-    
+
     final path = Path();
     path.moveTo(points.first.dx, points.first.dy);
-    
+
     for (int i = 1; i < points.length; i++) {
       path.lineTo(points[i].dx, points[i].dy);
     }
-    
+
     canvas.drawPath(path, paint);
-    
+
     // Draw points
     final pointPaint = Paint()
       ..color = color
       ..style = PaintingStyle.fill;
-    
+
     for (final point in points) {
       canvas.drawCircle(point, 3, pointPaint);
     }
@@ -425,4 +434,3 @@ class LineChartPainter extends CustomPainter {
 }
 
 // math import already at top
-

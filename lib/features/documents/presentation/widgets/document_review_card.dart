@@ -312,7 +312,8 @@ class DocumentReviewCard extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailItem(BuildContext context, {
+  Widget _buildDetailItem(
+    BuildContext context, {
     required IconData icon,
     required String label,
     required String value,
@@ -423,4 +424,3 @@ class DocumentReviewCard extends StatelessWidget {
     }
   }
 }
-

@@ -334,4 +334,3 @@ class PermissionFilterChip extends StatelessWidget {
     }
   }
 }
-

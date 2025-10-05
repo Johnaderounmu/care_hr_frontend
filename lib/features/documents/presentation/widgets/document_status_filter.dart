@@ -357,4 +357,3 @@ class DocumentDateFilter extends StatelessWidget {
     }
   }
 }
-

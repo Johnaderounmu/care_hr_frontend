@@ -54,10 +54,12 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 ? constraints.maxHeight
                 : preferredSize.height;
             final isCompact = availableHeight < preferredSize.height;
-            final avatarEdge = (availableHeight - (isCompact ? 12 : 24)).clamp(24.0, 40.0);
+            final avatarEdge =
+                (availableHeight - (isCompact ? 12 : 24)).clamp(24.0, 40.0);
             final avatarRadius = (avatarEdge / 2) - 2;
 
-            if (isCompact) return _buildCompact(context, avatarEdge, avatarRadius);
+            if (isCompact)
+              return _buildCompact(context, avatarEdge, avatarRadius);
 
             return _buildFull(context, avatarEdge, avatarRadius);
           },
@@ -66,7 +68,8 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildCompact(BuildContext context, double avatarEdge, double avatarRadius) {
+  Widget _buildCompact(
+      BuildContext context, double avatarEdge, double avatarRadius) {
     return SizedBox(
       height: preferredSize.height,
       child: Row(
@@ -95,9 +98,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 size: 16,
               ),
             ),
-
           const SizedBox(width: 12),
-
           Expanded(
             child: Text(
               title,
@@ -108,9 +109,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                   ),
             ),
           ),
-
           const SizedBox(width: 12),
-
           GestureDetector(
             onTap: () => _showUserMenu(context),
             child: CircleAvatar(
@@ -131,7 +130,8 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildFull(BuildContext context, double avatarEdge, double avatarRadius) {
+  Widget _buildFull(
+      BuildContext context, double avatarEdge, double avatarRadius) {
     return SizedBox(
       height: preferredSize.height,
       child: Column(
@@ -163,9 +163,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                     size: 18,
                   ),
                 ),
-
               const SizedBox(width: 16),
-
               Flexible(
                 fit: FlexFit.loose,
                 child: Column(
@@ -176,9 +174,10 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                     const SizedBox(height: 2),
                     Text(
@@ -186,13 +185,16 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.color
+                                ?.withOpacity(0.7),
                           ),
                     ),
                   ],
                 ),
               ),
-
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 200),
                 child: SingleChildScrollView(
@@ -205,7 +207,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                           return IconButton(
                             onPressed: () => themeProvider.toggleTheme(),
                             icon: Icon(
-                              themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                              themeProvider.isDarkMode
+                                  ? Icons.light_mode
+                                  : Icons.dark_mode,
                             ),
                             style: IconButton.styleFrom(
                               backgroundColor: AppColors.subtleLight,
@@ -214,7 +218,6 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                           );
                         },
                       ),
-
                       Stack(
                         children: [
                           IconButton(
@@ -239,9 +242,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                           ),
                         ],
                       ),
-
                       const SizedBox(width: 8),
-
                       GestureDetector(
                         onTap: () => _showUserMenu(context),
                         child: CircleAvatar(
@@ -263,7 +264,6 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               ),
             ],
           ),
-
           if (actions != null && actions!.isNotEmpty) ...[
             const SizedBox(height: 12),
             Row(children: actions!),
@@ -286,7 +286,8 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxHeight: mq.size.height * 0.9),
             child: Container(
-              padding: EdgeInsets.fromLTRB(24, 24, 24, mq.viewInsets.bottom + 24),
+              padding:
+                  EdgeInsets.fromLTRB(24, 24, 24, mq.viewInsets.bottom + 24),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -296,7 +297,10 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                         radius: 30,
                         backgroundColor: AppColors.primary.withOpacity(0.1),
                         child: Text(
-                          Provider.of<AuthProvider>(context, listen: false).user?.initials ?? 'U',
+                          Provider.of<AuthProvider>(context, listen: false)
+                                  .user
+                                  ?.initials ??
+                              'U',
                           style: const TextStyle(
                             color: AppColors.primary,
                             fontWeight: FontWeight.bold,
@@ -310,16 +314,32 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              Provider.of<AuthProvider>(context, listen: false).user?.displayName ?? 'User',
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              Provider.of<AuthProvider>(context, listen: false)
+                                      .user
+                                      ?.displayName ??
+                                  'User',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
+                                  ?.copyWith(
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              Provider.of<AuthProvider>(context, listen: false).user?.email ?? '',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
+                              Provider.of<AuthProvider>(context, listen: false)
+                                      .user
+                                      ?.email ??
+                                  '',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.color
+                                        ?.withOpacity(0.7),
                                   ),
                             ),
                           ],
@@ -327,9 +347,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 24),
-
                   _buildMenuTile(
                     context,
                     icon: Icons.person_outline,
@@ -364,7 +382,8 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                     onTap: () async {
                       Navigator.pop(context);
                       try {
-                        await Provider.of<AuthProvider>(context, listen: false).signOut();
+                        await Provider.of<AuthProvider>(context, listen: false)
+                            .signOut();
                       } catch (e) {
                         // ignore errors during sign-out in dev
                         if (kDebugMode) debugPrint('Sign out error: $e');
@@ -405,4 +424,3 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

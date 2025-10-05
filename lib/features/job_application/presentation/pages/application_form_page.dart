@@ -478,4 +478,3 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
     }
   }
 }
-

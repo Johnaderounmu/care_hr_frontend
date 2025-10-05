@@ -459,4 +459,3 @@ class _JobListingPageState extends State<JobListingPage> {
     );
   }
 }
-

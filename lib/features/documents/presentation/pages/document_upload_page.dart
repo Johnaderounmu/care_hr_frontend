@@ -271,8 +271,7 @@ class _DocumentUploadPageState extends State<DocumentUploadPage> {
                     height: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor:
-                          AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -378,4 +377,3 @@ class _DocumentUploadPageState extends State<DocumentUploadPage> {
     return '${(bytes / (1024 * 1024 * 1024)).toStringAsFixed(1)} GB';
   }
 }
-

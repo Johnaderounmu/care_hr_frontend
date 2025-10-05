@@ -263,7 +263,8 @@ class _NotificationsPageState extends State<NotificationsPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Delete Notification'),
-        content: const Text('Are you sure you want to delete this notification?'),
+        content:
+            const Text('Are you sure you want to delete this notification?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -295,4 +296,3 @@ class _NotificationsPageState extends State<NotificationsPage> {
     }
   }
 }
-

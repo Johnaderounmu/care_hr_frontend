@@ -478,4 +478,3 @@ enum ChartType {
     }
   }
 }
-

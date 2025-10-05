@@ -523,4 +523,3 @@ class ComparisonCard extends StatelessWidget {
     );
   }
 }
-

@@ -23,10 +23,10 @@ class AppRouter {
     initialLocation: '/login',
     debugLogDiagnostics: true,
     redirect: (context, state) {
-  // Use the AuthProvider from the widget tree so redirect sees the real state
-  final authProvider = Provider.of<AuthProvider>(context, listen: false);
-  final isAuthenticated = authProvider.isAuthenticated;
-  final user = authProvider.user;
+      // Use the AuthProvider from the widget tree so redirect sees the real state
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final isAuthenticated = authProvider.isAuthenticated;
+      final user = authProvider.user;
 
       // Use state.uri.toString() for location representation
       final location = state.uri.toString();

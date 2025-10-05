@@ -25,8 +25,8 @@ class UserSearchBar extends StatelessWidget {
         border: Border.all(color: AppColors.borderLight),
       ),
       child: TextFormField(
-         enabled: enabled,
-         initialValue: initialValue,
+        enabled: enabled,
+        initialValue: initialValue,
         onChanged: onSearchChanged,
         decoration: InputDecoration(
           hintText: hintText ?? 'Search users by name, email, department...',
@@ -342,4 +342,3 @@ class _AdvancedUserSearchBarState extends State<AdvancedUserSearchBar> {
     );
   }
 }
-

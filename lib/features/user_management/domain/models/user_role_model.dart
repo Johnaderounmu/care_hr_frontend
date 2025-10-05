@@ -784,4 +784,3 @@ enum SystemRoleType {
     }
   }
 }
-
