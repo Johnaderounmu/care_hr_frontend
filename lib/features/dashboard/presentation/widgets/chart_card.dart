@@ -34,9 +34,10 @@ class ChartCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               // Header
               Row(
@@ -49,12 +50,15 @@ class ChartCard extends StatelessWidget {
                         Text(
                           title,
                           style:
-                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
                                     fontWeight: FontWeight.w600,
+                                    fontSize: 10,
                                   ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         if (period != null) ...[
-                          const SizedBox(height: 4),
+                          const SizedBox(height: 2),
                           Text(
                             period!,
                             style:
@@ -64,44 +68,52 @@ class ChartCard extends StatelessWidget {
                                           .bodySmall
                                           ?.color
                                           ?.withOpacity(0.7),
+                                      fontSize: 8,
                                     ),
                           ),
                         ],
                       ],
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        value,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primary,
-                            ),
-                      ),
-                      if (subtitle != null)
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
                         Text(
-                          subtitle!,
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.success,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          value,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primary,
+                                fontSize: 12,
+                              ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                    ],
+                        if (subtitle != null)
+                          Text(
+                            subtitle!,
+                            style:
+                                Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      color: AppColors.success,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 8,
+                                    ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                      ],
+                    ),
                   ),
                 ],
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 4),
 
               // Chart
-              SizedBox(
-                height: 120,
+              Expanded(
                 child: chart,
               ),
             ],

@@ -99,6 +99,26 @@ class UserModel extends HiveObject {
     );
   }
 
+  // Create UserModel from JSON (same as fromMap for API calls)
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel.fromMap(json);
+
+  // Create UserModel from Firebase User (for backward compatibility)
+  factory UserModel.fromFirebaseUser(dynamic firebaseUser) {
+    return UserModel(
+      id: firebaseUser?.uid ?? '',
+      email: firebaseUser?.email ?? '',
+      fullName: firebaseUser?.displayName ?? '',
+      role: 'applicant', // Default role for Firebase users
+      phoneNumber: firebaseUser?.phoneNumber,
+      profileImageUrl: firebaseUser?.photoURL,
+      isActive: true,
+      createdAt: DateTime.now(),
+      lastLoginAt: DateTime.now(),
+      preferences: null,
+      permissions: null,
+    );
+  }
+
   // Convert UserModel to Map
   Map<String, dynamic> toMap() {
     return {
@@ -176,18 +196,6 @@ class UserModel extends HiveObject {
 
   // Get display name (fallback to email if fullName is empty)
   String get displayName => fullName.isNotEmpty ? fullName : email;
-
-  // Helper method to determine role from email
-  static String _getRoleFromEmail(String email) {
-    // This is a simple implementation - in a real app, you'd check against your database
-    if (email.contains('hr@') || email.contains('admin@')) {
-      return 'hr_admin';
-    } else if (email.contains('manager@')) {
-      return 'hr_manager';
-    } else {
-      return 'applicant';
-    }
-  }
 
   @override
   String toString() {

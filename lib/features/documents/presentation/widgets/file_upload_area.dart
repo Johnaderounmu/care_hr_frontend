@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/services/custom_file_picker_service.dart';
+import '../../../../core/utils/custom_platform_file.dart';
 
 class FileUploadArea extends StatefulWidget {
   final List<dynamic> selectedFiles;
-  final Function(List<PlatformFile>) onFilesSelected;
+  final Function(List<CustomPlatformFile>) onFilesSelected;
   final bool isLoading;
 
   const FileUploadArea({
@@ -41,7 +42,7 @@ class _FileUploadAreaState extends State<FileUploadArea> {
             style: BorderStyle.solid,
           ),
         ),
-        child: DragTarget<PlatformFile>(
+        child: DragTarget<CustomPlatformFile>(
           onWillAcceptWithDetails: (details) => true,
           onAcceptWithDetails: (details) {
             final file = details.data;
@@ -80,7 +81,7 @@ class _FileUploadAreaState extends State<FileUploadArea> {
 
                   // Upload Text
                   Text(
-                    'Drag and drop files here',
+                    'Tap to select files',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -89,7 +90,7 @@ class _FileUploadAreaState extends State<FileUploadArea> {
                   const SizedBox(height: 8),
 
                   Text(
-                    'or',
+                    'Choose from camera or gallery',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Theme.of(context)
                               .textTheme
@@ -110,7 +111,7 @@ class _FileUploadAreaState extends State<FileUploadArea> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(
-                      'Browse Files',
+                      'Select Files',
                       style: TextStyle(
                         color: AppColors.primary,
                         fontWeight: FontWeight.w600,
@@ -123,7 +124,7 @@ class _FileUploadAreaState extends State<FileUploadArea> {
 
                   // File Format Info
                   Text(
-                    'Supported formats: PDF, DOC, DOCX, JPG, PNG',
+                    'Supported formats: Images (JPG, PNG) and documents',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Theme.of(context)
                               .textTheme
@@ -156,15 +157,14 @@ class _FileUploadAreaState extends State<FileUploadArea> {
 
   Future<void> _pickFiles() async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'],
+      final result = await CustomFilePickerService.pickFiles(
+        context: context,
         allowMultiple: true,
-        withData: false,
+        allowedExtensions: ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'],
       );
 
-      if (result != null) {
-        widget.onFilesSelected(result.files);
+      if (result != null && result.isNotEmpty) {
+        widget.onFilesSelected(result);
       }
     } catch (e) {
       if (mounted) {

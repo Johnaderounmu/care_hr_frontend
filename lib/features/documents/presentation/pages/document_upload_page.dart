@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/providers/auth_provider.dart';
 import '../../../../core/widgets/app_header.dart';
+import '../../../../core/utils/custom_platform_file.dart';
 import '../../domain/models/document_model.dart';
 import '../../data/services/document_service.dart';
 import '../widgets/file_upload_area.dart';
@@ -18,7 +18,7 @@ class DocumentUploadPage extends StatefulWidget {
 }
 
 class _DocumentUploadPageState extends State<DocumentUploadPage> {
-  final List<PlatformFile> _selectedFiles = [];
+  final List<CustomPlatformFile> _selectedFiles = [];
   DocumentType _selectedType = DocumentType.resume;
   String? _notes;
   bool _isUploading = false;
@@ -189,7 +189,7 @@ class _DocumentUploadPageState extends State<DocumentUploadPage> {
     );
   }
 
-  Widget _buildFileItem(PlatformFile file) {
+  Widget _buildFileItem(CustomPlatformFile file) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
@@ -289,7 +289,7 @@ class _DocumentUploadPageState extends State<DocumentUploadPage> {
     );
   }
 
-  void _handleFilesSelected(List<PlatformFile> files) {
+  void _handleFilesSelected(List<CustomPlatformFile> files) {
     setState(() {
       _selectedFiles.addAll(files);
     });

@@ -31,7 +31,7 @@ class ChartWidget extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,22 +41,22 @@ class ChartWidget extends StatelessWidget {
                   Expanded(
                     child: Text(
                       title,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w600,
                           ),
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Icon(
                     _getChartIcon(chartType),
                     color: AppColors.primary,
-                    size: 20,
+                    size: 16,
                   ),
                 ],
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
 
               // Chart Content
               Expanded(
@@ -121,8 +121,8 @@ class ChartWidget extends StatelessWidget {
         Expanded(
           child: Center(
             child: SizedBox(
-              width: 120,
-              height: 120,
+              width: 80,
+              height: 80,
               child: CustomPaint(
                 painter: PieChartPainter(
                   entries: entries,
@@ -134,35 +134,35 @@ class ChartWidget extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 12),
+        const SizedBox(height: 6),
 
         // Legend
         Wrap(
-          spacing: 8,
-          runSpacing: 4,
-          children: entries.asMap().entries.map((entry) {
+          spacing: 4,
+          runSpacing: 2,
+          children: entries.asMap().entries.take(2).map((entry) {
             final index = entry.key;
             final dataEntry = entry.value;
             final color = colors[index % colors.length];
             final percentage =
                 ((dataEntry.value as num).toDouble() / total * 100)
-                    .toStringAsFixed(1);
+                    .toStringAsFixed(0);
 
             return Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width: 8,
-                  height: 8,
+                  width: 6,
+                  height: 6,
                   decoration: BoxDecoration(
                     color: color,
                     shape: BoxShape.circle,
                   ),
                 ),
-                const SizedBox(width: 4),
+                const SizedBox(width: 2),
                 Text(
                   '${dataEntry.key} ($percentage%)',
-                  style: const TextStyle(fontSize: 10),
+                  style: const TextStyle(fontSize: 8),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -192,7 +192,7 @@ class ChartWidget extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: entries.asMap().entries.map((entry) {
+            children: entries.take(3).toList().asMap().entries.map((entry) {
               final index = entry.key;
               final dataEntry = entry.value;
               final value = (dataEntry.value as num).toDouble();
@@ -201,22 +201,24 @@ class ChartWidget extends StatelessWidget {
 
               return Expanded(
                 child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  margin: const EdgeInsets.symmetric(horizontal: 1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 80 * height,
+                        height: 50 * height,
                         decoration: BoxDecoration(
                           color: color,
                           borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(4)),
+                              top: Radius.circular(2)),
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 2),
                       Text(
-                        dataEntry.key,
-                        style: const TextStyle(fontSize: 8),
+                        dataEntry.key.length > 4 
+                          ? dataEntry.key.substring(0, 4) + '...' 
+                          : dataEntry.key,
+                        style: const TextStyle(fontSize: 7),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,

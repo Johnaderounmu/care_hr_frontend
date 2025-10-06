@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/models/document_model.dart';
 import '../../../../core/services/storage_service.dart';
+import '../../../../core/utils/custom_platform_file.dart';
 
 class DocumentService {
   static final Logger _logger = Logger();
@@ -16,7 +16,7 @@ class DocumentService {
 
   // Upload document
   static Future<DocumentModel?> uploadDocument({
-    required PlatformFile file,
+    required CustomPlatformFile file,
     required DocumentType type,
     String? applicantId,
     String? notes,
@@ -263,7 +263,7 @@ class DocumentService {
 
   // Private methods
 
-  static bool _validateFile(PlatformFile file) {
+  static bool _validateFile(CustomPlatformFile file) {
     // Check file size (max 10MB)
     if (file.size > 10 * 1024 * 1024) {
       return false;
@@ -287,7 +287,7 @@ class DocumentService {
   }
 
   static Future<void> _uploadToServer(
-      DocumentModel document, PlatformFile file) async {
+      DocumentModel document, CustomPlatformFile file) async {
     // Simulate server upload
     await Future.delayed(const Duration(seconds: 2));
 

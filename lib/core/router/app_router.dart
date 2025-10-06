@@ -15,6 +15,7 @@ import '../../features/documents/presentation/pages/applicant_documents_page.dar
 import '../../features/documents/presentation/pages/hr_document_review_page.dart';
 import '../../features/job_application/presentation/pages/job_listing_page.dart';
 import '../../features/reports/presentation/pages/reports_dashboard_page.dart';
+import '../../features/interviews/presentation/pages/schedule_interview_page.dart';
 import '../../core/providers/auth_provider.dart';
 // ...existing code... (removed unused import)
 
@@ -129,6 +130,13 @@ class AppRouter {
         path: '/reports',
         name: 'reports',
         builder: (context, state) => const ReportsDashboardPage(),
+      ),
+
+      // Interview Routes
+      GoRoute(
+        path: '/schedule-interview',
+        name: 'schedule-interview',
+        builder: (context, state) => const ScheduleInterviewPage(),
       ),
 
       // Nested HR Routes

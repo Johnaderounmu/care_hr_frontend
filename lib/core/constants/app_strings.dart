@@ -28,7 +28,7 @@ class AppStrings {
   static const String dashboardSubtitle =
       'Welcome back, Sarah. Here\'s your overview.';
   static const String activeApplicants = 'Active Applicants';
-  static const String pendingReviews = 'Pending Document Reviews';
+  static const String pendingReviews = 'Pending Reviews';
   static const String upcomingExpirations = 'Upcoming Expirations';
   static const String recentlyUploaded = 'Recently Uploaded';
   static const String applicantGrowth = 'Applicant Growth';

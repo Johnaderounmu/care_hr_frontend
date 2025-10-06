@@ -48,17 +48,18 @@ void main() async {
   // Load environment variables if a .env file exists (optional local dev)
   try {
     await dotenv.load();
-    logger.i('Loaded .env (if present)');
+    logger.i('Environment variables loaded successfully');
   } catch (e) {
-    logger.i('.env load skipped or failed: $e');
+    logger.i('.env load skipped or failed: $e - using default values');
   }
 
   // Initialize API client (REST/GraphQL) after env is loaded
   try {
     ApiClient.init();
-    logger.i('ApiClient initialized');
+    logger.i('ApiClient initialized successfully');
   } catch (e) {
     logger.w('ApiClient initialization warning: $e');
+    // Continue execution - the app can work without API client in demo mode
   }
 
   // Initialize Hive

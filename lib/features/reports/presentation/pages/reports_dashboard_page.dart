@@ -111,7 +111,7 @@ class _ReportsDashboardPageState extends State<ReportsDashboardPage> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: 1.5,
+          childAspectRatio: 8.0,
           children: [
             AnalyticsCard(
               title: 'Total Applications',
@@ -168,7 +168,7 @@ class _ReportsDashboardPageState extends State<ReportsDashboardPage> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio: 1.2,
+          childAspectRatio: 1.8,
           children: [
             ChartWidget(
               title: 'Applications by Status',

@@ -27,9 +27,9 @@ import 'core/router/app_router.dart';
 
 // Simple logger class
 class SimpleLogger {
-  void i(String message) => print('INFO: $message');
-  void w(String message) => print('WARNING: $message');
-  void e(String message) => print('ERROR: $message');
+  void i(String message) => debugPrint('INFO: $message');
+  void w(String message) => debugPrint('WARNING: $message');
+  void e(String message) => debugPrint('ERROR: $message');
 }
 
 void main() async {

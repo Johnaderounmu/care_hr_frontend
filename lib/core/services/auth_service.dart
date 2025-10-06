@@ -1,18 +1,42 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
-
 import '../models/user_model.dart';
 import 'storage_service.dart';
 
 class AuthService {
-  static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final Logger _logger = Logger();
+  static const String _baseUrl = 'http://localhost:3001/api'; // Update with your backend URL
+  static final StreamController<UserModel?> _authController = StreamController<UserModel?>.broadcast();
+  
+  // Auth state stream
+  static Stream<UserModel?> get authStateChanges => _authController.stream;
 
-  // Current user stream
-  static Stream<User?> get authStateChanges => _auth.authStateChanges();
+  // Check if user is authenticated
+  static Future<bool> isAuthenticated() async {
+    try {
+      final token = await StorageService.getToken();
+      return token != null && token.isNotEmpty;
+    } catch (e) {
+      _logger.e('Error checking authentication status: $e');
+      return false;
+    }
+  }
 
-  // Current user
-  static User? get currentUser => _auth.currentUser;
+  // Get stored user
+  static Future<UserModel?> getStoredUser() async {
+    try {
+      final userJson = await StorageService.getUser();
+      if (userJson != null) {
+        return UserModel.fromJson(jsonDecode(userJson));
+      }
+      return null;
+    } catch (e) {
+      _logger.e('Error getting stored user: $e');
+      return null;
+    }
+  }
 
   // Sign in with email and password
   static Future<UserModel?> signInWithEmailAndPassword({
@@ -20,33 +44,35 @@ class AuthService {
     required String password,
   }) async {
     try {
-      final UserCredential result = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+      final response = await http.post(
+        Uri.parse('$_baseUrl/auth/login'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
       );
 
-      if (result.user != null) {
-        final userModel = UserModel.fromFirebaseUser(result.user!);
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final token = data['token'];
+        final user = UserModel.fromJson(data['user']);
 
-        // Store user data locally (ensure token is non-null)
-        final token = await result.user!.getIdToken();
-        if (token != null && token.isNotEmpty) {
-          await StorageService.setUserToken(token);
-        }
-        await StorageService.setUserId(result.user!.uid);
-        await StorageService.setUserRole(userModel.role);
+        // Store token and user
+        await StorageService.setToken(token);
+        await StorageService.setUser(jsonEncode(user.toJson()));
 
-        _logger.i('User signed in successfully: ${userModel.email}');
-        return userModel;
+        // Notify listeners
+        _authController.add(user);
+
+        return user;
+      } else {
+        _logger.e('Sign in failed: ${response.body}');
+        return null;
       }
-
-      return null;
-    } on FirebaseAuthException catch (e) {
-      _logger.e('Firebase Auth Error: ${e.message}');
-      throw _handleAuthException(e);
     } catch (e) {
       _logger.e('Sign in error: $e');
-      throw Exception('An unexpected error occurred');
+      return null;
     }
   }
 
@@ -58,167 +84,74 @@ class AuthService {
     required String role,
   }) async {
     try {
-      final UserCredential result = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+      final response = await http.post(
+        Uri.parse('$_baseUrl/auth/register'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+          'fullName': fullName,
+          'role': role,
+        }),
       );
 
-      if (result.user != null) {
-        // Update display name
-        await result.user!.updateDisplayName(fullName);
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final token = data['token'];
+        final user = UserModel.fromJson(data['user']);
 
-        final userModel = UserModel(
-          id: result.user!.uid,
-          email: email,
-          fullName: fullName,
-          role: role,
-          isActive: true,
-          createdAt: DateTime.now(),
-        );
+        // Store token and user
+        await StorageService.setToken(token);
+        await StorageService.setUser(jsonEncode(user.toJson()));
 
-        // Store user data locally (ensure token is non-null)
-        final token = await result.user!.getIdToken();
-        if (token != null && token.isNotEmpty) {
-          await StorageService.setUserToken(token);
-        }
-        await StorageService.setUserId(result.user!.uid);
-        await StorageService.setUserRole(userModel.role);
+        // Notify listeners
+        _authController.add(user);
 
-        _logger.i('User signed up successfully: ${userModel.email}');
-        return userModel;
+        return user;
+      } else {
+        _logger.e('Sign up failed: ${response.body}');
+        return null;
       }
-
-      return null;
-    } on FirebaseAuthException catch (e) {
-      _logger.e('Firebase Auth Error: ${e.message}');
-      throw _handleAuthException(e);
     } catch (e) {
       _logger.e('Sign up error: $e');
-      throw Exception('An unexpected error occurred');
+      return null;
     }
   }
 
   // Sign out
   static Future<void> signOut() async {
     try {
-      await _auth.signOut();
-      await StorageService.clear();
-      _logger.i('User signed out successfully');
+      // Clear stored data
+      await StorageService.clearToken();
+      await StorageService.clearUser();
+
+      // Notify listeners
+      _authController.add(null);
     } catch (e) {
       _logger.e('Sign out error: $e');
-      throw Exception('Failed to sign out');
     }
   }
 
   // Reset password
   static Future<void> resetPassword(String email) async {
     try {
-      await _auth.sendPasswordResetEmail(email: email);
-      _logger.i('Password reset email sent to: $email');
-    } on FirebaseAuthException catch (e) {
-      _logger.e('Password reset error: ${e.message}');
-      throw _handleAuthException(e);
+      await http.post(
+        Uri.parse('$_baseUrl/auth/reset-password'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'email': email}),
+      );
     } catch (e) {
-      _logger.e('Password reset error: $e');
-      throw Exception('Failed to send password reset email');
+      _logger.e('Reset password error: $e');
+      throw e;
     }
   }
 
-  // Update password
-  static Future<void> updatePassword(String newPassword) async {
-    try {
-      final user = _auth.currentUser;
-      if (user != null) {
-        await user.updatePassword(newPassword);
-        _logger.i('Password updated successfully');
-      } else {
-        throw Exception('No user logged in');
-      }
-    } on FirebaseAuthException catch (e) {
-      _logger.e('Password update error: ${e.message}');
-      throw _handleAuthException(e);
-    } catch (e) {
-      _logger.e('Password update error: $e');
-      throw Exception('Failed to update password');
-    }
-  }
-
-  // Update profile
-  static Future<void> updateProfile({
-    String? displayName,
-    String? photoURL,
-  }) async {
-    try {
-      final user = _auth.currentUser;
-      if (user != null) {
-        await user.updateDisplayName(displayName);
-        if (photoURL != null) {
-          await user.updatePhotoURL(photoURL);
-        }
-        _logger.i('Profile updated successfully');
-      } else {
-        throw Exception('No user logged in');
-      }
-    } on FirebaseAuthException catch (e) {
-      _logger.e('Profile update error: ${e.message}');
-      throw _handleAuthException(e);
-    } catch (e) {
-      _logger.e('Profile update error: $e');
-      throw Exception('Failed to update profile');
-    }
-  }
-
-  // Get stored user data
-  static UserModel? getStoredUser() {
-    try {
-      final userId = StorageService.getUserId();
-      final userRole = StorageService.getUserRole();
-      final userToken = StorageService.getUserToken();
-
-      if (userId != null && userRole != null && userToken != null) {
-        return UserModel(
-          id: userId,
-          email: currentUser?.email ?? '',
-          fullName: currentUser?.displayName ?? '',
-          role: userRole,
-          isActive: true,
-          createdAt: DateTime.now(),
-        );
-      }
-
-      return null;
-    } catch (e) {
-      _logger.e('Error getting stored user: $e');
-      return null;
-    }
-  }
-
-  // Check if user is authenticated
-  static bool get isAuthenticated {
-    return currentUser != null && StorageService.getUserToken() != null;
-  }
-
-  // Handle Firebase Auth exceptions
-  static String _handleAuthException(FirebaseAuthException e) {
-    switch (e.code) {
-      case 'user-not-found':
-        return 'No user found with this email address';
-      case 'wrong-password':
-        return 'Incorrect password';
-      case 'email-already-in-use':
-        return 'An account already exists with this email address';
-      case 'weak-password':
-        return 'Password is too weak';
-      case 'invalid-email':
-        return 'Invalid email address';
-      case 'user-disabled':
-        return 'This account has been disabled';
-      case 'too-many-requests':
-        return 'Too many failed attempts. Please try again later';
-      case 'operation-not-allowed':
-        return 'This operation is not allowed';
-      default:
-        return e.message ?? 'An authentication error occurred';
-    }
+  // Get auth headers for API requests
+  static Future<Map<String, String>> getAuthHeaders() async {
+    final token = await StorageService.getToken();
+    return {
+      'Content-Type': 'application/json',
+      if (token != null) 'Authorization': 'Bearer $token',
+    };
   }
 }

@@ -37,7 +37,7 @@ dependencies:
   hive_flutter: ^1.1.0
   
   # Authentication (using JWT with PostgreSQL backend)
-  # Removed firebase_auth and firebase_core - using PostgreSQL backend
+  # No Firebase needed - using custom JWT auth with backend
   
   # GraphQL client
   graphql_flutter: ^5.2.0-beta.6
@@ -45,7 +45,6 @@ dependencies:
   flutter_dotenv: ^5.0.2
   
   # File Management
-  file_picker: ^6.1.1
   image_picker: ^1.0.4
   path_provider: ^2.1.1
   
@@ -72,6 +71,7 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   hive_generator: ^2.0.1
   build_runner: ^2.4.7
+  mockito: ^5.4.4
 
 flutter:
   uses-material-design: true

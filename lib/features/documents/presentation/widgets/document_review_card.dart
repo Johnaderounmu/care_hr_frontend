@@ -27,7 +27,7 @@ class DocumentReviewCard extends StatelessWidget {
         border: Border.all(color: AppColors.borderLight),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -85,31 +85,37 @@ class DocumentReviewCard extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
 
             // Document Details
             Row(
               children: [
-                _buildDetailItem(
-                  context,
-                  icon: Icons.person,
-                  label: 'Applicant',
-                  value: 'Sarah Applicant', // TODO: Get actual applicant name
+                Expanded(
+                  child: _buildDetailItem(
+                    context,
+                    icon: Icons.person,
+                    label: 'Applicant',
+                    value: 'Sarah Applicant', // TODO: Get actual applicant name
+                  ),
                 ),
-                const SizedBox(width: 24),
-                _buildDetailItem(
-                  context,
-                  icon: Icons.calendar_today,
-                  label: 'Uploaded',
-                  value: _formatDate(document.uploadedAt),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _buildDetailItem(
+                    context,
+                    icon: Icons.calendar_today,
+                    label: 'Uploaded',
+                    value: _formatDate(document.uploadedAt),
+                  ),
                 ),
                 if (document.expiresAt != null) ...[
-                  const SizedBox(width: 24),
-                  _buildDetailItem(
-                    context,
-                    icon: Icons.schedule,
-                    label: 'Expires',
-                    value: _formatDate(document.expiresAt!),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: _buildDetailItem(
+                      context,
+                      icon: Icons.schedule,
+                      label: 'Expires',
+                      value: _formatDate(document.expiresAt!),
+                    ),
                   ),
                 ],
               ],
@@ -189,7 +195,7 @@ class DocumentReviewCard extends StatelessWidget {
               ),
             ],
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
 
             // Action Buttons
             if (document.needsReview) ...[
@@ -198,35 +204,41 @@ class DocumentReviewCard extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: onView,
-                      icon: const Icon(Icons.visibility, size: 18),
-                      label: const Text('View'),
+                      icon: const Icon(Icons.visibility, size: 14),
+                      label: const Text('View', style: TextStyle(fontSize: 12)),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: AppColors.primary,
                         side: const BorderSide(color: AppColors.primary),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        minimumSize: const Size(0, 32),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: onReject,
-                      icon: const Icon(Icons.close, size: 18),
-                      label: const Text('Reject'),
+                      icon: const Icon(Icons.close, size: 14),
+                      label: const Text('Reject', style: TextStyle(fontSize: 12)),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.error,
                         foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        minimumSize: const Size(0, 32),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: ElevatedButton.icon(
                       onPressed: onApprove,
-                      icon: const Icon(Icons.check, size: 18),
-                      label: const Text('Approve'),
+                      icon: const Icon(Icons.check, size: 14),
+                      label: const Text('Approve', style: TextStyle(fontSize: 12)),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.success,
                         foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        minimumSize: const Size(0, 32),
                       ),
                     ),
                   ),
@@ -238,11 +250,13 @@ class DocumentReviewCard extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: onView,
-                      icon: const Icon(Icons.visibility, size: 18),
-                      label: const Text('View Details'),
+                      icon: const Icon(Icons.visibility, size: 14),
+                      label: const Text('View Details', style: TextStyle(fontSize: 12)),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: AppColors.primary,
                         side: const BorderSide(color: AppColors.primary),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        minimumSize: const Size(0, 32),
                       ),
                     ),
                   ),
@@ -323,31 +337,38 @@ class DocumentReviewCard extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 16,
+          size: 14,
           color: AppColors.primary,
         ),
-        const SizedBox(width: 4),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              label,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.color
-                        ?.withOpacity(0.7),
-                    fontSize: 10,
-                  ),
-            ),
-            Text(
-              value,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
-          ],
+        const SizedBox(width: 3),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.color
+                          ?.withOpacity(0.7),
+                      fontSize: 9,
+                    ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                value,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 11,
+                    ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ],
     );

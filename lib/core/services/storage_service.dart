@@ -127,4 +127,29 @@ class StorageService {
   static Map<String, dynamic>? getNotificationSettings() {
     return get<Map<String, dynamic>>('notification_settings');
   }
+
+  // Auth-specific methods
+  static Future<void> setToken(String token) async {
+    await setString('auth_token', token);
+  }
+
+  static Future<String?> getToken() async {
+    return getString('auth_token');
+  }
+
+  static Future<void> clearToken() async {
+    await remove('auth_token');
+  }
+
+  static Future<void> setUser(String userJson) async {
+    await setString('auth_user', userJson);
+  }
+
+  static Future<String?> getUser() async {
+    return getString('auth_user');
+  }
+
+  static Future<void> clearUser() async {
+    await remove('auth_user');
+  }
 }

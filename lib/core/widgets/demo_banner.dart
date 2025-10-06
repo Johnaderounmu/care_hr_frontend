@@ -30,13 +30,13 @@ class DemoBanner extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
+          const Icon(
             Icons.science,
             color: Colors.white,
             size: 20,
           ),
           const SizedBox(width: 8),
-          Expanded(
+          const Expanded(
             child: Text(
               '🧪 DEMO MODE: Using mock data - full functionality available!',
               style: TextStyle(
@@ -50,7 +50,7 @@ class DemoBanner extends StatelessWidget {
             onPressed: () {
               _showDemoInfo(context);
             },
-            child: Text(
+            child: const Text(
               'Learn More',
               style: TextStyle(
                 color: Colors.white,
@@ -68,10 +68,10 @@ class DemoBanner extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Row(
+        title: const Row(
           children: [
             Icon(Icons.science, color: Colors.amber),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             Text('Demo Mode Active'),
           ],
         ),
@@ -79,20 +79,20 @@ class DemoBanner extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'You\'re experiencing a fully functional demo of the Care HR system!',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            Text('✅ All features are working:'),
+            const Text('✅ All features are working:'),
             const SizedBox(height: 8),
-            Text('• User registration and login'),
-            Text('• Job browsing and search'),
-            Text('• Application submission'),
-            Text('• Real-time interface updates'),
+            const Text('• User registration and login'),
+            const Text('• Job browsing and search'),
+            const Text('• Application submission'),
+            const Text('• Real-time interface updates'),
             const SizedBox(height: 16),
             Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Colors.blue.shade50,
                 borderRadius: BorderRadius.circular(8),
@@ -124,7 +124,7 @@ class DemoBanner extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Got it!'),
+            child: const Text('Got it!'),
           ),
         ],
       ),

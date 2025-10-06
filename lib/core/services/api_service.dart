@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -24,7 +25,7 @@ class ApiService {
       'requirements': ['Flutter', 'Dart', 'REST APIs', 'State Management'],
       'salary': '\$90,000 - \$130,000',
       'status': 'active',
-      'createdAt': DateTime.now().subtract(Duration(days: 5)).toIso8601String()
+      'createdAt': DateTime.now().subtract(const Duration(days: 5)).toIso8601String()
     },
     {
       'id': '2',
@@ -36,7 +37,7 @@ class ApiService {
       'requirements': ['Product Management', 'Analytics', 'Leadership', 'Agile'],
       'salary': '\$120,000 - \$160,000',
       'status': 'active',
-      'createdAt': DateTime.now().subtract(Duration(days: 3)).toIso8601String()
+      'createdAt': DateTime.now().subtract(const Duration(days: 3)).toIso8601String()
     },
     {
       'id': '3',
@@ -48,7 +49,7 @@ class ApiService {
       'requirements': ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
       'salary': '\$80,000 - \$110,000',
       'status': 'active',
-      'createdAt': DateTime.now().subtract(Duration(days: 1)).toIso8601String()
+      'createdAt': DateTime.now().subtract(const Duration(days: 1)).toIso8601String()
     },
     {
       'id': '4',
@@ -60,7 +61,7 @@ class ApiService {
       'requirements': ['Docker', 'Kubernetes', 'AWS', 'CI/CD'],
       'salary': '\$100,000 - \$140,000',
       'status': 'active',
-      'createdAt': DateTime.now().subtract(Duration(days: 7)).toIso8601String()
+      'createdAt': DateTime.now().subtract(const Duration(days: 7)).toIso8601String()
     }
   ];
 
@@ -76,10 +77,10 @@ class ApiService {
       final response = await http.get(
         Uri.parse('$baseUrl/health'),
         headers: headers,
-      ).timeout(Duration(seconds: 3));
+      ).timeout(const Duration(seconds: 3));
       return response.statusCode == 200;
     } catch (e) {
-      print('Backend unavailable, using mock data: $e');
+      debugPrint('Backend unavailable, using mock data: $e');
       _useMockData = true;
       return false;
     }
@@ -92,7 +93,7 @@ class ApiService {
     
     if (!backendAvailable || _useMockData) {
       // Mock login for demo
-      await Future.delayed(Duration(milliseconds: 500)); // Simulate network delay
+      await Future.delayed(const Duration(milliseconds: 500)); // Simulate network delay
       _token = 'mock-jwt-token-123';
       
       return {
@@ -137,7 +138,7 @@ class ApiService {
     
     if (!backendAvailable || _useMockData) {
       // Mock registration for demo
-      await Future.delayed(Duration(milliseconds: 700)); // Simulate network delay
+      await Future.delayed(const Duration(milliseconds: 700)); // Simulate network delay
       _token = 'mock-jwt-token-456';
       
       return {
@@ -181,7 +182,7 @@ class ApiService {
   // Job endpoints
   static Future<Map<String, dynamic>> fetchJobs() async {
     if (_useMockData) {
-      await Future.delayed(Duration(milliseconds: 300)); // Simulate network delay
+      await Future.delayed(const Duration(milliseconds: 300)); // Simulate network delay
       return {'success': true, 'jobs': _mockJobs};
     }
     
@@ -217,7 +218,7 @@ class ApiService {
         return null;
       }
     } catch (e) {
-      print('Error fetching job: $e');
+      debugPrint('Error fetching job: $e');
       return null;
     }
   }
@@ -236,7 +237,7 @@ class ApiService {
         return [];
       }
     } catch (e) {
-      print('Error searching jobs: $e');
+      debugPrint('Error searching jobs: $e');
       return [];
     }
   }
@@ -244,7 +245,7 @@ class ApiService {
   // Applications endpoints
   static Future<Map<String, dynamic>> submitApplication(Map<String, dynamic> application) async {
     if (_useMockData) {
-      await Future.delayed(Duration(milliseconds: 800)); // Simulate network delay
+      await Future.delayed(const Duration(milliseconds: 800)); // Simulate network delay
       return {
         'success': true, 
         'application': {
@@ -291,7 +292,7 @@ class ApiService {
         return [];
       }
     } catch (e) {
-      print('Error fetching applications: $e');
+      debugPrint('Error fetching applications: $e');
       return [];
     }
   }
@@ -302,7 +303,7 @@ class ApiService {
       final response = await http.get(Uri.parse('$baseUrl/health'));
       return response.statusCode == 200;
     } catch (e) {
-      print('Backend health check failed: $e');
+      debugPrint('Backend health check failed: $e');
       return false;
     }
   }

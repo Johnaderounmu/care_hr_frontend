@@ -47,7 +47,7 @@ class _HRDashboardPageState extends State<HRDashboardPage> {
                           crossAxisCount: 2,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          childAspectRatio: 1.5,
+                          childAspectRatio: 4.0,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
                           children: const [
@@ -102,7 +102,7 @@ class _HRDashboardPageState extends State<HRDashboardPage> {
                           crossAxisCount: 2,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          childAspectRatio: 1.2,
+                          childAspectRatio: 3.0,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
                           children: [
@@ -174,7 +174,7 @@ class _HRDashboardPageState extends State<HRDashboardPage> {
                               text: 'Schedule Interview',
                               icon: Icons.calendar_today_outlined,
                               onPressed: () {
-                                // TODO: Navigate to interview scheduling
+                                context.push('/schedule-interview');
                               },
                               isSecondary: true,
                             ),
@@ -204,53 +204,7 @@ class _HRDashboardPageState extends State<HRDashboardPage> {
         maxY: 100,
         barTouchData: BarTouchData(enabled: false),
         titlesData: FlTitlesData(
-          show: true,
-          rightTitles:
-              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          topTitles:
-              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              getTitlesWidget: (value, meta) {
-                const style = TextStyle(
-                  color: AppColors.mutedLight,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                );
-                Widget text;
-                switch (value.toInt()) {
-                  case 0:
-                    text = const Text('Jan', style: style);
-                    break;
-                  case 1:
-                    text = const Text('Feb', style: style);
-                    break;
-                  case 2:
-                    text = const Text('Mar', style: style);
-                    break;
-                  case 3:
-                    text = const Text('Apr', style: style);
-                    break;
-                  case 4:
-                    text = const Text('May', style: style);
-                    break;
-                  case 5:
-                    text = const Text('Jun', style: style);
-                    break;
-                  default:
-                    text = const Text('', style: style);
-                    break;
-                }
-                return SideTitleWidget(
-                  axisSide: meta.axisSide,
-                  child: text,
-                );
-              },
-            ),
-          ),
-          leftTitles:
-              const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          show: false,
         ),
         borderData: FlBorderData(show: false),
         barGroups: [
