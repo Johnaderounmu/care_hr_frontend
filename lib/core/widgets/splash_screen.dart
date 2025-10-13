@@ -235,23 +235,12 @@ class _SplashScreenState extends State<SplashScreen>
                       opacity: _subtitleOpacity,
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.flutter_dash,
-                              size: 16,
-                              color: AppColors.mutedLight.withOpacity(0.6),
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              'Powered by Flutter',
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColors.mutedLight.withOpacity(0.6),
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
+                        child: Text(
+                          'Professional Care Solutions',
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppColors.mutedLight.withOpacity(0.6),
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ),
