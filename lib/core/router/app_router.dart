@@ -14,6 +14,7 @@ import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/documents/presentation/pages/document_upload_page.dart';
 import '../../features/documents/presentation/pages/applicant_documents_page.dart';
 import '../../features/documents/presentation/pages/hr_document_review_page.dart';
+import '../../features/documents/presentation/pages/file_upload_page.dart';
 import '../../features/reports/presentation/pages/reports_dashboard_page.dart';
 import '../../features/reports/presentation/pages/generate_report_page.dart';
 import '../../features/reports/presentation/pages/all_reports_page.dart';
@@ -22,6 +23,9 @@ import '../../features/applications/presentation/pages/applications_management_p
 import '../../features/job_management/presentation/pages/create_job_page.dart';
 import '../../features/hr/presentation/pages/hr_applicants_page.dart';
 import '../../features/notifications/presentation/pages/notifications_page.dart';
+import '../../features/dashboard/presentation/pages/animated_dashboard_demo.dart';
+import '../../features/onboarding/presentation/pages/onboarding_screen.dart';
+import '../../features/analytics/presentation/pages/analytics_dashboard.dart';
 import '../../core/providers/auth_provider.dart';
 import '../../core/widgets/splash_screen.dart';
 // ...existing code... (removed unused import)
@@ -167,6 +171,11 @@ class AppRouter {
         builder: (context, state) => const DocumentUploadPage(),
       ),
       GoRoute(
+        path: '/file-upload',
+        name: 'file-upload',
+        builder: (context, state) => const FileUploadPage(),
+      ),
+      GoRoute(
         path: '/applicant-documents',
         name: 'applicant-documents',
         builder: (context, state) => const ApplicantDocumentsPage(),
@@ -210,6 +219,23 @@ class AppRouter {
         builder: (context, state) => const ScheduleInterviewPage(),
       ),
 
+      // Animation Demo Routes
+      GoRoute(
+        path: '/animation-demo',
+        name: 'animation-demo',
+        builder: (context, state) => const AnimatedDashboardDemo(),
+      ),
+
+      // Onboarding Routes
+      GoRoute(
+        path: '/onboarding/:userType',
+        name: 'onboarding',
+        builder: (context, state) {
+          final userType = state.pathParameters['userType'] ?? 'applicant';
+          return OnboardingScreen(userType: userType);
+        },
+      ),
+
       // New Feature Routes
       GoRoute(
         path: '/notifications',
@@ -221,6 +247,12 @@ class AppRouter {
         path: '/applications',
         name: 'applications',
         builder: (context, state) => const ApplicationsManagementPage(),
+      ),
+      
+      GoRoute(
+        path: '/analytics',
+        name: 'analytics',
+        builder: (context, state) => const AnalyticsDashboard(),
       ),
       
       GoRoute(

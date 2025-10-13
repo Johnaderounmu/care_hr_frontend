@@ -1,0 +1,58 @@
+# Test Configuration for Care HR App
+# This file contains configuration for different types of tests
+
+[unit_tests]
+# Unit test configuration
+coverage = true
+timeout = 30
+parallel = true
+directories = [
+  "test/unit/",
+]
+
+[widget_tests] 
+# Widget test configuration
+timeout = 60
+directories = [
+  "test/widget/",
+]
+
+[integration_tests]
+# Integration test configuration
+timeout = 300
+require_device = true
+directories = [
+  "integration_test/",
+]
+
+[coverage]
+# Code coverage configuration
+exclude_files = [
+  "**/*.g.dart",
+  "**/*.freezed.dart", 
+  "**/generated_plugin_registrant.dart",
+  "**/main.dart",
+]
+min_coverage = 70
+
+[static_analysis]
+# Static analysis configuration
+rules = [
+  "flutter_lints",
+]
+exclude_directories = [
+  "build/",
+  ".dart_tool/",
+]
+
+[performance]
+# Performance test thresholds
+max_startup_time_ms = 5000
+max_frame_time_ms = 16
+max_memory_usage_mb = 200
+
+[security]
+# Security test configuration
+check_dependencies = true
+check_permissions = true
+scan_code = true

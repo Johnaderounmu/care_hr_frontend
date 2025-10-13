@@ -253,8 +253,13 @@ class _EnhancedHRDashboardPageState extends State<EnhancedHRDashboardPage> {
             ),
             QuickActionButton(
               text: 'View Reports',
-              icon: Icons.analytics,
+              icon: Icons.assessment,
               onPressed: () => context.go('/reports'),
+            ),
+            QuickActionButton(
+              text: 'Analytics Dashboard',
+              icon: Icons.analytics,
+              onPressed: () => context.go('/analytics'),
             ),
           ],
         ),

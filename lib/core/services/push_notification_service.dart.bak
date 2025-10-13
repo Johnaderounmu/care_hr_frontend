@@ -1,0 +1,348 @@
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:io';
+import 'package:uuid/uuid.dart';
+
+class PushNotificationService {
+  static final PushNotificationService _instance = PushNotificationService._internal();
+  factory PushNotificationService() => _instance;
+  PushNotificationService._internal();
+
+  static FlutterLocalNotificationsPlugin? _localNotifications;
+  static String? _deviceId;
+  static const String _baseUrl = 'http://localhost:4000'; // Your backend URL
+  
+  /// Initialize notification service without Firebase
+  static Future<void> initialize() async {
+    try {
+      _localNotifications = FlutterLocalNotificationsPlugin();
+      
+      // Initialize local notifications
+      await _initializeLocalNotifications();
+      
+      // Generate unique device ID
+      await _generateDeviceId();
+      _localNotifications = FlutterLocalNotificationsPlugin();
+      
+      // Initialize local notifications
+      await _initializeLocalNotifications();
+      
+      // Request permissions
+      await _requestPermissions();
+      
+      // Get device token
+      await _getDeviceToken();
+      
+      // Set up message handlers
+      await _setupMessageHandlers();
+      
+      print('🔔 Push notifications initialized successfully');
+    } catch (e) {
+      print('❌ Error initializing push notifications: $e');
+    }
+  }
+
+  /// Initialize local notifications
+  static Future<void> _initializeLocalNotifications() async {
+    const androidSettings = AndroidInitializationSettings('@mipmap/launcher_icon');
+    const iosSettings = DarwinInitializationSettings(
+      requestAlertPermission: true,
+      requestBadgePermission: true,
+      requestSoundPermission: true,
+    );
+    
+    const initSettings = InitializationSettings(
+      android: androidSettings,
+      iOS: iosSettings,
+    );
+    
+    await _localNotifications?.initialize(
+      initSettings,
+      onDidReceiveNotificationResponse: _onNotificationTapped,
+    );
+
+    // Create notification channel for Android
+    if (Platform.isAndroid) {
+      await _createNotificationChannel();
+    }
+  }
+
+  /// Create notification channel for Android
+  static Future<void> _createNotificationChannel() async {
+    const channel = AndroidNotificationChannel(
+      'care_hr_notifications',
+      'Care HR Notifications',
+      description: 'Notifications for job updates, applications, and HR activities',
+      importance: Importance.high,
+      enableVibration: true,
+      playSound: true,
+    );
+
+    await _localNotifications
+        ?.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+  }
+
+  /// Request notification permissions
+  static Future<void> _requestPermissions() async {
+    if (Platform.isIOS) {
+      await _messaging?.requestPermission(
+        alert: true,
+        badge: true,
+        sound: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+      );
+    }
+  }
+
+  /// Get device token
+  static Future<void> _getDeviceToken() async {
+    try {
+      _deviceToken = await _messaging?.getToken();
+      if (_deviceToken != null) {
+        print('🎯 Device FCM Token: $_deviceToken');
+        // TODO: Send token to backend for storage
+        await _sendTokenToBackend(_deviceToken!);
+      }
+    } catch (e) {
+      print('❌ Error getting device token: $e');
+    }
+  }
+
+  /// Send token to backend
+  static Future<void> _sendTokenToBackend(String token) async {
+    try {
+      // TODO: Implement API call to store token in backend
+      // Example: await apiClient.post('/user/fcm-token', {'token': token});
+      print('📤 Token sent to backend: $token');
+    } catch (e) {
+      print('❌ Error sending token to backend: $e');
+    }
+  }
+
+  /// Setup message handlers
+  static Future<void> _setupMessageHandlers() async {
+    // Handle background messages
+    FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
+    
+    // Handle foreground messages
+    FirebaseMessaging.onMessage.listen(_foregroundMessageHandler);
+    
+    // Handle message taps when app is in background
+    FirebaseMessaging.onMessageOpenedApp.listen(_messageOpenedHandler);
+    
+    // Handle initial message when app is launched from notification
+    final initialMessage = await _messaging?.getInitialMessage();
+    if (initialMessage != null) {
+      _handleNotificationNavigation(initialMessage);
+    }
+  }
+
+  /// Handle background messages
+  static Future<void> _backgroundMessageHandler(RemoteMessage message) async {
+    await Firebase.initializeApp();
+    print('📱 Background message received: ${message.messageId}');
+    await _showLocalNotification(message);
+  }
+
+  /// Handle foreground messages
+  static Future<void> _foregroundMessageHandler(RemoteMessage message) async {
+    print('📱 Foreground message received: ${message.messageId}');
+    await _showLocalNotification(message);
+  }
+
+  /// Handle message opened when app in background
+  static Future<void> _messageOpenedHandler(RemoteMessage message) async {
+    print('📱 Message opened from background: ${message.messageId}');
+    _handleNotificationNavigation(message);
+  }
+
+  /// Show local notification
+  static Future<void> _showLocalNotification(RemoteMessage message) async {
+    try {
+      final notification = message.notification;
+      if (notification == null) return;
+
+      const androidDetails = AndroidNotificationDetails(
+        'care_hr_notifications',
+        'Care HR Notifications',
+        channelDescription: 'Notifications for job updates, applications, and HR activities',
+        importance: Importance.high,
+        priority: Priority.high,
+        icon: '@mipmap/launcher_icon',
+        color: Color(0xFF1976D2),
+        enableVibration: true,
+        playSound: true,
+      );
+
+      const iosDetails = DarwinNotificationDetails(
+        presentAlert: true,
+        presentBadge: true,
+        presentSound: true,
+      );
+
+      const details = NotificationDetails(
+        android: androidDetails,
+        iOS: iosDetails,
+      );
+
+      await _localNotifications?.show(
+        message.hashCode,
+        notification.title,
+        notification.body,
+        details,
+        payload: message.data.toString(),
+      );
+    } catch (e) {
+      print('❌ Error showing local notification: $e');
+    }
+  }
+
+  /// Handle notification tap
+  static Future<void> _onNotificationTapped(NotificationResponse response) async {
+    print('📱 Notification tapped: ${response.payload}');
+    // TODO: Navigate to appropriate screen based on payload
+    // Example: GoRouter.of(context).go('/notifications');
+  }
+
+  /// Handle notification navigation
+  static void _handleNotificationNavigation(RemoteMessage message) {
+    final data = message.data;
+    final type = data['type'] ?? '';
+    
+    switch (type) {
+      case 'job_application':
+        // Navigate to job applications
+        print('📱 Navigate to job applications');
+        break;
+      case 'interview_scheduled':
+        // Navigate to interviews
+        print('📱 Navigate to interviews');
+        break;
+      case 'document_approved':
+        // Navigate to documents
+        print('📱 Navigate to documents');
+        break;
+      case 'application_status_change':
+        // Navigate to application status
+        print('📱 Navigate to application status');
+        break;
+      default:
+        // Navigate to notifications or dashboard
+        print('📱 Navigate to dashboard');
+        break;
+    }
+  }
+
+  /// Send push notification (from backend)
+  static Future<void> sendNotification({
+    required String title,
+    required String body,
+    required List<String> tokens,
+    Map<String, String>? data,
+    String? type,
+  }) async {
+    // This would be called from backend, included for reference
+    print('📤 Sending notification to ${tokens.length} devices');
+    print('📝 Title: $title');
+    print('📝 Body: $body');
+    print('📝 Type: $type');
+    print('📝 Data: $data');
+  }
+
+  /// Subscribe to topic
+  static Future<void> subscribeToTopic(String topic) async {
+    try {
+      await _messaging?.subscribeToTopic(topic);
+      print('✅ Subscribed to topic: $topic');
+    } catch (e) {
+      print('❌ Error subscribing to topic: $e');
+    }
+  }
+
+  /// Unsubscribe from topic
+  static Future<void> unsubscribeFromTopic(String topic) async {
+    try {
+      await _messaging?.unsubscribeFromTopic(topic);
+      print('✅ Unsubscribed from topic: $topic');
+    } catch (e) {
+      print('❌ Error unsubscribing from topic: $e');
+    }
+  }
+
+  /// Get device token
+  static String? get deviceToken => _deviceToken;
+
+  /// Check if notifications are enabled
+  static Future<bool> areNotificationsEnabled() async {
+    final settings = await _messaging?.getNotificationSettings();
+    return settings?.authorizationStatus == AuthorizationStatus.authorized;
+  }
+
+  /// Request permission again
+  static Future<bool> requestPermission() async {
+    final settings = await _messaging?.requestPermission();
+    return settings?.authorizationStatus == AuthorizationStatus.authorized;
+  }
+}
+
+/// Notification types for different scenarios
+class NotificationTypes {
+  static const String jobApplication = 'job_application';
+  static const String interviewScheduled = 'interview_scheduled';
+  static const String documentApproved = 'document_approved';
+  static const String applicationStatusChange = 'application_status_change';
+  static const String jobPosted = 'job_posted';
+  static const String reminderInterview = 'reminder_interview';
+  static const String documentRejected = 'document_rejected';
+  static const String systemAnnouncement = 'system_announcement';
+}
+
+/// Notification helper class for creating structured notifications
+class NotificationHelper {
+  static Map<String, String> createJobApplicationData({
+    required String jobId,
+    required String applicationId,
+    required String jobTitle,
+  }) {
+    return {
+      'type': NotificationTypes.jobApplication,
+      'job_id': jobId,
+      'application_id': applicationId,
+      'job_title': jobTitle,
+    };
+  }
+
+  static Map<String, String> createInterviewData({
+    required String interviewId,
+    required String jobTitle,
+    required String dateTime,
+  }) {
+    return {
+      'type': NotificationTypes.interviewScheduled,
+      'interview_id': interviewId,
+      'job_title': jobTitle,
+      'date_time': dateTime,
+    };
+  }
+
+  static Map<String, String> createDocumentData({
+    required String documentId,
+    required String documentName,
+    required String status, // approved, rejected
+  }) {
+    return {
+      'type': status == 'approved' 
+          ? NotificationTypes.documentApproved 
+          : NotificationTypes.documentRejected,
+      'document_id': documentId,
+      'document_name': documentName,
+      'status': status,
+    };
+  }
+}

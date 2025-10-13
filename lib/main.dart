@@ -24,6 +24,7 @@ import 'features/user_management/domain/models/extended_user_model.dart';
 import 'features/user_management/domain/models/user_role_model.dart';
 // removed unused auth_service import
 import 'core/services/notification_service.dart';
+import 'core/services/push_notification_service.dart';
 import 'features/documents/data/services/document_service.dart';
 import 'features/job_application/data/services/job_service.dart';
 import 'features/job_application/data/services/job_application_service.dart';
@@ -158,6 +159,15 @@ void main() async {
 
   // Initialize critical services (notifications only)
   await NotificationService.init();
+  
+  // Initialize push notifications (PostgreSQL backend instead of Firebase)
+  try {
+    await PushNotificationService.initializeStatic();
+    logger.i('Push notification service initialized successfully');
+  } catch (e) {
+    logger.w('Push notification service initialization failed: $e');
+    // Continue execution - app can work without push notifications
+  }
 
   // Initialize other services in background to prevent UI blocking
   Future.microtask(() async {
