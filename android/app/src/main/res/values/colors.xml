@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Care HR App Colors -->
+    <color name="care_primary">#1976D2</color>
+    <color name="care_primary_dark">#0D47A1</color>
+    <color name="care_accent">#E91E63</color>
+    <color name="care_white">#FFFFFF</color>
+</resources>

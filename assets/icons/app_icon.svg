@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C2185B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGradient)" stroke="#fff" stroke-width="8"/>
+  
+  <!-- Care heart symbol -->
+  <path d="M256 180 C220 140, 160 140, 160 200 C160 260, 256 340, 256 340 C256 340, 352 260, 352 200 C352 140, 292 140, 256 180 Z" fill="url(#heartGradient)"/>
+  
+  <!-- Person figure providing care -->
+  <g fill="#fff" opacity="0.9">
+    <!-- Head -->
+    <circle cx="200" cy="280" r="25"/>
+    <!-- Body -->
+    <rect x="185" y="305" width="30" height="60" rx="15"/>
+    <!-- Arms (caring gesture) -->
+    <rect x="155" y="315" width="40" height="15" rx="7" transform="rotate(-20 175 322)"/>
+    <rect x="205" y="315" width="40" height="15" rx="7" transform="rotate(20 225 322)"/>
+    <!-- Legs -->
+    <rect x="190" y="360" width="10" height="40" rx="5"/>
+    <rect x="210" y="360" width="10" height="40" rx="5"/>
+  </g>
+  
+  <!-- "HR" text -->
+  <text x="320" y="360" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#fff" opacity="0.9">HR</text>
+  
+  <!-- Care cross symbol -->
+  <g fill="#fff" opacity="0.8">
+    <rect x="380" y="200" width="8" height="40" rx="4"/>
+    <rect x="364" y="216" width="40" height="8" rx="4"/>
+  </g>
+</svg>

@@ -72,6 +72,7 @@ dev_dependencies:
   hive_generator: ^2.0.1
   build_runner: ^2.4.7
   mockito: ^5.4.4
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
@@ -81,6 +82,26 @@ flutter:
     - assets/images/README.md
     - assets/icons/README.md
     - assets/logos/README.md
+    - assets/icons/app_icon.svg
   
   # fonts: (removed temporarily to avoid missing asset build errors)
   # Add font assets here when the actual font files are available in assets/fonts/
+
+# Flutter launcher icons configuration
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  min_sdk_android: 21 # Android 5.0
+  web:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    background_color: "#1976D2"
+    theme_color: "#1976D2"
+  windows:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icons/app_icon.png"
