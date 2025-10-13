@@ -1,0 +1,71 @@
+name: Flutter Android Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_android:
+    name: Build Flutter Android App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.3'
+          channel: 'stable'
+          cache: true
+          
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        
+      - name: Create .env file
+        run: |
+          echo "API_BASE_URL=http://10.0.2.2:4000" > .env
+          echo "GRAPHQL_ENDPOINT=http://10.0.2.2:4000/graphql" >> .env
+          echo "WEBSOCKET_URL=ws://10.0.2.2:4000/ws" >> .env
+          echo "ENCRYPTION_KEY=android_test_key" >> .env
+          echo "JWT_SECRET_KEY=android_test_jwt" >> .env
+          echo "API_KEY=android_test_api" >> .env
+          
+      - name: Get dependencies
+        run: flutter pub get
+        
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+        
+      - name: Accept Android SDK licenses
+        run: yes | flutter doctor --android-licenses || true
+          
+      - name: Clean Flutter project
+        run: flutter clean
+        
+      - name: Build APK (Debug)
+        run: flutter build apk --debug
+        
+      - name: Build APK (Release)
+        run: flutter build apk --release
+        
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk-release
+          path: build/app/outputs/flutter-apk/app-release.apk
