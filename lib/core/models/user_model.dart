@@ -102,22 +102,6 @@ class UserModel extends HiveObject {
   // Create UserModel from JSON (same as fromMap for API calls)
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel.fromMap(json);
 
-  // Create UserModel from Firebase User (for backward compatibility)
-  factory UserModel.fromFirebaseUser(dynamic firebaseUser) {
-    return UserModel(
-      id: firebaseUser?.uid ?? '',
-      email: firebaseUser?.email ?? '',
-      fullName: firebaseUser?.displayName ?? '',
-      role: 'applicant', // Default role for Firebase users
-      phoneNumber: firebaseUser?.phoneNumber,
-      profileImageUrl: firebaseUser?.photoURL,
-      isActive: true,
-      createdAt: DateTime.now(),
-      lastLoginAt: DateTime.now(),
-      preferences: null,
-      permissions: null,
-    );
-  }
 
   // Convert UserModel to Map
   Map<String, dynamic> toMap() {

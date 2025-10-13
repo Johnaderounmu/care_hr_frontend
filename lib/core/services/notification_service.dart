@@ -115,8 +115,7 @@ class NotificationService {
       tz.TZDateTime.from(scheduledDate, tz.local),
       notificationDetails,
       payload: payload,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
 
     _logger.i('Notification scheduled: $title at $scheduledDate');
@@ -157,6 +156,7 @@ class NotificationService {
       repeatInterval,
       notificationDetails,
       payload: payload,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
 
     _logger.i('Periodic notification set: $title');

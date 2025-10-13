@@ -35,7 +35,10 @@ class JobService {
   }
 
   static Future<List<JobModel>> getActiveJobs() async {
-    return box.values.where((job) => job.isActive && !job.isExpired).toList();
+    final allJobs = box.values.toList();
+    final activeJobs = allJobs.where((job) => job.isActive && !job.isExpired).toList();
+    print('🔍 JobService.getActiveJobs: Total jobs in DB: ${allJobs.length}, Active jobs: ${activeJobs.length}');
+    return activeJobs;
   }
 
   static Future<List<JobModel>> getJobsByStatus(JobStatus status) async {
@@ -117,7 +120,9 @@ class JobService {
   }
 
   static Future<void> initializeSampleData() async {
-    if (box.isNotEmpty) return;
+    // Force clear and repopulate for debugging
+    print('🔧 JobService: Clearing existing data and initializing sample jobs...');
+    await box.clear();
 
     final sampleJobs = [
       JobModel(
@@ -374,6 +379,9 @@ class JobService {
     for (final job in sampleJobs) {
       await box.put(job.id, job);
     }
+    
+    print('✅ JobService: Successfully initialized ${sampleJobs.length} sample jobs');
+    print('📊 JobService: Total jobs in database: ${box.length}');
   }
 
   static Future<void> close() async {

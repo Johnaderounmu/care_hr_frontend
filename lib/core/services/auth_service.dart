@@ -142,7 +142,7 @@ class AuthService {
       );
     } catch (e) {
       _logger.e('Reset password error: $e');
-      throw e;
+      rethrow;
     }
   }
 

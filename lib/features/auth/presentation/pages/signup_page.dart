@@ -230,7 +230,7 @@ class _SignupPageState extends State<SignupPage> {
                                   _agreeToTerms = value ?? false;
                                 });
                               },
-                              activeColor: AppColors.primary,
+                              fillColor: WidgetStateProperty.all(AppColors.primary),
                             ),
                             Expanded(
                               child: RichText(

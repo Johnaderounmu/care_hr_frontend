@@ -80,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                     onChanged: (value) {
                                       themeProvider.toggleTheme();
                                     },
-                                    activeColor: AppColors.primary,
+                                    activeThumbColor: AppColors.primary,
                                   ),
                                 );
                               },
@@ -301,7 +301,7 @@ class _SettingsPageState extends State<SettingsPage> {
       trailing: Switch(
         value: value,
         onChanged: onChanged,
-        activeColor: AppColors.primary,
+        activeThumbColor: AppColors.primary,
       ),
     );
   }

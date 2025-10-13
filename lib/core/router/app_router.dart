@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import '../../features/auth/presentation/pages/login_page.dart';
 import '../../features/auth/presentation/pages/forgot_password_page.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
-import '../../features/dashboard/presentation/pages/hr_dashboard_page.dart';
+import '../../features/dashboard/presentation/pages/enhanced_hr_dashboard_page.dart';
+import '../../features/job_application/presentation/pages/enhanced_job_listing_page.dart';
 import '../../features/dashboard/presentation/pages/applicant_dashboard_page.dart';
 import '../../features/job_application/presentation/pages/application_form_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
@@ -13,17 +14,31 @@ import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/documents/presentation/pages/document_upload_page.dart';
 import '../../features/documents/presentation/pages/applicant_documents_page.dart';
 import '../../features/documents/presentation/pages/hr_document_review_page.dart';
-import '../../features/job_application/presentation/pages/job_listing_page.dart';
 import '../../features/reports/presentation/pages/reports_dashboard_page.dart';
+import '../../features/reports/presentation/pages/generate_report_page.dart';
+import '../../features/reports/presentation/pages/all_reports_page.dart';
 import '../../features/interviews/presentation/pages/schedule_interview_page.dart';
+import '../../features/applications/presentation/pages/applications_management_page.dart';
+import '../../features/job_management/presentation/pages/create_job_page.dart';
+import '../../features/hr/presentation/pages/hr_applicants_page.dart';
+import '../../features/notifications/presentation/pages/notifications_page.dart';
 import '../../core/providers/auth_provider.dart';
 // ...existing code... (removed unused import)
 
 class AppRouter {
-  static final GoRouter router = GoRouter(
-    initialLocation: '/login',
-    debugLogDiagnostics: true,
-    redirect: (context, state) {
+  static GoRouter createRouter(AuthProvider authProvider) {
+    return GoRouter(
+      initialLocation: '/login',
+      debugLogDiagnostics: true,
+      refreshListenable: authProvider,  // Listen for auth state changes
+      redirect: (context, state) {
+      // Helper function to check if current route is an auth route
+      bool isAuthRoute(String location) {
+        return location == '/login' ||
+            location == '/signup' ||
+            location == '/forgot-password';
+      }
+
       // Use the AuthProvider from the widget tree so redirect sees the real state
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final isAuthenticated = authProvider.isAuthenticated;
@@ -32,20 +47,37 @@ class AppRouter {
       // Use state.uri.toString() for location representation
       final location = state.uri.toString();
 
+      // Debug logging
+      print('🔄 Router redirect - Location: $location');
+      print('🔄 Router redirect - IsAuthenticated: $isAuthenticated');
+      print('🔄 Router redirect - User: ${user?.email} (${user?.role})');
+      print('🔄 Router redirect - IsHRAdmin: ${user?.isHRAdmin}');
+      print('🔄 Router redirect - IsLoading: ${authProvider.isLoading}');
+
+      // If still loading, stay on current route
+      if (authProvider.isLoading) {
+        print('🔄 Router redirect - Still loading, staying on current route');
+        return null;
+      }
+
       // If not authenticated and not on auth pages, redirect to login
-      if (!isAuthenticated && !_isAuthRoute(location)) {
+      if (!isAuthenticated && !isAuthRoute(location)) {
+        print('🔄 Router redirect - Not authenticated, redirecting to /login');
         return '/login';
       }
 
       // If authenticated and on auth pages, redirect to appropriate dashboard
-      if (isAuthenticated && _isAuthRoute(location)) {
+      if (isAuthenticated && isAuthRoute(location)) {
         if (user?.isHRAdmin == true || user?.isHRManager == true) {
+          print('🔄 Router redirect - HR user authenticated, redirecting to /hr-dashboard');
           return '/hr-dashboard';
         } else if (user?.isApplicant == true) {
+          print('🔄 Router redirect - Applicant authenticated, redirecting to /applicant-dashboard');
           return '/applicant-dashboard';
         }
       }
 
+      print('🔄 Router redirect - No redirect needed');
       return null;
     },
     routes: [
@@ -70,7 +102,7 @@ class AppRouter {
       GoRoute(
         path: '/hr-dashboard',
         name: 'hr-dashboard',
-        builder: (context, state) => const HRDashboardPage(),
+        builder: (context, state) => const EnhancedHRDashboardPage(),
       ),
 
       // Applicant Dashboard Routes
@@ -122,7 +154,7 @@ class AppRouter {
       GoRoute(
         path: '/job-listing',
         name: 'job-listing',
-        builder: (context, state) => const JobListingPage(),
+        builder: (context, state) => const EnhancedJobListingPage(),
       ),
 
       // Reports Routes
@@ -130,6 +162,18 @@ class AppRouter {
         path: '/reports',
         name: 'reports',
         builder: (context, state) => const ReportsDashboardPage(),
+        routes: [
+          GoRoute(
+            path: 'generate-report',
+            name: 'generate-report',
+            builder: (context, state) => const GenerateReportPage(),
+          ),
+          GoRoute(
+            path: 'all-reports',
+            name: 'all-reports',
+            builder: (context, state) => const AllReportsPage(),
+          ),
+        ],
       ),
 
       // Interview Routes
@@ -139,17 +183,35 @@ class AppRouter {
         builder: (context, state) => const ScheduleInterviewPage(),
       ),
 
+      // New Feature Routes
+      GoRoute(
+        path: '/notifications',
+        name: 'notifications',
+        builder: (context, state) => const NotificationsPage(),
+      ),
+      
+      GoRoute(
+        path: '/applications',
+        name: 'applications',
+        builder: (context, state) => const ApplicationsManagementPage(),
+      ),
+      
+      GoRoute(
+        path: '/create-job',
+        name: 'create-job',
+        builder: (context, state) => const CreateJobPage(),
+      ),
+
       // Nested HR Routes
       GoRoute(
         path: '/hr',
         name: 'hr',
-        builder: (context, state) => const HRDashboardPage(),
+        builder: (context, state) => const EnhancedHRDashboardPage(),
         routes: [
           GoRoute(
             path: 'applicants',
             name: 'hr-applicants',
-            builder: (context, state) =>
-                const HRDashboardPage(), // TODO: Create ApplicantsPage
+            builder: (context, state) => const HRApplicantsPage(),
           ),
           GoRoute(
             path: 'documents',
@@ -173,7 +235,7 @@ class AppRouter {
           GoRoute(
             path: 'jobs',
             name: 'applicant-jobs',
-            builder: (context, state) => const JobListingPage(),
+            builder: (context, state) => const EnhancedJobListingPage(),
           ),
           GoRoute(
             path: 'documents',
@@ -218,10 +280,5 @@ class AppRouter {
       ),
     ),
   );
-
-  static bool _isAuthRoute(String location) {
-    return location == '/login' ||
-        location == '/signup' ||
-        location == '/forgot-password';
   }
 }

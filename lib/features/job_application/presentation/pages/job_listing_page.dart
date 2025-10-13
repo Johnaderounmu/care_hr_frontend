@@ -33,18 +33,25 @@ class _JobListingPageState extends State<JobListingPage> {
   }
 
   Future<void> _loadJobs() async {
+    print('🎯 JobListingPage: Starting to load jobs...');
     setState(() {
       _isLoading = true;
     });
 
     try {
       final jobs = await JobService.getActiveJobs();
+      print('🎯 JobListingPage: Received ${jobs.length} jobs from service');
+      for (int i = 0; i < jobs.length; i++) {
+        print('🎯 Job $i: ${jobs[i].title} - ${jobs[i].status}');
+      }
       setState(() {
         _jobs = jobs;
         _filteredJobs = jobs;
         _isLoading = false;
       });
+      print('🎯 JobListingPage: State updated, _isLoading = false, _filteredJobs.length = ${_filteredJobs.length}');
     } catch (e) {
+      print('🎯 JobListingPage: Error loading jobs: $e');
       setState(() {
         _isLoading = false;
       });
@@ -115,6 +122,8 @@ class _JobListingPageState extends State<JobListingPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('🎯 JobListingPage build: _isLoading=$_isLoading, _jobs.length=${_jobs.length}, _filteredJobs.length=${_filteredJobs.length}');
+    
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppHeader(
@@ -246,6 +255,7 @@ class _JobListingPageState extends State<JobListingPage> {
                           itemCount: _filteredJobs.length,
                           itemBuilder: (context, index) {
                             final job = _filteredJobs[index];
+                            print('🎯 JobListingPage: Building job card for: ${job.title}');
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 16),
                               child: JobCard(

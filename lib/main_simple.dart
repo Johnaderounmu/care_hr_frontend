@@ -115,14 +115,14 @@ class CareHRApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
-      child: Consumer<ThemeProvider>(
-        builder: (context, themeProvider, child) {
+      child: Consumer2<ThemeProvider, AuthProvider>(
+        builder: (context, themeProvider, authProvider, child) {
           return MaterialApp.router(
             title: AppStrings.appName,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeProvider.themeMode,
-            routerConfig: AppRouter.router,
+            routerConfig: AppRouter.createRouter(authProvider),
             debugShowCheckedModeBanner: false,
           );
         },

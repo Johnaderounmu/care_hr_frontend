@@ -26,22 +26,61 @@ class AuthProvider extends ChangeNotifier {
   // Initialize auth state
   Future<void> init() async {
     try {
+      _logger.i('🚀 AuthProvider.init() started');
       _setLoading(true);
       
       // Check if user is already authenticated
       final isAuth = await AuthService.isAuthenticated();
+      _logger.i('📋 Existing authentication check: $isAuth');
+      
       if (isAuth) {
         final storedUser = await AuthService.getStoredUser();
         if (storedUser != null) {
+          _logger.i('👤 Found stored user: ${storedUser.email} (${storedUser.role})');
           _setUser(storedUser);
           _setAuthenticated(true);
+          _setLoading(false);
+          return;
         }
       }
+
+      // For demo purposes, auto-login with demo HR admin user
+      _logger.i('🎭 Creating demo login...');
+      await _createDemoLogin();
       
       _setLoading(false);
+      _logger.i('✅ AuthProvider initialization completed');
     } catch (e) {
-      _logger.e('Error initializing auth: $e');
+      _logger.e('❌ Error initializing auth: $e');
       _setError('Failed to initialize authentication');
+      _setLoading(false);
+    }
+  }
+
+  // Create demo login for development/testing
+  Future<void> _createDemoLogin() async {
+    try {
+      _logger.i('Creating demo login...');
+      
+      // Create HR Admin demo user
+      final demoUser = UserModel.fromMap({
+        'id': 'demo_hr_admin',
+        'email': 'hr@example.com',
+        'fullName': 'HR Administrator',
+        'role': 'hr_admin',
+        'isActive': true,
+        'createdAt': DateTime.now().toIso8601String(),
+      });
+
+      // Store demo user
+      await StorageService.setUser(jsonEncode(demoUser.toMap()));
+      _setUser(demoUser);
+      _setAuthenticated(true);  // CRITICAL: Set authenticated state to true
+      _setLoading(false);
+      
+      _logger.i('Demo user created and stored: ${demoUser.email} (${demoUser.role}) - Authenticated: true');
+    } catch (e) {
+      _logger.e('Error creating demo login: $e');
       _setLoading(false);
     }
   }

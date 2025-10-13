@@ -1,9 +1,17 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:4000';
+  static String get baseUrl {
+    const url = 'http://localhost:4000';
+    // For Android emulator, replace localhost with 10.0.2.2 to access host machine
+    if (Platform.isAndroid && url.contains('localhost')) {
+      return url.replaceAll('localhost', '10.0.2.2');
+    }
+    return url;
+  }
   static bool _useMockData = false;
   
   static String? _token;

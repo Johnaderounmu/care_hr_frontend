@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../router/app_router.dart';
+import 'package:go_router/go_router.dart';
 
 /// Debug helper that, when present in debug builds, will attempt to navigate
 /// to a set of main routes (with delays) to exercise layout code like headers.
@@ -28,10 +28,13 @@ class _DebugRouteTesterState extends State<DebugRouteTester> {
 
   Future<void> _runTests() async {
     // Small delay to allow app to finish initial navigation
+    await Future<void>.delayed(const Duration(milliseconds: 1000));
+    
     for (final route in _routesToTest) {
       try {
         if (!mounted) return;
-        AppRouter.router.push(route);
+        final router = GoRouter.of(context);
+        router.push(route);
         debugPrint('DebugRouteTester: navigated to $route');
         // Wait a bit for layouts to settle
         await Future<void>.delayed(const Duration(milliseconds: 700));
@@ -43,7 +46,8 @@ class _DebugRouteTesterState extends State<DebugRouteTester> {
     await Future<void>.delayed(const Duration(seconds: 1));
     if (mounted) {
       try {
-        AppRouter.router.go('/login');
+        final router = GoRouter.of(context);
+        router.go('/login');
         debugPrint('DebugRouteTester: returned to /login');
       } catch (_) {}
     }

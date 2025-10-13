@@ -42,7 +42,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         color: Theme.of(context).scaffoldBackgroundColor,
         border: Border(
           bottom: BorderSide(
-            color: Theme.of(context).dividerColor.withOpacity(0.1),
+            color: Theme.of(context).dividerColor.withValues(alpha: 0.1),
             width: 1,
           ),
         ),

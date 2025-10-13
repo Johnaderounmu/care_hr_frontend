@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                                       _rememberMe = value ?? false;
                                     });
                                   },
-                                  activeColor: AppColors.primary,
+                                  fillColor: WidgetStateProperty.all(AppColors.primary),
                                 ),
                                 Text(
                                   'Remember me',

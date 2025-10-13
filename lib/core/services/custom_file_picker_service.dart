@@ -33,7 +33,9 @@ class CustomFilePickerService {
         case FileSource.documents:
           // For now, fallback to gallery for documents
           // In a full implementation, you could integrate with platform-specific document pickers
-          _showDocumentMessage(context);
+          if (context.mounted) {
+            _showDocumentMessage(context);
+          }
           return await _pickFromGallery(allowMultiple);
       }
     } catch (e) {

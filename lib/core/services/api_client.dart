@@ -1,12 +1,20 @@
+import 'dart:io';
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'storage_service.dart';
 
 class ApiClient {
   static late dio.Dio _dio;
   static GraphQLClient? _graphqlClient;
+
+  static String _getAndroidEmulatorUrl(String url) {
+    // For Android emulator, replace localhost with 10.0.2.2 to access host machine
+    if (Platform.isAndroid && url.contains('localhost')) {
+      return url.replaceAll('localhost', '10.0.2.2');
+    }
+    return url;
+  }
 
   static void init() {
     // Initialize with fallback values if env vars are not available
@@ -23,6 +31,10 @@ class ApiClient {
         debugPrint('Using fallback URLs due to dotenv error: $e');
       }
     }
+
+    // Handle Android emulator localhost
+    baseUrl = _getAndroidEmulatorUrl(baseUrl);
+    graphqlEndpoint = _getAndroidEmulatorUrl(graphqlEndpoint);
     
     _dio = dio.Dio(dio.BaseOptions(baseUrl: baseUrl));
     
@@ -45,17 +57,7 @@ class ApiClient {
           'ApiClient initialized. REST: ${_dio.options.baseUrl}, GraphQL: $graphqlEndpoint');
     }
     
-    // Attach token if present
-    try {
-      final token = StorageService.getUserToken();
-      if (token != null && token.isNotEmpty) {
-        _dio.options.headers['Authorization'] = 'Bearer $token';
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        debugPrint('Token retrieval failed during initialization: $e');
-      }
-    }
+    // Token is now set via a separate method after StorageService is initialized
   }
 
   static void setAuthToken(String? token) {

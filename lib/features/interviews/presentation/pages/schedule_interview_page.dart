@@ -84,16 +84,18 @@ class _ScheduleInterviewPageState extends State<ScheduleInterviewPage> {
           body: 'Interview with ${_candidateController.text} scheduled for ${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year} at ${_selectedTime!.format(context)}',
         );
       } catch (e) {
-        print('Notification error: $e');
+        debugPrint('Notification error: $e');
       }
       
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Interview scheduled successfully! Check your notifications.'),
-          backgroundColor: AppColors.success,
-        ),
-      );
-      context.pop();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Interview scheduled successfully! Check your notifications.'),
+            backgroundColor: AppColors.success,
+          ),
+        );
+        context.pop();
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

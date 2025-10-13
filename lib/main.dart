@@ -32,8 +32,11 @@ import 'features/reports/data/services/report_service.dart';
 import 'core/providers/auth_provider.dart';
 import 'core/providers/theme_provider.dart';
 import 'core/providers/job_data_provider.dart';
+import 'core/providers/job_provider.dart';
+import 'core/providers/document_provider.dart';
+import 'core/providers/notification_provider.dart';
 import 'core/router/app_router.dart';
-import 'core/debug/debug_route_tester.dart';
+// import 'core/debug/debug_route_tester.dart';
 import 'core/widgets/demo_banner.dart';
 import 'package:logger/logger.dart';
 
@@ -53,17 +56,22 @@ void main() async {
     logger.i('.env load skipped or failed: $e - using default values');
   }
 
+  // Initialize Hive
+  await Hive.initFlutter();
+  
+  // Initialize services
+  await StorageService.init();
+
   // Initialize API client (REST/GraphQL) after env is loaded
   try {
     ApiClient.init();
+    final token = StorageService.getUserToken();
+    ApiClient.setAuthToken(token);
     logger.i('ApiClient initialized successfully');
   } catch (e) {
     logger.w('ApiClient initialization warning: $e');
     // Continue execution - the app can work without API client in demo mode
   }
-
-  // Initialize Hive
-  await Hive.initFlutter();
 
   // Register generated Hive TypeAdapters (required before opening boxes / writing objects)
   if (!Hive.isAdapterRegistered(0)) Hive.registerAdapter(UserModelAdapter());
@@ -148,18 +156,26 @@ void main() async {
         'Hive adapter for ${entry.value} (typeId=${entry.key}) registered: $registered');
   }
 
-  // Initialize services
-  await StorageService.init();
+  // Initialize critical services (notifications only)
   await NotificationService.init();
-  await DocumentService.initializeSampleData();
-  await JobService.init();
-  await JobApplicationService.init();
-  await JobService.initializeSampleData();
-  await JobApplicationService.initializeSampleData();
-  await UserManagementService.init();
-  await UserManagementService.initializeSampleData();
-  await ReportService.init();
-  await ReportService.initializeSampleData();
+
+  // Initialize other services in background to prevent UI blocking
+  Future.microtask(() async {
+    try {
+      await DocumentService.initializeSampleData();
+      await JobService.init();
+      await JobApplicationService.init();
+      await JobService.initializeSampleData();
+      await JobApplicationService.initializeSampleData();
+      await UserManagementService.init();
+      await UserManagementService.initializeSampleData();
+      await ReportService.init();
+      await ReportService.initializeSampleData();
+      logger.i('Background services initialization completed');
+    } catch (e) {
+      logger.e('Background services initialization failed: $e');
+    }
+  });
 
   // Set system UI overlay style
   SystemChrome.setSystemUIOverlayStyle(
@@ -174,16 +190,34 @@ void main() async {
   runApp(const CareHRApp());
 }
 
-class CareHRApp extends StatelessWidget {
+class CareHRApp extends StatefulWidget {
   const CareHRApp({super.key});
+
+  @override
+  State<CareHRApp> createState() => _CareHRAppState();
+}
+
+class _CareHRAppState extends State<CareHRApp> {
+  late AuthProvider _authProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    _authProvider = AuthProvider();
+    // Initialize auth provider immediately
+    _authProvider.init();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider.value(value: _authProvider),
         ChangeNotifierProvider(create: (_) => JobDataService()),
+        ChangeNotifierProvider(create: (_) => JobProvider()),
+        ChangeNotifierProvider(create: (_) => DocumentProvider()),
+        ChangeNotifierProvider(create: (_) => NotificationProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
@@ -193,7 +227,7 @@ class CareHRApp extends StatelessWidget {
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeProvider.themeMode,
-            routerConfig: AppRouter.router,
+            routerConfig: AppRouter.createRouter(_authProvider),
             // In debug mode attach a hidden DebugRouteTester
             builder: (context, widget) {
               return Column(
@@ -203,7 +237,8 @@ class CareHRApp extends StatelessWidget {
                     child: Stack(
                       children: [
                         if (widget != null) widget,
-                        if (kDebugMode) const DebugRouteTester(),
+                        // Temporarily disabled for testing job listing
+                        // if (kDebugMode) const DebugRouteTester(),
                       ],
                     ),
                   ),
