@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/widgets/animated_care_logo.dart';
 
 class AuthHeader extends StatelessWidget {
   final String title;
@@ -18,19 +19,10 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         if (showLogo) ...[
-          // App Logo
-          Container(
-            width: 64,
-            height: 64,
-            decoration: const BoxDecoration(
-              color: AppColors.primary,
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(
-              Icons.business_center,
-              color: Colors.white,
-              size: 32,
-            ),
+          // Animated Care Logo
+          const AnimatedCareLogo(
+            size: 64,
+            autoStart: true,
           ),
 
           const SizedBox(height: 24),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
+import 'animated_care_logo.dart';
 
 class LoadingScreen extends StatelessWidget {
   final String? message;
@@ -17,19 +18,10 @@ class LoadingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // App Logo
-            Container(
-              width: 80,
-              height: 80,
-              decoration: const BoxDecoration(
-                color: AppColors.primary,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.business_center,
-                color: Colors.white,
-                size: 40,
-              ),
+            // Animated Care Logo
+            const AnimatedCareLogo(
+              size: 80,
+              autoStart: true,
             ),
 
             const SizedBox(height: 32),

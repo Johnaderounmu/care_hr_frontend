@@ -23,15 +23,19 @@ import '../../features/job_management/presentation/pages/create_job_page.dart';
 import '../../features/hr/presentation/pages/hr_applicants_page.dart';
 import '../../features/notifications/presentation/pages/notifications_page.dart';
 import '../../core/providers/auth_provider.dart';
+import '../../core/widgets/splash_screen.dart';
 // ...existing code... (removed unused import)
 
 class AppRouter {
   static GoRouter createRouter(AuthProvider authProvider) {
     return GoRouter(
-      initialLocation: '/login',
+      initialLocation: '/splash',
       debugLogDiagnostics: true,
       refreshListenable: authProvider,  // Listen for auth state changes
       redirect: (context, state) {
+      // Use state.uri.toString() for location representation
+      final location = state.uri.toString();
+
       // Helper function to check if current route is an auth route
       bool isAuthRoute(String location) {
         return location == '/login' ||
@@ -39,13 +43,15 @@ class AppRouter {
             location == '/forgot-password';
       }
 
+      // Skip redirect for splash screen
+      if (location == '/splash') {
+        return null;
+      }
+
       // Use the AuthProvider from the widget tree so redirect sees the real state
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final isAuthenticated = authProvider.isAuthenticated;
       final user = authProvider.user;
-
-      // Use state.uri.toString() for location representation
-      final location = state.uri.toString();
 
       // Debug logging
       print('🔄 Router redirect - Location: $location');
@@ -81,6 +87,27 @@ class AppRouter {
       return null;
     },
     routes: [
+      // Splash Screen
+      GoRoute(
+        path: '/splash',
+        name: 'splash',
+        builder: (context, state) => SplashScreen(
+          onComplete: () {
+            final authProvider = Provider.of<AuthProvider>(context, listen: false);
+            if (authProvider.isAuthenticated) {
+              final user = authProvider.user;
+              if (user?.isHRAdmin == true || user?.isHRManager == true) {
+                context.go('/hr-dashboard');
+              } else {
+                context.go('/applicant-dashboard');
+              }
+            } else {
+              context.go('/login');
+            }
+          },
+        ),
+      ),
+
       // Auth Routes
       GoRoute(
         path: '/login',
