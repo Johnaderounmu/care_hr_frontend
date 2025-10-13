@@ -4,6 +4,7 @@ import 'package:logger/logger.dart';
 import '../models/user_model.dart';
 import '../services/auth_service.dart';
 import '../services/storage_service.dart';
+import '../services/security_service.dart';
 
 class AuthProvider extends ChangeNotifier {
   final Logger _logger = Logger();
@@ -94,6 +95,21 @@ class AuthProvider extends ChangeNotifier {
       _setLoading(true);
       _clearError();
 
+      // Check rate limiting for sign in attempts
+      final rateLimitKey = 'signin_$email';
+      if (!SecurityService.checkRateLimit(rateLimitKey, maxRequests: 5, window: const Duration(minutes: 15))) {
+        _setError('Too many sign in attempts. Please try again later.');
+        _setLoading(false);
+        return false;
+      }
+
+      // Validate email format
+      if (!SecurityService.validateEmail(email)) {
+        _setError('Please enter a valid email address');
+        _setLoading(false);
+        return false;
+      }
+
       final user = await AuthService.signInWithEmailAndPassword(
         email: email,
         password: password,
@@ -128,11 +144,30 @@ class AuthProvider extends ChangeNotifier {
       _setLoading(true);
       _clearError();
 
+      // Validate email format
+      if (!SecurityService.validateEmail(email)) {
+        _setError('Please enter a valid email address');
+        _setLoading(false);
+        return false;
+      }
+
+      // Validate password strength
+      final passwordValidation = SecurityService.validatePassword(password);
+      if (passwordValidation.strength < 60) { // Require minimum strength
+        _setError('Password is too weak: ${passwordValidation.issues.join(', ')}');
+        _setLoading(false);
+        return false;
+      }
+
+      // Sanitize input data
+      final sanitizedFullName = SecurityService.sanitizeInput(fullName);
+      final sanitizedRole = SecurityService.sanitizeInput(role);
+
       final user = await AuthService.signUpWithEmailAndPassword(
         email: email,
         password: password,
-        fullName: fullName,
-        role: role,
+        fullName: sanitizedFullName,
+        role: sanitizedRole,
       );
 
       if (user != null) {

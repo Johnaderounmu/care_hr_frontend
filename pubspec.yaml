@@ -60,6 +60,9 @@ dependencies:
   # Utilities
   uuid: ^4.2.1
   logger: ^2.0.2+1
+  
+  # Security
+  crypto: ^3.0.3
   # Timezone support for scheduling notifications
   timezone: ^0.10.1
   # Window management for desktop platforms

@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../constants/app_colors.dart';
+import '../services/security_service.dart';
 
 class AdvancedFileUploadWidget extends StatefulWidget {
   final List<String> allowedExtensions;
@@ -139,6 +140,25 @@ class _AdvancedFileUploadWidgetState extends State<AdvancedFileUploadWidget>
         _showErrorSnackbar(
           'File ${file.name} is too large. Maximum size: ${widget.maxFileSize}MB',
         );
+        continue;
+      }
+
+      // Security validation using SecurityService
+      try {
+        final fileBytes = await file.readAsBytes();
+        final securityValidation = SecurityService.validateFileUpload(
+          file.name,
+          fileBytes,
+        );
+        
+        if (!securityValidation.isValid) {
+          _showErrorSnackbar(
+            'Security validation failed for ${file.name}: ${securityValidation.issues.join(', ')}',
+          );
+          continue;
+        }
+      } catch (e) {
+        _showErrorSnackbar('Failed to validate file ${file.name}: $e');
         continue;
       }
       

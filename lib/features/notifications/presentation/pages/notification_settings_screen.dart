@@ -16,6 +16,9 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
   bool _documentUpdates = true;
   bool _systemAnnouncements = false;
   bool _marketingEmails = false;
+  String? _deviceToken;
+  bool _isLoading = true;
+  bool _isUpdating = false;
   
   final Map<String, bool> _topicSubscriptions = {
     'job_applications': true,
@@ -29,13 +32,52 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
   void initState() {
     super.initState();
     _checkNotificationStatus();
+    _loadDeviceToken();
   }
 
   Future<void> _checkNotificationStatus() async {
-    final enabled = await PushNotificationService.areNotificationsEnabled();
-    setState(() {
-      _notificationsEnabled = enabled;
-    });
+    try {
+      final service = PushNotificationService();
+      final enabled = await service.areNotificationsEnabled();
+      final subscribedTopics = await service.getSubscribedTopics();
+      
+      if (mounted) {
+        setState(() {
+          _notificationsEnabled = enabled;
+          _isLoading = false;
+          
+          // Update topic subscriptions from server
+          for (final topic in subscribedTopics) {
+            if (_topicSubscriptions.containsKey(topic)) {
+              _topicSubscriptions[topic] = true;
+            }
+          }
+          
+          // Update individual boolean flags
+          _jobApplications = _topicSubscriptions['job_applications'] ?? false;
+          _interviewReminders = _topicSubscriptions['interviews'] ?? false;
+          _documentUpdates = _topicSubscriptions['documents'] ?? false;
+          _systemAnnouncements = _topicSubscriptions['hr_announcements'] ?? false;
+          _marketingEmails = _topicSubscriptions['marketing'] ?? false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _loadDeviceToken() async {
+    final service = PushNotificationService();
+    final token = await service.getDeviceToken();
+    if (mounted) {
+      setState(() {
+        _deviceToken = token;
+      });
+    }
   }
 
   Future<void> _toggleNotifications(bool value) async {
@@ -57,32 +99,131 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
   }
 
   Future<void> _updateTopicSubscription(String topic, bool subscribe) async {
+    if (!mounted || _isUpdating) return;
+    
+    setState(() {
+      _isUpdating = true;
+    });
+    
     try {
+      final service = PushNotificationService();
       if (subscribe) {
-        await PushNotificationService.subscribeToTopic(topic);
+        await service.subscribeToTopic(topic);
       } else {
-        await PushNotificationService.unsubscribeFromTopic(topic);
+        await service.unsubscribeFromTopic(topic);
       }
       
-      setState(() {
-        _topicSubscriptions[topic] = subscribe;
-      });
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(subscribe 
-              ? 'Subscribed to $topic notifications' 
-              : 'Unsubscribed from $topic notifications'),
-          backgroundColor: AppColors.success,
-        ),
-      );
+      if (mounted) {
+        setState(() {
+          _topicSubscriptions[topic] = subscribe;
+          _isUpdating = false;
+        });
+        
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(subscribe 
+                ? 'Subscribed to ${_getTopicDisplayName(topic)} notifications' 
+                : 'Unsubscribed from ${_getTopicDisplayName(topic)} notifications'),
+            backgroundColor: AppColors.success,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
     } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isUpdating = false;
+        });
+        
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to update subscription: ${e.toString()}'),
+            backgroundColor: AppColors.error,
+            duration: const Duration(seconds: 3),
+          ),
+        );
+      }
+    }
+  }
+  
+  String _getTopicDisplayName(String topic) {
+    switch (topic) {
+      case 'job_applications':
+        return 'Job Applications';
+      case 'interviews':
+        return 'Interviews';
+      case 'documents':
+        return 'Documents';
+      case 'hr_announcements':
+        return 'System Announcements';
+      case 'marketing':
+        return 'Marketing';
+      default:
+        return topic;
+    }
+  }
+
+  Future<void> _refreshSettings() async {
+    setState(() {
+      _isLoading = true;
+    });
+    
+    await _checkNotificationStatus();
+    await _loadDeviceToken();
+    
+    if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Failed to update subscription: $e'),
-          backgroundColor: AppColors.error,
+        const SnackBar(
+          content: Text('Settings refreshed'),
+          duration: Duration(seconds: 1),
         ),
       );
+    }
+  }
+
+  Future<void> _sendTestNotification() async {
+    if (_isUpdating) return;
+    
+    setState(() {
+      _isUpdating = true;
+    });
+    
+    try {
+      final service = PushNotificationService();
+      await service.showLocalNotification(
+        'Test Notification',
+        'This is a test notification from Care HR app! 🎉',
+        payload: '{"type":"test","timestamp":"${DateTime.now().toIso8601String()}"}',
+        id: DateTime.now().millisecondsSinceEpoch % 100000,
+      );
+      
+      if (mounted) {
+        setState(() {
+          _isUpdating = false;
+        });
+        
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('✅ Test notification sent successfully!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isUpdating = false;
+        });
+        
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('❌ Failed to send test notification: $e'),
+            backgroundColor: AppColors.error,
+            duration: const Duration(seconds: 3),
+          ),
+        );
+      }
     }
   }
 
@@ -113,8 +254,26 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _refreshSettings,
+            tooltip: 'Refresh Settings',
+          ),
+        ],
       ),
-      body: SingleChildScrollView(
+      body: _isLoading 
+        ? const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(height: 16),
+                Text('Loading notification settings...'),
+              ],
+            ),
+          )
+        : SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,7 +322,8 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                     Switch(
                       value: _notificationsEnabled,
                       onChanged: _toggleNotifications,
-                      activeColor: AppColors.primary,
+                      activeTrackColor: AppColors.primary,
+                      activeThumbColor: Colors.white,
                     ),
                   ],
                 ),
@@ -188,7 +348,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               title: 'Job Applications',
               subtitle: 'Updates about your job applications',
               value: _jobApplications,
-              onChanged: _notificationsEnabled ? (value) {
+              onChanged: _notificationsEnabled && !_isUpdating ? (value) {
                 setState(() => _jobApplications = value);
                 _updateTopicSubscription('job_applications', value);
               } : null,
@@ -200,7 +360,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               title: 'Interview Reminders',
               subtitle: 'Upcoming interview notifications',
               value: _interviewReminders,
-              onChanged: _notificationsEnabled ? (value) {
+              onChanged: _notificationsEnabled && !_isUpdating ? (value) {
                 setState(() => _interviewReminders = value);
                 _updateTopicSubscription('interviews', value);
               } : null,
@@ -212,7 +372,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               title: 'Document Updates',
               subtitle: 'Document approval and rejection notifications',
               value: _documentUpdates,
-              onChanged: _notificationsEnabled ? (value) {
+              onChanged: _notificationsEnabled && !_isUpdating ? (value) {
                 setState(() => _documentUpdates = value);
                 _updateTopicSubscription('documents', value);
               } : null,
@@ -224,28 +384,70 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               title: 'System Announcements',
               subtitle: 'Important system updates and announcements',
               value: _systemAnnouncements,
-              onChanged: _notificationsEnabled ? (value) {
+              onChanged: _notificationsEnabled && !_isUpdating ? (value) {
                 setState(() => _systemAnnouncements = value);
                 _updateTopicSubscription('hr_announcements', value);
               } : null,
             ),
             
-            // Marketing Emails
+            // Marketing Communications
             _buildNotificationTile(
               icon: Icons.email,
               title: 'Marketing Communications',
               subtitle: 'Job recommendations and company news',
               value: _marketingEmails,
-              onChanged: _notificationsEnabled ? (value) {
+              onChanged: _notificationsEnabled && !_isUpdating ? (value) {
                 setState(() => _marketingEmails = value);
                 _updateTopicSubscription('marketing', value);
               } : null,
             ),
             
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
+            
+            // Test Notification Button
+            if (_notificationsEnabled)
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Test Notifications',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Send a test notification to verify settings',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton.icon(
+                          onPressed: _isUpdating ? null : _sendTestNotification,
+                          icon: const Icon(Icons.send),
+                          label: const Text('Send Test Notification'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            
+            const SizedBox(height: 24),
             
             // Device Token Info (Debug/Development)
-            if (PushNotificationService.deviceToken != null)
+            if (_deviceToken != null)
               Card(
                 color: Colors.grey[100],
                 child: Padding(
@@ -258,7 +460,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                           Icon(Icons.info, color: Colors.grey[600]),
                           const SizedBox(width: 8),
                           Text(
-                            'Device Token (Debug)',
+                            'Device ID (Debug)',
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
@@ -272,8 +474,8 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Text(
-                          PushNotificationService.deviceToken!,
+                        child: SelectableText(
+                          _deviceToken!,
                           style: const TextStyle(
                             fontFamily: 'monospace',
                             fontSize: 12,
@@ -318,7 +520,8 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         ),
         value: value,
         onChanged: onChanged,
-        activeColor: AppColors.primary,
+        activeTrackColor: AppColors.primary,
+        activeThumbColor: Colors.white,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 8,

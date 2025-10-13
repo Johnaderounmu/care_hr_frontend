@@ -40,6 +40,10 @@ import 'core/router/app_router.dart';
 // import 'core/debug/debug_route_tester.dart';
 import 'core/widgets/demo_banner.dart';
 import 'package:logger/logger.dart';
+import 'core/services/security_service.dart';
+import 'core/services/performance_service.dart';
+import 'core/services/cache_service.dart';
+import 'core/services/monitoring_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -167,6 +171,17 @@ void main() async {
   } catch (e) {
     logger.w('Push notification service initialization failed: $e');
     // Continue execution - app can work without push notifications
+  }
+
+  // Initialize advanced services
+  try {
+    await MonitoringService.init(sessionId: 'main_session');
+    await CacheService.init();
+    await PerformanceService.init();
+    logger.i('Advanced services initialized successfully');
+  } catch (e) {
+    logger.w('Advanced services initialization warning: $e');
+    // Continue execution - app can work without advanced services
   }
 
   // Initialize other services in background to prevent UI blocking
